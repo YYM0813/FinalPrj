@@ -1,0 +1,2177 @@
+/**************************
+	登录页面
+**************************/
+.login {
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+    .login .login_left {
+        margin-left: 12.9%;
+        width: 37%;
+    }
+
+        .login .login_left h6 {
+            margin-left: 21%;
+        }
+
+    .login .login_right {
+        width: 360px;
+        margin-left: 6.67%;
+    }
+
+.reg .reg_left .w360 {
+    width: 360px;
+}
+
+.reg .reg_left .w328 {
+    width: 328px;
+}
+
+.reg .reg_right p {
+    background: url(/0-finalPrj/img/go_login.png)/*tpa=http://www.tjfozoon.com/Web/style/images/go_login.png*/ no-repeat left center;
+}
+
+.input_div .inp {
+    border: 1px solid #e0e0e0;
+    color: #999;
+    padding: 15px;
+    line-height: 18px;
+    height: 18px;
+    width: 328px;
+    margin-bottom: 14px;
+}
+
+    .input_div .inp.submit {
+        height: 50px;
+        background-color: #b69b65;
+        color: #fff;
+        border-color: #b69b65;
+    }
+
+    .input_div .inp.w100.submit {
+        width: 100%;
+    }
+
+    .input_div .inp.short {
+        width: 190px;
+    }
+
+    .input_div .inp.pwd {
+        background: url(/0-finalPrj/img/reg_pwd.png)/*tpa=http://www.tjfozoon.com/Web/style/images/reg_pwd.png*/ no-repeat 95% center;
+        padding-right: 45px;
+        width: 298px;
+    }
+
+    .input_div .inp.yzm {
+        display: block;
+        width: auto;
+        padding: 0;
+        height: auto;
+    }
+
+        .input_div .inp.yzm i {
+            display: block;
+            margin: 1px;
+            padding: 14px;
+            width: 96px;
+            height: 18px;
+            line-height: 18px;
+            background-color: #f6f6f6;
+        }
+
+    .input_div .inp.yzm {
+        display: block;
+        margin: 1px;
+        padding: 14px;
+        width: 125px;
+        background-color: #f6f6f6;
+        cursor: pointer;
+    }
+
+        .input_div .inp.yzm i em {
+            height: 18px;
+            background: url(/0-finalPrj/img/reg_yzm.png)/*tpa=http://www.tjfozoon.com/Web/style/images/reg_yzm.png*/ no-repeat center center;
+            width: 12px;
+        }
+
+.input_div .checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 34px;
+    height: 32px;
+    background: url(/0-finalPrj/img/checkbox.png)/*tpa=http://www.tjfozoon.com/Web/style/images/checkbox.png*/ no-repeat center center;
+}
+
+    .input_div .checkbox:checked,
+    .input_div .checkbox:active {
+        background-image: url(/0-finalPrj/img/checkboxed.png)/*tpa=http://www.tjfozoon.com/Web/style/images/checkboxed.png*/;
+    }
+
+.input_div .radio {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #f0f0f0;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+    .input_div .radio:checked,
+    .input_div .radio:active {
+        border-color: #f5f9f7;
+        background: url(/0-finalPrj/img/radio.png)/*tpa=http://www.tjfozoon.com/Web/style/images/radio.png*/ no-repeat center center;
+    }
+/***********************
+	新闻列表
+***********************/
+.newsList h4 {
+    font-family: "Rumo Script";
+}
+
+.newsList li {
+    margin: 0 1.66% 40px;
+    float: left;
+    width: 46.68%;
+    position: relative;
+    height: 360px;
+}
+
+    .newsList li .news_bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 89.75%;
+        padding: 0 4% 0 6.25%;
+        padding-bottom: 105px;
+        height: 255px;
+        background-color: rgba(175, 203, 189, 0.94);
+        background-repeat: no-repeat;
+        background-position: 94% 92%;
+        background-image: url(/0-finalPrj/img/news_logo.png)/*tpa=http://www.tjfozoon.com/Web/style/images/news_logo.png*/;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        transition: all 0.8s;
+    }
+
+    .newsList li a:hover .news_bg,
+    .newsList li a.act .news_bg {
+        opacity: 1;
+        filter: alpha(opacity=100);
+        transition: all 0.8s;
+    }
+/***********************
+	产品列表
+***********************/
+/***********************2017.01.22**********************/
+.div_select select {
+    appearance: none;
+    -webkit-appearance: none;
+    display: inline-block;
+    height: 32px;
+    line-height: 29px;
+    color: #999;
+    font-size: 14px;
+    margin: auto 6px;
+    background: url(/0-finalPrj/img/select_ico.png)/*tpa=http://www.tjfozoon.com/Web/style/images/select_ico.png*/ no-repeat 96% center;
+    padding-right: 20px;
+    padding-left: 15px;
+}
+
+.proList {
+    background-color: #f9fbfa;
+}
+
+    .proList li {
+        position: relative;
+        overflow: hidden;
+    }
+
+        .proList li .p-img {
+            height: 360px;
+        }
+
+        .proList li .p-box {
+            border-top-color: #f1ece2;
+            padding: 20px 60px 20px 60px;
+        }
+
+        .proList li .a_cart {
+            right: 32px;
+            bottom: -30px;
+            width: 26px;
+            height: 25px;
+            z-index: 9;
+            background: url/0-finalPrj/img/(a_cart.png)/*tpa=http://www.tjfozoon.com/Web/style/images/a_cart.png*/ no-repeat center center;
+            transition: all 0.8s;
+        }
+
+        .proList li .a_label {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            left: 20px;
+            bottom: -50px;
+            line-height: 48px;
+            transition: all 0.8s;
+        }
+
+            .proList li .a_label.s_xp {
+                background-color: #dccfb6;
+            }
+
+            .proList li .a_label.s_hot {
+                background-color: #afcbbd;
+            }
+
+        .proList li:hover .a_cart,
+        .proList li.act .a_cart {
+            bottom: 36px;
+            transition: all 0.8s;
+        }
+
+        .proList li:hover .a_label,
+        .proList li.act .a_label {
+            bottom: 26px;
+            transition: all 0.8s;
+        }
+/***********************
+	配送说明
+***********************/
+.distribution .num {
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #f5f9f8;
+    font-style: oblique;
+    line-height: 60px;
+}
+
+.distribution .dis_div {
+    width: 44%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.distribution .idot {
+    background: url(/0-finalPrj/img/idot.jpg)/*tpa=http://www.tjfozoon.com/Web/style/images/idot.jpg*/ no-repeat 3px 8px;
+}
+/***********************
+	联系我们
+***********************/
+.contact-us dl {
+    width: 24.7%;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    display: inline-block;
+    vertical-align: top;
+    background: url(/0-finalPrj/img/cont-line.png)/*tpa=http://www.tjfozoon.com/Web/style/images/cont-line.png*/ no-repeat right center;
+}
+
+    .contact-us dl.last {
+        background: none;
+    }
+
+.contact-us dt {
+    height: 68px;
+}
+
+.contact-us dd.c_address {
+    max-height: 44px;
+    min-height: 44px;
+}
+
+.contact-us dd .a_w_ico {
+    width: 24px;
+    height: 28px;
+    margin: 0 5px;
+    background: url(/0-finalPrj/img/w_ico.png)/*tpa=http://www.tjfozoon.com/Web/style/images/w_ico.png*/ no-repeat center center;
+}
+
+.contact-us dd .a_q_ico {
+    width: 24px;
+    height: 28px;
+    margin: 0 5px;
+    background: url(/0-finalPrj/img/q_ico.png)/*tpa=http://www.tjfozoon.com/Web/style/images/q_ico.png*/ no-repeat center center;
+}
+
+.stores {
+    background-color: #f5f9f8;
+}
+
+    .stores li {
+        width: 31.67%;
+        margin-left: .83%;
+        margin-right: .83%;
+        margin-bottom: 20px;
+        float: left;
+    }
+
+        .stores li a {
+            display: block;
+            border: 10px solid #f5f9f8;
+            background-color: #fff;
+            padding: 26px 6% 2px;
+            height: 166px;
+            position: relative;
+        }
+
+            .stores li a:hover {
+                border-color: #edf4f1;
+            }
+
+                .stores li a:hover .s_map {
+                    top: 26px;
+                    opacity: 1;
+                    fiter: alpha(opacity=100);
+                    z-index: 2;
+                    transition: all 0.8s;
+                }
+
+            .stores li a .address {
+                max-height: 44px;
+            }
+
+            .stores li a .s_map {
+                width: 40px;
+                height: 40px;
+                background: url(/0-finalPrj/img/map01.png)/*tpa=http://www.tjfozoon.com/Web/style/images/map01.png*/ no-repeat center center;
+                right: 6.8%;
+                top: 40px;
+                opacity: 0;
+                filter: alpha(opacity=0);
+                z-index: -1;
+                transition: all 0.8s;
+            }
+/*****************************
+	购物车
+*****************************/
+.cart_title a {
+    padding: 10px 4.5%;
+    line-height: 22px;
+    margin-left: 6.7%;
+    margin-right: 6.7%;
+    font-size: 14px;
+    border-bottom: 5px solid #e7efeb;
+    position: relative;
+    cursor: default;
+}
+
+    .cart_title a em {
+        display: none;
+        position: absolute;
+        bottom: -17px;
+        left: 50%;
+        margin-left: -6px;
+        border-width: 6px;
+        border-style: solid;
+        border-top-color: #afcbbd;
+        border-right-color: transparent;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+    }
+
+    .cart_title a.act {
+        border-color: #afcbbd;
+    }
+
+        .cart_title a.act em {
+            display: block;
+        }
+/*****************************
+	购物车
+*****************************/
+.cart .c_header {
+    padding: 10px 0;
+    line-height: 32px;
+}
+
+.cart .c_body {
+    padding: 22px 0;
+    line-height: 80px;
+}
+
+.cart li {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+    .cart li .d01 {
+        width: 9%;
+    }
+
+    .cart li .d02 {
+        width: 42.8%;
+    }
+
+    .cart li .d03 {
+        width: 11%;
+    }
+
+    .cart li .d04 {
+        width: 24%;
+    }
+
+        .cart li .d04 span {
+            width: 148px;
+            border: 1px solid #e0e0e0;
+            line-height: 38px;
+        }
+
+            .cart li .d04 span b {
+                width: 37px;
+                background-color: #fff;
+            }
+
+            .cart li .d04 span i {
+                width: 74px;
+            }
+
+            .cart li .d04 span input {
+                width: 74px;
+                line-height: 38px;
+            }
+
+.cart .c_img {
+    height: 80px;
+    width: 80px;
+    border: 1px solid #f0f0f0;
+    background-color: #fff;
+}
+
+.cart .text_vt {
+    display: table;
+    height: 82px;
+    width: 73%;
+}
+
+    .cart .text_vt span {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+.settlement .g-sett {
+    width: 200px;
+    height: 54px;
+    background-color: #b59a64;
+}
+
+.settlement .st-r {
+    height: 54px;
+    line-height: 54px;
+}
+
+.attachment .input_atta {
+    width: 142px;
+    height: 28px;
+    border: 1px solid #f0f0f0;
+    line-height: 22px;
+    padding: 3px 8px;
+}
+
+.tuijian ul {
+    margin-left: -3.33%;
+}
+
+.tuijian li {
+    margin-left: 3.33%;
+    width: 46.67%;
+}
+
+.tuijian .tj_div {
+    font-size: 0;
+}
+
+    .tuijian .tj_div dl {
+        display: inline-block;
+        width: 144px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .tuijian .tj_div dt {
+        height: 144px;
+    }
+
+    .tuijian .tj_div .add-tj {
+        display: inline-block;
+        padding-left: 15px;
+        padding-right: 15px;
+        background-color: #b39760;
+    }
+/**************************
+	确认订单
+****************************/
+.qr-order .qr-o dl {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.qr-order .qr-o .address {
+    border-bottom: none;
+}
+
+    .qr-order .qr-o .address dt {
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+.qr-order .qr-o .address {
+    margin-left: -20px;
+}
+
+    .qr-order .qr-o .address dd {
+        float: left;
+        width: 224px;
+        height: 160px;
+        border: 1px solid #f0f0f0;
+        margin-top: 24px;
+        margin-left: 20px;
+        padding: 9px 13px;
+        background-color: #fff;
+    }
+
+        .qr-order .qr-o .address dd.add {
+            display: table;
+        }
+
+            .qr-order .qr-o .address dd.add .a-add {
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+                .qr-order .qr-o .address dd.add .a-add p {
+                    padding-top: 37px;
+                    background: url(/0-finalPrj/img/add.png)/*tpa=http://www.tjfozoon.com/Web/style/images/add.png*/ no-repeat center top;
+                }
+
+            .qr-order .qr-o .address dd.add .a-ztd p {
+                padding-top: 37px;
+                background: url(/0-finalPrj/img/ztd.png)/*tpa=http://www.tjfozoon.com/Web/style/images/ztd.png*/ no-repeat center top;
+            }
+
+        .qr-order .qr-o .address dd:hover,
+        .qr-order .qr-o .address dd.act {
+            border-color: #b69b65;
+            color: #b69b65;
+        }
+
+            .qr-order .qr-o .address dd:hover a,
+            .qr-order .qr-o .address dd.act a {
+                color: #b69b65;
+            }
+
+.qr-order .qr-o .yhq {
+    border-bottom: none;
+}
+
+    .qr-order .qr-o .yhq dt {
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .qr-order .qr-o .yhq dd {
+        height: auto;
+        border-bottom: 1px solid #f0f0f0;
+        padding: 9px 0;
+    }
+
+        .qr-order .qr-o .yhq dd .s-img {
+            width: 50px;
+            height: 50px;
+            padding: 1px;
+            border: 1px solid #f3f3f3;
+            margin-right: 13px;
+            background-color: #fff;
+        }
+
+        .qr-order .qr-o .yhq dd .s-text {
+            width: 56%;
+            margin-right: 1%;
+        }
+
+        .qr-order .qr-o .yhq dd .num {
+            width: 20%;
+            margin-right: 26px;
+        }
+
+        .qr-order .qr-o .yhq dd .price {
+            width: 10%;
+        }
+
+        .qr-order .qr-o .yhq dd.yhq-d .s-img {
+            border: none;
+        }
+
+        .qr-order .qr-o .yhq dd.yhq-d input[type=checkbox] {
+            margin-left: 16px;
+        }
+
+.qr-order .qr-o .gr dt {
+    width: 180px;
+}
+
+.qr-order .qr-o .gr.pjsm dt {
+    width: 134px;
+}
+
+.qr-order .qr-o .gr.syyhq dt {
+    width: 220px;
+}
+
+.qr-order .qr-o .gr.syyhq dd {
+    width: 78%;
+}
+
+.qr-order .qr-o .gr.syyhq .input_div .inp.w100 {
+    width: 96%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.input_div .inp.sel {
+    height: 50px;
+    line-height: 50px;
+}
+
+.qr-order .qr-o .gr.pstime .input_div .inp.date::-webkit-input-placeholder {
+    color: #b69b65;
+}
+
+.qr-order .qr-o .gr.pstime .input_div .inp.date:-moz-placeholder {
+    color: #b69b65;
+}
+
+.qr-order .qr-o .gr.pstime .input_div .inp.date::-moz-placeholder {
+    color: #b69b65;
+}
+
+.qr-order .qr-o .gr.pstime .input_div .inp.date:-ms-input-placeholder {
+    color: #b69b65;
+}
+
+.qr-order .qr-o .gr.pstime .input_div .inp.date {
+    padding: 15px 42px;
+    width: 206px;
+    border-color: #b69b65;
+    background: url(/0-finalPrj/img/date.png)/*tpa=http://www.tjfozoon.com/Web/style/images/date.png*/ no-repeat 96% center;
+}
+
+.qr-order .qr-o .gr.syyhq .input_div .inp.submit {
+    border-color: #fff;
+    width: 68px;
+}
+
+.qr-order .qr-o .gr.syyhq .input_div .inp.jf {
+    width: 45px;
+}
+
+.qr-order .qr-o .gr.syyhq .input_div .inp {
+    margin-bottom: 0;
+}
+
+.qr-order .qr-o .qr-o-s {
+    width: 360px;
+}
+
+.qr-order .go-buy {
+    background: #15295e;
+    height: 54px;
+    width: 200px;
+    margin: 20px 0 0 auto;
+}
+
+.qr-order .dateinput {
+    padding-right: 10%;
+    background-color: transparent;
+}
+/********************************
+	会员中心
+*******************************/
+.menber .menber_left {
+    width: 20%;
+}
+
+    .menber .menber_left .m-nav li {
+        margin-bottom: 22px;
+        margin-left: 8px;
+    }
+
+        .menber .menber_left .m-nav li:hover a,
+        .menber .menber_left .m-nav li.act a {
+            color: #afcbbd;
+            transition: none;
+        }
+
+            .menber .menber_left .m-nav li:hover a .mnav_ico,
+            .menber .menber_left .m-nav li.act a .mnav_ico {
+                opacity: 1;
+                fiter: alpha(opacity=100);
+                margin-left: 20px;
+                transition: all 0.5s;
+            }
+
+            .menber .menber_left .m-nav li:hover a.a0,
+            .menber .menber_left .m-nav li.act a.a0 {
+                background-position: left 6px;
+            }
+
+            .menber .menber_left .m-nav li:hover a.a1,
+            .menber .menber_left .m-nav li.act a.a1 {
+                background-position: left -316px;
+            }
+
+            .menber .menber_left .m-nav li:hover a.a2,
+            .menber .menber_left .m-nav li.act a.a2 {
+                background-position: left -354px;
+            }
+
+            .menber .menber_left .m-nav li:hover a.a3,
+            .menber .menber_left .m-nav li.act a.a3 {
+                background-position: left -396px;
+            }
+
+            .menber .menber_left .m-nav li:hover a.a4,
+            .menber .menber_left .m-nav li.act a.a4 {
+                background-position: left -432px;
+            }
+
+            .menber .menber_left .m-nav li:hover a.a5,
+            .menber .menber_left .m-nav li.act a.a5 {
+                background-position: left -474px;
+            }
+
+    .menber .menber_left .m-nav a {
+        display: block;
+        line-height: 26px;
+        font-size: 14px;
+        padding-left: 34px;
+        background-image: url(/0-finalPrj/img/menber-ico.png)/*tpa=http://www.tjfozoon.com/Web/style/images/menber-ico.png*/;
+        background-repeat: no-repeat;
+        transition: none;
+    }
+
+        .menber .menber_left .m-nav a.a0 {
+            background-position: left 6px;
+        }
+
+        .menber .menber_left .m-nav a.a1 {
+            background-position: left -36px;
+        }
+
+        .menber .menber_left .m-nav a.a2 {
+            background-position: left -76px;
+        }
+
+        .menber .menber_left .m-nav a.a3 {
+            background-position: left -116px;
+        }
+
+        .menber .menber_left .m-nav a.a4 {
+            background-position: left -152px;
+        }
+
+        .menber .menber_left .m-nav a.a5 {
+            background-position: left -194px;
+        }
+
+        .menber .menber_left .m-nav a .mnav_ico {
+            display: inline-block;
+            vertical-align: top;
+            width: 30px;
+            height: 26px;
+            background-image: url(/0-finalPrj/img/member-ico01.png)/*tpa=http://www.tjfozoon.com/Web/style/images/member-ico01.png*/;
+            background-repeat: no-repeat;
+            background-position: center center;
+            opacity: 0;
+            fiter: alpha(opacity=0);
+            transition: all 0.5s;
+        }
+
+.menber .menber_right {
+    width: 80%;
+}
+/********评论********/
+.pl_left {
+    width: 25.34%;
+    margin-right: 4%;
+}
+
+.pl_right {
+    width: 70.66%;
+}
+
+.pl_left .pl_img {
+    border: 1px solid #e1e1e1;
+    height: 212px;
+}
+
+.release .star {
+    width: 18px;
+    height: 18px;
+    background: url(/0-finalPrj/img/star01.png)/*tpa=http://www.tjfozoon.com/Web/style/images/star01.png*/ no-repeat center center;
+    margin: 0 2px;
+}
+
+    .release .star.act {
+        background-image: url(/0-finalPrj/img/star.png)/*tpa=http://www.tjfozoon.com/Web/style/images/star.png*/;
+    }
+
+    .release .star.san {
+        background-image: url(/0-finalPrj/img/star.png)/*tpa=http://www.tjfozoon.com/Web/style/images/star.png*/;
+    }
+
+.pl_right .t_p {
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
+}
+
+.pl_right .textarea {
+    width: 98%;
+    height: 148px;
+}
+
+.pl_right .crt .textarea {
+    width: 98%;
+    height: 70px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    padding-left: 5px;
+}
+
+.pl_btn a {
+    display: inline-block;
+    width: 106px;
+    height: 28px;
+    line-height: 28px;
+    margin-left: 10px;
+    border: 1px solid #b0b0b0;
+}
+
+    .pl_btn a.act {
+        background-color: #b2965e;
+        color: #fff;
+        border-color: #b2965e;
+    }
+/*********************
+	我的订单
+*********************/
+.order-state {
+    font-size: 0;
+}
+
+    .order-state a {
+        display: inline-block;
+        font-size: 16px;
+        padding: 0 22px;
+    }
+
+        .order-state a.first {
+            padding-left: 0;
+        }
+
+        .order-state a:hover,
+        .order-state a.act {
+            color: #afcbbd;
+        }
+
+    .order-state .order-search input[type=text] {
+        padding: 10px 14px;
+        line-height: 20px;
+        width: 188px;
+        border: 1px solid #e0e0e0;
+    }
+
+    .order-state .order-search .submit {
+        width: 40px;
+        height: 42px;
+        border-style: solid;
+        border-color: #e0e0e0;
+        border-width: 1px 1px 1px 0;
+        background: url(/0-finalPrj/img/search_ioc.png)/*tpa=http://www.tjfozoon.com/Web/style/images/search_ioc.png*/ no-repeat center center;
+    }
+
+.order-title {
+    font-size: 0;
+    height: 56px;
+    background-color: #f5f9f7;
+    line-height: 56px;
+    border-bottom: 3px solid #efefef;
+}
+
+    .order-title span {
+        display: inline-block;
+        font-size: 14px;
+    }
+
+        .order-title span.s01 {
+            width: 38%;
+        }
+
+        .order-title span.s02 {
+            width: 11.22%;
+        }
+
+        .order-title span.s03 {
+            width: 14.17%;
+        }
+
+        .order-title span.border-bottom {
+            border-bottom: 3px solid #dce4e0;
+        }
+
+.order-list .order-header {
+    border: 1px solid #f0f0f0;
+    background-color: #f5f9f7;
+}
+
+.order-list .order-body {
+    border-style: solid;
+    border-color: #f0f0f0;
+    border-width: 0px 1px 1px 1px;
+    padding: 19px 0;
+    font-size: 0;
+}
+
+    .order-list .order-body .s {
+        display: table;
+        height: 64px;
+        float: left;
+        font-size: 12px;
+    }
+
+        .order-list .order-body .s.s01 {
+            width: 38%;
+        }
+
+            .order-list .order-body .s.s01 .o-img {
+                margin-left: 5%;
+                width: 20%;
+                height: 64px;
+                margin-right: 5%;
+                border: 1px solid #f3f3f3;
+            }
+
+            .order-list .order-body .s.s01 p {
+                width: 69%;
+                display: table;
+                height: 64px;
+            }
+
+        .order-list .order-body .s.s02 {
+            width: 11.22%;
+        }
+
+        .order-list .order-body .s.s08 {
+            width: 66.34%;
+        }
+
+            .order-list .order-body .s.s08 .o-img {
+                width: 11%;
+            }
+
+        .order-list .order-body .s.s03 {
+            width: 14.17%;
+        }
+
+            .order-list .order-body .s.s03 .order-pay {
+                background-color: #b1945b;
+            }
+
+        .order-list .order-body .s em {
+            display: table-cell;
+            vertical-align: middle;
+            font-style: normal;
+        }
+
+        .order-list .order-body .s.s10 {
+            width: 60.44%;
+        }
+
+            .order-list .order-body .s.s10 .s01 {
+                width: 61%;
+            }
+
+            .order-list .order-body .s.s10 .s02 {
+                width: 19.5%;
+            }
+
+        .order-list .order-body .s.s11 {
+            width: 39.56%;
+        }
+
+            .order-list .order-body .s.s11 .s02 {
+                width: 28%;
+            }
+
+            .order-list .order-body .s.s11 .s03 {
+                width: 36%;
+            }
+/*************评论列表****************/
+.pl_gl .s01 {
+    width: 43%;
+}
+
+.pl_gl .s02 {
+    width: 20%;
+}
+
+.pl_gl .s03 {
+    width: 26%;
+}
+
+.pl_gl .s04 {
+    width: 11%;
+}
+
+.pl_gl .order-body {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.pl_gl .star {
+    width: 18px;
+    height: 18px;
+    background: url(/0-finalPrj/img/star.png)/*tpa=http://www.tjfozoon.com/Web/style/images/star.png*/ no-repeat center center;
+    margin: 2px;
+}
+/**********积分明细***********/
+.jx_mx .jx01 {
+    width: 11%;
+}
+
+.jx_mx .jx02 {
+    width: 18.5%;
+}
+
+.jx_mx .jx03 {
+    width: 48.5%;
+}
+
+.jx_mx .jx_thead {
+    background-color: #f5f9f7;
+    border-bottom: 2px solid #cfe0d7;
+}
+
+.jx_mx li {
+    margin-bottom: 4px;
+    line-height: 24px;
+    padding: 13px 0;
+}
+
+.jx_mx .jx_body.one {
+    background-color: #f5f9f7;
+}
+
+.jf_p_a a {
+    background-color: #b0916a;
+}
+/***********************
+	个人信息
+************************/
+.info .i-r-right .inp select {
+    outline: none;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: url("/0-finalPrj/img/arrow.png")/*tpa=http://www.tjfozoon.com/Web/style/images/arrow.png*/ no-repeat scroll 92% center transparent;
+    padding-right: 14px;
+    width: 84px;
+    border: 1px solid #e0e0e0;
+    padding: 12px 8px;
+    color: #999;
+}
+
+.info .i-r-left {
+    width: 160px;
+}
+
+    .info .i-r-left .info-img {
+        height: 150px;
+        padding: 4px;
+        border: 1px solid #e0e0e0;
+    }
+
+    .info .i-r-left .get-img {
+        height: 40px;
+        background: #f6f6f6;
+        position: relative;
+        overflow: hidden;
+        line-height: 30px;
+        height: 30px;
+    }
+
+    .info .i-r-left input {
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 100px;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+
+.info .i-r-right {
+    margin-left: 3%;
+}
+
+    .info .i-r-right .inp {
+        border: 1px solid #e0e0e0;
+        padding: 2px;
+        margin-bottom: 14px;
+    }
+
+    .info .i-r-right .sex .inp {
+        border-color: transparent;
+    }
+
+    .info .i-r-right .sex-radio {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 16px;
+        height: 16px;
+        background: url(/0-finalPrj/img/sex_radio.png)/*tpa=http://www.tjfozoon.com/Web/style/images/sex_radio.png*/ no-repeat center center;
+    }
+
+        .info .i-r-right .sex-radio:checked,
+        .info .i-r-right .sex-radio:active {
+            background-image: url(/0-finalPrj/img/sex_radio_c.png)/*tpa=http://www.tjfozoon.com/Web/style/images/sex_radio_c.png*/;
+        }
+
+    .info .i-r-right .sex .inp p {
+        padding: 5px 0;
+        width: 274px;
+    }
+
+    .info .i-r-right .inp p {
+        padding: 12px 14px;
+        width: 246px;
+    }
+
+    .info .i-r-right .r-r-name {
+        width: 78px;
+    }
+
+    .info .i-r-right .inp .inptext {
+        color: #999;
+        font-size: 12px;
+        height: 20px;
+        line-height: 20px;
+        width: 100%;
+        background-color: #fff;
+    }
+
+    .info .i-r-right .inp.disabled p {
+        background-color: #f6f6f6;
+    }
+
+    .info .i-r-right .inp.disabled .inptext {
+        background-color: #f6f6f6;
+    }
+
+    .info .i-r-right .inp.btn .inptext {
+        width: 124px;
+        background-color: #b59b64;
+        color: #fff;
+        padding: 12px 0;
+        height: 44px;
+        font-size: 14px;
+    }
+/*********优惠券***********/
+.ticket {
+    margin-left: -1.51%;
+}
+
+    .ticket li {
+        width: 31.82%;
+        margin-left: 1.51%;
+        float: left;
+        background-color: #f8f8f8;
+        margin-top: 10px;
+    }
+
+        .ticket li .d_ticket .ico {
+            width: 78px;
+            height: 78px;
+            left: 0;
+            top: 0;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100% 100%;
+        }
+
+        .ticket li .d_ticket .a_lcose {
+            width: 36px;
+            height: 36px;
+            background: url(/0-finalPrj/img/a_close.png)/*tpa=http://www.tjfozoon.com/Web/style/images/a_close.png*/ no-repeat center center;
+            right: 0;
+            top: 0;
+            background-size: 100% 100%;
+        }
+
+        .ticket li .d_ticket.no_ticket {
+            background: url(/0-finalPrj/img/titcke01_bg.jpg)/*tpa=http://www.tjfozoon.com/Web/style/images/titcke01_bg.jpg*/ repeat-x center bottom, url(titcke03_bg.jpg)/*tpa=http://www.tjfozoon.com/Web/style/images/titcke03_bg.jpg*/ no-repeat center top #afcbbd;
+        }
+
+            .ticket li .d_ticket.no_ticket .ico {
+                background-image: url(/0-finalPrj/img/gq01.png)/*tpa=http://www.tjfozoon.com/Web/style/images/gq01.png*/;
+            }
+
+        .ticket li .d_ticket.yet_ticket {
+            background: url(/0-finalPrj/img/titcke02_bg.jpg)/*tpa=http://www.tjfozoon.com/Web/style/images/titcke02_bg.jpg*/ repeat-x center bottom, url(titcke04_bg.jpg)/*tpa=http://www.tjfozoon.com/Web/style/images/titcke04_bg.jpg*/ no-repeat center top #d9d9d9;
+        }
+
+            .ticket li .d_ticket.yet_ticket .ico {
+                background-image: url(/0-finalPrj/img/gq02.png)/*tpa=http://www.tjfozoon.com/Web/style/images/gq02.png*/;
+            }
+
+        .ticket li .d_ticket.used_ticket {
+            background: url(/0-finalPrj/img/titcke02_bg.jpg)/*tpa=http://www.tjfozoon.com/Web/style/images/titcke02_bg.jpg*/ repeat-x center bottom, url(titcke04_bg.jpg)/*tpa=http://www.tjfozoon.com/Web/style/images/titcke04_bg.jpg*/ no-repeat center top #d9d9d9;
+        }
+
+            .ticket li .d_ticket.used_ticket .ico {
+                background-image: url(/0-finalPrj/img/gq03.png)/*tpa=http://www.tjfozoon.com/Web/style/images/gq03.png*/;
+            }
+
+        .ticket li .a_sy {
+            border: 1px solid #999999;
+            border-radius: 18px;
+            padding: 8px;
+            width: 100px;
+        }
+
+            .ticket li .a_sy.ksy {
+                color: #afcbbd;
+                border-color: #afcbbd;
+            }
+/**************会员中心**************/
+.m_info .m_info_left {
+    width: 19%;
+}
+
+    .m_info .m_info_left .m-l-img {
+        width: 106px;
+        height: 106px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid #ebebeb;
+        padding: 2px;
+        background-color: #fff;
+    }
+
+        .m_info .m_info_left .m-l-img img {
+            border-radius: 50%;
+        }
+
+.m_info .m_info_right {
+    width: 80%;
+}
+
+    .m_info .m_info_right .level {
+        padding: 4px;
+        line-height: 14px;
+        background-color: #afcbbd;
+        border-radius: 3px;
+    }
+
+    .m_info .m_info_right .my-jf {
+        background: url(/0-finalPrj/img/jb.png)/*tpa=http://www.tjfozoon.com/Web/style/images/jb.png*/ no-repeat left center;
+    }
+
+.menber_ico_li li {
+    width: 33.33%;
+    float: left;
+    border-right: 1px solid #eaeaea;
+    box-sizing: border-box;
+}
+
+    .menber_ico_li li.last {
+        border-right: none;
+    }
+
+    .menber_ico_li li .m_i_l {
+        padding-left: 86px;
+        background-position: left center;
+        background-repeat: no-repeat;
+    }
+
+        .menber_ico_li li .m_i_l.m01 {
+            background-image: url(/0-finalPrj/img/m01.png)/*tpa=http://www.tjfozoon.com/Web/style/images/m01.png*/;
+        }
+
+        .menber_ico_li li .m_i_l.m02 {
+            background-image: url(/0-finalPrj/img/m02.png)/*tpa=http://www.tjfozoon.com/Web/style/images/m02.png*/;
+        }
+
+        .menber_ico_li li .m_i_l.m03 {
+            background-image: url(/0-finalPrj/img/m03.png)/*tpa=http://www.tjfozoon.com/Web/style/images/m03.png*/;
+        }
+/**************详情**************/
+.proopen-left {
+    width: 100px;
+    margin-left: 16px;
+    margin-right: 20px;
+    /* height:510px;
+	.bx-wrapper,.bx-viewport{
+		height:100% !important;
+	}
+	*/
+}
+
+    .proopen-left .slide {
+        height: 98px;
+        margin-bottom: 4px;
+    }
+
+        .proopen-left .slide.act a {
+            border: 3px solid #afcbbd;
+        }
+
+.proopen-center {
+    width: 580px;
+    height: 580px;
+}
+
+.proopen-right {
+    width: 38%;
+}
+
+    .proopen-right .progg {
+        width: 72px;
+        height: 36px;
+        background-color: #f5f9f7;
+        color: #666666;
+        text-align: center;
+        border-radius: 5px;
+        margin-left: 10px;
+        margin-bottom: 7px;
+        position: relative;
+    }
+
+        .proopen-right .progg.nosel {
+            color: #ddd;
+        }
+
+        .proopen-right .progg em {
+            display: none;
+            position: absolute;
+            width: 32px;
+            height: 33px;
+            background: url(/0-finalPrj/img/checkbox_ico.png)/*tpa=http://www.tjfozoon.com/Web/style/images/checkbox_ico.png*/ no-repeat center center;
+            right: -9px;
+            bottom: -8px;
+        }
+
+        .proopen-right .progg.act em {
+            display: block;
+        }
+
+    .proopen-right .p-num01 {
+        font-size: 0;
+    }
+
+        .proopen-right .p-num01 a,
+        .proopen-right .p-num01 span {
+            line-height: 40px;
+            width: 30%;
+            margin-right: 3.33%;
+            background-color: #f5f9f7;
+            border-radius: 5px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .proopen-right .p-num01 .s-num a {
+            border-radius: 0;
+            margin-right: 0;
+            cursor: pointer;
+        }
+
+        .proopen-right .p-num01 a.act,
+        .proopen-right .p-num01 span.act {
+            background-color: #b39860;
+            color: #fff;
+        }
+
+        .proopen-right .p-num01 a.last,
+        .proopen-right .p-num01 span.last {
+            margin-right: 0;
+        }
+
+        .proopen-right .p-num01 a.no-bg,
+        .proopen-right .p-num01 span.no-bg {
+            background-color: transparent;
+        }
+
+        .proopen-right .p-num01 .s-num {
+            width: 80px;
+            margin-top: 2px;
+        }
+
+            .proopen-right .p-num01 .s-num .s-num-tab {
+                width: 25px;
+                height: 34px;
+                line-height: 34px;
+                display: block;
+                float: left;
+                border: 1px solid transparent;
+                background-color: #f1f1f1;
+            }
+
+                .proopen-right .p-num01 .s-num .s-num-tab:hover,
+                .proopen-right .p-num01 .s-num .s-num-tab.act {
+                    border: 1px solid #b39860;
+                    color: #b39860;
+                }
+
+            .proopen-right .p-num01 .s-num input {
+                width: 26px;
+                float: left;
+                line-height: 36px;
+                text-align: center;
+            }
+
+        .proopen-right .p-num01 .p-num-a span {
+            display: none;
+            width: 100%;
+            z-index: 999;
+            border: 7px solid #f5f9f7;
+            box-sizing: border-box;
+            position: absolute;
+            left: 0;
+            background-color: #fff;
+            top: 40px;
+        }
+
+            .proopen-right .p-num01 .p-num-a span em {
+                display: block;
+                font-style: normal;
+                border-bottom: 1px solid #ddd;
+            }
+
+                .proopen-right .p-num01 .p-num-a span em.last {
+                    border-bottom: none;
+                }
+
+                .proopen-right .p-num01 .p-num-a span em:hover,
+                .proopen-right .p-num01 .p-num-a span em.act {
+                    background-color: #f5f9f7;
+                }
+
+    .proopen-right .hg {
+        width: 54px;
+        height: auto;
+        background-color: #f5f9f7;
+    }
+
+    .proopen-right .hg_text {
+        width: 60%;
+        margin-left: 2%;
+    }
+
+    .proopen-right .hg_img {
+        width: 54px;
+        height: 54px;
+    }
+
+.xq_left {
+    width: 14.84%;
+}
+
+    .xq_left li {
+        margin-bottom: 20px;
+    }
+
+        .xq_left li .a {
+            border: 1px solid #f0f0f0;
+            height: 176px;
+        }
+
+
+.xq_right {
+    width: 81.83%;
+}
+
+.title02 .line {
+    height: 1px;
+    width: 100%;
+    left: 0;
+    top: 50%;
+    background-color: #eeeeee;
+}
+
+.ljdp li {
+    border-bottom: 1px solid #eeeeee;
+    padding: 12px 0;
+    line-height: 25px;
+}
+
+    .ljdp li .ljdp_01 {
+        width: 17.33%;
+        padding-left: 3.67%;
+        background: url(/0-finalPrj/img/pl.png)/*tpa=http://www.tjfozoon.com/Web/style/images/pl.png*/ no-repeat left center;
+    }
+
+    .ljdp li .ljdp_02 {
+        width: 47%;
+    }
+
+    .ljdp li .star {
+        width: 13px;
+        height: 25px;
+        margin-right: 2px;
+        background: url(/0-finalPrj/img/star02.png)/*tpa=http://www.tjfozoon.com/Web/style/images/star02.png*/ no-repeat center center;
+    }
+
+        .ljdp li .star.act {
+            background-image: url(/0-finalPrj/img/star03.png)/*tpa=http://www.tjfozoon.com/Web/style/images/star03.png*/;
+        }
+
+    .ljdp li .ljdp_03 {
+        width: 15%;
+    }
+
+.pagers a,
+.pagers span {
+    width: 20px;
+    line-height: 16px;
+    height: 16px;
+    vertical-align: top;
+}
+
+    .pagers a:hover,
+    .pagers span:hover,
+    .pagers a.act,
+    .pagers span.act {
+        color: #fd6703;
+    }
+
+    .pagers a.next_pager,
+    .pagers span.next_pager {
+        background: url(/0-finalPrj/img/next_pager.png)/*tpa=http://www.tjfozoon.com/Web/style/images/next_pager.png*/ no-repeat center center;
+    }
+
+.proopen-right .progg {
+    width: auto;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+.sss_div {
+    width: 89%;
+}
+/*************************2017.01.20******************************/
+.pop_bg_bgy, .pop_buy02 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+}
+
+.pop_buy02 {
+    display: block;
+}
+
+.pop_buy {
+    display: table;
+}
+
+    .pop_buy.act {
+    }
+
+.pop_cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.pop_box {
+    padding: 20px 30px 15px 18px;
+    background-color: #fff;
+    width: 822px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pop_buy .pop_left {
+    width: 40.39%;
+    height: 332px;
+    background-color: #f9f9f9;
+}
+
+.pop_buy .proopen-right {
+    width: 55%;
+}
+
+.login.liuyan .login_right {
+    width: 518px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.liuyan .input_div .inp {
+    width: 488px;
+}
+
+.liuyan .input_div textarea {
+    height: 100px;
+}
+
+.liuyan .input_div .inp.submit {
+    width: 150px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+@media (max-width: 991px) {
+    .login.liuyan .login_right {
+        float: none;
+    }
+}
+
+
+@media (max-width: 899px) {
+    .pop_box {
+        padding: 20px 2% 15px;
+        width: 92%;
+    }
+
+        .pop_box .sss_div {
+            width: 85%;
+        }
+}
+
+@media (max-width: 767px) {
+    .pop_box {
+        padding: .3rem 4%;
+        width: 88%;
+        max-height: 100vh;
+        overflow: auto;
+    }
+
+    .pop_buy .pop_left {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+        height: 5.163rem;
+        margin-bottom: .2rem;
+    }
+
+    .pop_buy .proopen-right {
+        width: 100%;
+        padding-bottom: .3rem;
+    }
+
+    .login.liuyan .login_right {
+        width: 90%;
+    }
+
+    .liuyan .input_div .inp {
+        width: 94%;
+    }
+
+        .liuyan .input_div .inp.submit {
+            width: 100px;
+        }
+}
+/**************************09-支付订单*************************/
+/********************2017.01.22************************/
+.order_pay .order_success {
+    padding-left: 115px;
+    background: url(/0-finalPrj/img/order_success.png)/*tpa=http://www.tjfozoon.com/Web/style/images/order_success.png*/ no-repeat left center;
+    width: 476px;
+}
+
+.order_pay .a-pay {
+    border: 1px solid #cccccc;
+}
+
+.pay_way h3 {
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 12px;
+}
+
+.pay_way .way {
+    margin-left: -15px;
+}
+
+    .pay_way .way a {
+        border: 1px solid #e0e0e0;
+        height: 60px;
+        width: 174px;
+        margin-left: 15px;
+        background-color: #fff;
+    }
+
+        .pay_way .way a.act {
+            border-color: #b59a64;
+        }
+
+.lj_a {
+    width: 200px;
+    background-color: #b59a64;
+}
+
+.qr-order .qr-o .psdz_dl {
+    margin-left: -2%;
+}
+
+    .qr-order .qr-o .psdz_dl dt {
+        margin-bottom: 24px;
+        margin-left: 2%;
+    }
+
+    .qr-order .qr-o .psdz_dl dd {
+        width: 44.5%;
+        padding-left: 1.5%;
+        padding-right: 1.5%;
+        float: left;
+        border: 1px solid #f0f1f0;
+        background-color: #fff;
+        line-height: 28px;
+        height: 28px;
+        margin-left: 2%;
+        margin-bottom: 12px;
+        color: #999;
+    }
+
+        .qr-order .qr-o .psdz_dl dd.act {
+            border-color: #baa26f;
+        }
+
+.pro_select {
+    background-color: #fff;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.pro_tab a {
+    padding: 5px 18px;
+    border: 1px solid #cccccc;
+}
+
+.phone_title_h1 {
+    background-color: #fff;
+}
+/**************************
+    地址弹出框2017.01.23
+***************************/
+.info_pwd_upd {
+    cursor: pointer;
+}
+
+
+
+.address_pop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+}
+
+    .address_pop .address_bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        fiter: alpha(opacity=80);
+        opacity: 0.8;
+    }
+
+    .address_pop .address_box {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .address_pop .address_box_t {
+        max-width: 604px;
+        padding: 40px 48px 60px;
+        background-color: #fff;
+        width: 88%;
+    }
+
+.login.info_s.w100 .l_left {
+    width: 100%;
+}
+
+.address_pop .close_address {
+    right: 4%;
+    top: 4%;
+    width: 20px;
+    height: 20px;
+    background: url(/0-finalPrj/img/close_address.png)/*tpa=http://www.tjfozoon.com/Web/style/images/close_address.png*/ no-repeat center center /100% 100%;
+}
+
+.tb {
+    display: table;
+}
+
+.tb_cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.login1 .l_left .login_left_span {
+    width: 33.7%;
+}
+
+.login1 .l_left .inp {
+    width: 61%;
+    border: 1px solid #e0e0e0;
+    padding: 7px 1.5%;
+    height: 24px;
+    background-color: #fff;
+    color: #999;
+}
+
+    .login1 .l_left .inp.select {
+        height: 38px;
+        line-height: 20px;
+        width: 64.3%;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        background: url("/0-finalPrj/img/select_ico.png")/*tpa=http://www.tjfozoon.com/Web/style/images/select_ico.png*/ no-repeat scroll 97% center #fff8e8;
+    }
+
+select::-ms-expand {
+    display: none;
+}
+
+.login1 .l_left .inp.select.short {
+    width: 33.33%;
+    border: none;
+    outline: none;
+}
+
+.login1 .l_left .span_border {
+    width: 64%;
+    border: 1px solid #eddbc8;
+    background-color: #fff;
+}
+
+    .login1 .l_left .span_border.noBorder {
+        border: none;
+    }
+
+.login1 .l_left .inp.short {
+    width: 37.7%;
+}
+
+.login1 .a-login-btn {
+    background-color: #b59b64;
+    width: 111px;
+    line-height: 40px;
+}
+
+.login1 .l_left .yzm{
+    width:21.3%;
+    margin-left:2%;
+    height:38px;
+    line-height:38px;
+    background-color: #f6f6f6;
+    border: 1px solid #e0e0e0;
+    color: #999;
+    box-sizing:border-box;
+}
+    .login1 .a-login-btn.w100 {
+        width: 100%;
+    }
+
+    .login1 .a-login-btn.shortHight {
+        line-height: 32px;
+    }
+
+    .login1 .a-login-btn.act {
+        border: 1px solid #b59b64;
+        background-color: transparent;
+        color: #b59b64;
+    }
+
+.ptype a.act {
+    background-color: #daccb2;
+    color: #fff;
+}
+/******************2017.02.08*******************/
+.address_open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+
+    .address_open .bg {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        background-color: #000;
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+    }
+
+    .address_open .address-box {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+    }
+
+        .address_open .address-box .a-b-middle {
+            width: 372px;
+            padding: 29px 22px 20px;
+            border: 2px solid #b69b65;
+            background-color: #fff;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+            .address_open .address-box .a-b-middle p {
+                margin-bottom: 14px;
+            }
+
+                .address_open .address-box .a-b-middle p .inp {
+                    border: 1px solid #e0e0e0;
+                    padding: 5px 14px;
+                    line-height: 28px;
+                    color: #999;
+                    font-size: 14px;
+                    width: 342px;
+                }
+
+                    .address_open .address-box .a-b-middle p .inp.short {
+                        width: 174px;
+                    }
+
+                .address_open .address-box .a-b-middle p a {
+                    width: 174px;
+                    padding: 5px 0;
+                    line-height: 28px;
+                    text-align: center;
+                    color: #fff;
+                    background-color: #b0b0b0;
+                    font-size: 14px;
+                }
+
+                    .address_open .address-box .a-b-middle p a.act {
+                        background-color: #b69b65;
+                    }
+/*******************2017.02.10***********************/
+.qr-order .qr-o .yhq.x-yh dd .num {
+    width: 20%;
+    margin-right: 2%;
+}
+
+.qr-order .qr-o .yhq.x-yh dd .s-text {
+    width: 55%;
+}
+
+.ztd-pop.address_open .address-box .a-b-middle {
+    width: 562px;
+}
+
+.ztd-pop.address_open .frame li {
+    border: 1px solid #f1f1f1;
+    padding: 10px 40px 10px 19px;
+    margin-bottom: 12px;
+}
+
+.ztd-pop.address_open .frame {
+    height: 318px;
+    overflow: hidden;
+}
+
+    .ztd-pop.address_open .frame .frame-scroll {
+        overflow-y: auto;
+        width: 100%;
+        padding-right: 0;
+        height: 100%;
+    }
+
+    .ztd-pop.address_open .frame li:hover {
+        border-color: #bba270;
+    }
+
+    .ztd-pop.address_open .frame li.act {
+        border-color: #bba270;
+        background: url(/0-finalPrj/img/zpdd-ico.png)/*tpa=http://www.tjfozoon.com/Web/style/images/zpdd-ico.png*/ no-repeat 97% center;
+    }
+
+    .ztd-pop.address_open .frame li a {
+        font-size: 14px;
+        color: #999;
+    }
+
+@media (max-width: 767px) {
+    .ztd-pop.address_open .address-box .a-b-middle {
+        width: 90%;
+        padding: .3rem 3% .2rem !important;
+    }
+
+    .ztd-pop.address_open .frame li {
+        border: 1px solid #f1f1f1;
+        padding: .2rem 2% .2rem 2%;
+        margin-bottom: 12px;
+    }
+
+    .ztd-pop.address_open .frame .frame-scroll {
+        width: 102%;
+        padding-right: 5px;
+    }
+
+    .ztd-pop.address_open .address-box .a-b-middle p a {
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+}
+
+.djs-date {
+    padding-left: 23px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-image: url(/0-finalPrj/img/djs01.png)/*tpa=http://www.tjfozoon.com/Web/style/images/djs01.png*/;
+}
+
+    .djs-date.over {
+        background-image: url(/0-finalPrj/img/djs02.png)/*tpa=http://www.tjfozoon.com/Web/style/images/djs02.png*/;
+        color: #999999;
+    }
+
+    .djs-date.nostar {
+        background-image: url(/0-finalPrj/img/djs01.png)/*tpa=http://www.tjfozoon.com/Web/style/images/djs01.png*/;
+    }
+
+.top-yhq {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-position center center;
+    background-size:cover;
+    z-index: 899;
+    line-height: 60px;
+    transition: all 0.5s;
+    z-index:99999;
+}
+
+    .top-yhq.act {
+        top: -60px;
+        transition: all 0.5s;
+    }
+
+.top-yhq-blank {
+    height: 60px;
+    transition: all 0.5s;
+}
+
+    .top-yhq-blank.act {
+        height: 0;
+        transition: all 0.5s;
+    }
+
+.top-yhq .a-click {
+    width: 79px;
+    height: 29px;
+    border-radius: 3px;
+    background-color: #daccb2;
+    line-height: 29px;
+    margin-top: 15px;
+}
+
+.top-yhq .a-close {
+    width: 20px;
+    height: 20px;
+    background: url(/0-finalPrj/img/close02.png)/*tpa=http://www.tjfozoon.com/Web/style/images/close02.png*/ no-repeat center center;
+    right: 16px;
+    top: 50%;
+    margin-top: -10px;
+    z-index:99999;
+}
+
+.header {
+    top: 60px;
+    transition: all 0.5s;
+}
+
+    .header.act {
+        top: 0;
+        transition: all 0.5s;
+    }
+
+    .banner{
+        top:160px;
+        transition:all 0.5s;
+    }
+
+    .banner.act{
+        top:100px;
+        transition:all 0.5s;
+    }
+
+.header.noA{
+    top:0;
+}
+.banner.noA{
+    top:100px;
+}
+
+
+@media (max-width: 767px) {
+    .top-yhq {
+        height: .8rem;
+        line-height: .8rem;
+    }
+
+    .top-yhq.act {
+        top: -.8rem;
+    }
+
+    .top-yhq-blank {
+        height: .8rem;
+    }
+
+    .top-yhq .a-click {
+        width: 1.5rem;
+        height: .5rem;
+        line-height: .5rem;
+        margin-top: .15rem;
+        font-size: .32rem;
+    }
+
+    .header {
+        top: .8rem;
+    }
+
+    .top-yhq .a-close {
+        right: .1rem;
+    }
+     .banner{
+        top:2rem !important;
+    }
+
+    .banner.act{
+        top:1.2rem !important;
+        transition:all 0.5s;
+    }
+
+    .header.noA{
+        top:0;
+    }
+    .banner.noA{
+        top:1.2rem;
+    }
+
+}

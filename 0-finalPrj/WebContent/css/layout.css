@@ -1,0 +1,482 @@
+/***************************
+	头部导航置顶
+***************************/
+.header {
+  border-top: 4px solid #afcbbd;
+  height: 96px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  box-shadow: rgba(0, 0, 0, 0.0470588) 0px 2px 4px;
+}
+.header .logo {
+  width: 192px;
+  height: 46px;
+  margin-left: 2%;
+}
+.header .nav {
+  top: 33px;
+  left: 50%;
+  margin-left: -408px;
+}
+.header .nav li {
+  display: block;
+  float: left;
+  width: 102px;
+  height: 34px;
+}
+.header .nav li.home {
+  background: url(/0-finalPrj/img/home.png)/*tpa=http://www.tjfozoon.com/Web/style/images/home.png*/ no-repeat center top;
+}
+.header .nav li.login-btn {
+  display: none;
+}
+.header .nav li span {
+  display: block;
+}
+.header .nav li span.s1 {
+  font-size: 14px;
+  color: #7a9f8c;
+  line-height: 20px;
+}
+.header .nav li span.s2 {
+  font-size: 10px;
+  color: #999;
+  line-height: 14px;
+  -webkit-transform: scale(0.8, 0.8);
+  -transform: scale(0.8, 0.8);
+  -moz-transform: scale(0.8, 0.8);
+}
+.header .login-btn {
+  margin-top: 32px;
+  margin-right: 2%;
+}
+.header .login-btn a {
+  height: 36px;
+  line-height: 36px;
+  width: 68px;
+  background-color: #a2c1b2;
+  color: #fff;
+  margin: 0 2px;
+}
+.header .login-btn a.login {
+  background-color: #daccb2;
+}
+.header .nav-ico {
+  width: 60px;
+  background: url(/0-finalPrj/img/nav_ico.png)/*tpa=http://www.tjfozoon.com/Web/style/images/nav_ico.png*/ no-repeat center center;
+}
+.header .nav-ico.open {
+  background-image: url(/0-finalPrj/img/nav_ico_close.png)/*tpa=http://www.tjfozoon.com/Web/style/images/nav_ico_close.png*/;
+}
+.n-header {
+  height: 100px;
+}
+/***************************
+	轮播图
+***************************/
+.banner {
+  position: fixed;
+  top: 100px;
+  left: 0;
+  z-index: 1;
+}
+.banner li {
+  max-height: 100%;
+  min-height: 540px;
+  background-position: center center;
+  background-size: auto auto;
+  background-repeat: no-repeat;
+}
+.activebg {
+  position: relative;
+  background: #fff;
+  background-attachment: fixed;
+  background-position: center 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/***************************
+	明星产品
+***************************/
+.title h6 {
+  letter-spacing: 2px;
+}
+.pro-star {
+  position: relative;
+  z-index: 9;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0,0.1) 0px 0 10px;
+}
+.pro-star li {
+  width: 50%;
+  float: left;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+.pro-star li .s-img {
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 0.5s;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+}
+.pro-star li .s-box {
+  z-index: 2;
+}
+.pro-star li .s-box .s-text {
+  height: 72px;
+}
+.pro-star li .s-bg {
+  background-color: #000;
+  left: 0;
+  top: 0;
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+  z-index: 1;
+  transition: opacity 0.5s;
+}
+.pro-star li .s-logo {
+  height: 188px;
+}
+.pro-star li:hover .s-img {
+  transform: scale(1.03);
+  -webkit-transform: scale(1.03);
+  -moz-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+}
+.pro-star li:hover .s-bg {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  transition: opacity 0.5s;
+}
+.more .m-line {
+  display: block;
+  height: 1px;
+  width: 82px;
+  padding: 7px 8px 8px;
+  background: url(/0-finalPrj/img/more_left.png)/*tpa=http://www.tjfozoon.com/Web/style/images/more_left.png*/ no-repeat left top, url(more_right.png)/*tpa=http://www.tjfozoon.com/Web/style/images/more_right.png*/ no-repeat right top;
+  transition: width 0.5s;
+}
+.more .m-line em {
+  background-color: #fff;
+  height: 1px;
+}
+.more:hover .m-line {
+  width: 100px;
+  transition: width 0.5s;
+}
+/***************************
+	法颂产品
+***************************/
+.product {
+  background-color: #fffeef;
+  position: relative;
+  z-index: 9;
+}
+.product ul {
+  width: 95%;
+}
+.product li {
+  width: 23.6%;
+  margin: 0 0.7%;
+  float: left;
+  background-color: #fff;
+  margin-bottom: 25px;
+}
+.product li .p-img {
+  height: 314px;
+  display: block;
+}
+.product li .p-box {
+  padding-bottom: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #fff;
+}
+.product li .p-line {
+  width: 0%;
+  height: 6px;
+  background-color: transparent;
+  transition: all 0.8s;
+  z-index: 2;
+}
+.product li .p-bg {
+  left: 0;
+  top: 0;
+  background-color: rgba(175, 203, 189, 0.94);
+  z-index: 1;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  transition: all 0.8s;
+}
+.product li .p-bg .p-b-img {
+  height: 142px;
+}
+.product li:hover .p-line,
+.product li.act .p-line {
+  width: 100%;
+  background-color: #dccfb6;
+  transition: all 0.8s;
+}
+.product li:hover .p-bg,
+.product li.act .p-bg {
+  opacity: 100;
+  filter: alpha(opacity=100);
+  transition: all 0.8s;
+}
+/***************************
+	品牌资讯
+***************************/
+.information {
+  position: relative;
+  z-index: 9;
+  background-color: #fff;
+}
+.information ul {
+  width: 95%;
+}
+.information li.info_li {
+  width: 48.6%;
+  margin: 0 0.7%;
+  float: left;
+  margin-bottom: 25px;
+  height: 350px;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.information li.info_li.one {
+  background-color: #cdba98;
+  background-image: url(/0-finalPrj/img/info_bg1.png)/*tpa=http://www.tjfozoon.com/Web/style/images/info_bg1.png*/;
+  background-position: right top;
+}
+.information li.info_li.two {
+  background-color: #9cbdad;
+  background-image: url(/0-finalPrj/img/info_bg2.png)/*tpa=http://www.tjfozoon.com/Web/style/images/info_bg2.png*/;
+  background-position: right bottom;
+}
+.information li.info_li .info_b {
+  position: relative;
+  z-index: 2;
+}
+.information li.info_li .i-bg {
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background-color: #000;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  transition: all 0.8s;
+}
+.information li.info_li .p-logo {
+  height: 70px;
+}
+.information li.info_li .h_title {
+  padding-left: 55px;
+  padding-right: 55px;
+  max-width: 75%;
+  background: url(/0-finalPrj/img/h_title_left.png)/*tpa=http://www.tjfozoon.com/Web/style/images/h_title_left.png*/ no-repeat left center, url(h_title_right.png)/*tpa=http://www.tjfozoon.com/Web/style/images/h_title_right.png*/ no-repeat right center;
+}
+.information li.info_li:hover .i-bg {
+  opacity: 0.1;
+  filter: alpha(opacity=10);
+  transition: all 0.8s;
+}
+.footer {
+  position: relative;
+  z-index: 9;
+  padding-top: 66px;
+  color: #f1e8d2;
+  background: url(/0-finalPrj/img/footer_bg.png)/*tpa=http://www.tjfozoon.com/Web/style/images/footer_bg.png*/ repeat;
+}
+.footer .f-logo {
+  width: 144px;
+  height: 144px;
+  padding-bottom: 62px;
+}
+.footer .footer_info {
+  font-size: 0;
+  -webkit-text-size-adjust: none;
+  padding-bottom: 73px;
+}
+.footer .footer_info dl {
+  display: inline-block;
+  color: #f1e8d2;
+  width: 330px;
+  border-right: 1px solid #f1e8d2;
+  padding-top: 15px;
+  padding-bottom: 7px;
+}
+.footer .footer_info dl dd {
+  font-size: 12px;
+  line-height: 20px;
+}
+.footer .footer_info dl dd.dd {
+  min-height: 40px;
+  max-height: 40px;
+}
+.footer .footer_info dl.last {
+  border-right: none;
+}
+.footer .footer_share {
+  font-size: 0;
+  -webkit-text-size-adjust: none;
+}
+.footer .footer_share a {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid #ede4cf;
+  margin: 0 22px;
+  background-image: url(/0-finalPrj/img/share.png)/*tpa=http://www.tjfozoon.com/Web/style/images/share.png*/;
+  background-repeat: no-repeat;
+}
+.footer .footer_share a.qq {
+  background-position: 11px 11px;
+}
+.footer .footer_share a.wb {
+  background-position: 9px -28px;
+}
+.footer .footer_share a.wx {
+  background-position: 10px -66px;
+}
+.footer .footer_nav {
+  font-size: 0;
+  -webkit-text-size-adjust: none;
+}
+.footer .footer_nav a,
+.footer .footer_nav span {
+  display: inline-block;
+  font-size: 12px;
+  color: #f1e8d2;
+  line-height: 21px;
+}
+.footer .footer_nav a {
+  margin: 0 22px;
+}
+.pager a,
+.pager span {
+  display: inline-block;
+  padding: 5px 12px;
+  border: 1px solid #e8e8e8;
+  color: #888;
+  font-size: 14px;
+  margin: 0 2px 5px;
+  background-color: #fff;
+}
+    .pager a.act {
+        background-color:#7a9f8c;
+        color: #FFF;
+    }
+    .fixed-right{
+  position:fixed;
+  top:0;
+  right:0;
+  border-right: 4px solid #afcbbd;
+  height:100%;
+  z-index: 9999;
+  display:table;
+}
+.fixed-right ul{
+  display:table-cell;
+  vertical-align: middle;
+}
+.fixed-right li{
+  width:39px;
+  height:40px;
+  border-radius: 3px;
+  margin-bottom: 2px;
+  position:relative;
+}
+.fixed-right li a{
+  display:block;
+  height:100%;
+  background-color: #afcbbd;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
+    z-index: 99;
+}
+.fixed-right li a.a01{
+  background-image: url(/0-finalPrj/img/f01.png)/*tpa=http://www.tjfozoon.com/Web/style/images/f01.png*/;
+}
+.fixed-right li a.a02{
+  background-image: url(/0-finalPrj/img/f02.png)/*tpa=http://www.tjfozoon.com/Web/style/images/f02.png*/;
+}
+.fixed-right li a.a03{
+  background-image: url(/0-finalPrj/img/f03.png)/*tpa=http://www.tjfozoon.com/Web/style/images/f03.png*/;
+  position:relative;
+  z-index: 5;
+  width:43px;
+  background-position: 9px center;
+}
+.fixed-right li a.a04{
+  background-image: url(/0-finalPrj/img/f04.png)/*tpa=http://www.tjfozoon.com/Web/style/images/f04.png*/;
+ 
+}
+
+.fixed-right li a.a05{
+  background-image: url(/0-finalPrj/img/ic_ewm.png)/*tpa=http://www.tjfozoon.com/Web/style/images/ic_ewm.png*/;
+ 
+}
+
+.fixed-right li .ioc{
+  top:4px;
+  right:1px;
+  width:16px;
+  height:16px;
+  border-radius: 50%;
+  background-color: #b39860;
+  color:#fff;
+}
+
+.fixed-right li .p-num{
+  position:absolute;
+  right:-116px;
+  top: 0;
+  height:40px;
+  line-height: 40px;
+  padding-left: 8px;
+  padding-right: 8px;
+  color:#fff;
+  width:100px;
+    transition:all 0.5s;
+  background-color: #afcbbd;
+  z-index: 2;
+}
+
+.fixed-right li .ewm{
+    position: absolute;
+    right: -126px;
+    bottom:0px;
+    height: 120px;
+    color: #fff;
+    width: 120px;
+    padding: 2px;
+    transition: all 0.5s;
+    background-color: #afcbbd;
+    z-index: 2;
+}
+.fixed-right li:hover .p-num{
+  right:39px;
+  transition:all 0.5s;
+
+}
+.fixed-right li:hover .ewm{
+  right:39px;
+  transition:all 0.5s;
+
+}
+
+.afternoon li{
+  overflow:hidden;
+}
