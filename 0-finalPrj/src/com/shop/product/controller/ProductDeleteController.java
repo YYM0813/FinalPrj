@@ -17,8 +17,15 @@ public class ProductDeleteController {
 	private ProductDeleteServiceImpl productdelservice;
 	
 	@RequestMapping(value="/deleteproduct")
-	public void deleteProduct(int cid){
+	@ResponseBody
+	public Map<String,String> deleteProduct(int cid){
+		Map<String,String>map = new HashMap<String,String>();
 		String state = this.productdelservice.productDelete(cid);
-		
+		if(state =="success"){
+			map.put("result", "success");
+		}else{
+			map.put("result", "fail");
+		}
+		return map;
 	}
 }

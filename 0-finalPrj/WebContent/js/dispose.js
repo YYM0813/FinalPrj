@@ -15,7 +15,6 @@ function Login() {
 	var params={};
 	params.email=email;
 	params.password = password;
-	alert(params.email);
 	if (email == "") {
 		swal("登录失败", "请输入您的邮箱！", "warning");
 	}
@@ -31,7 +30,7 @@ function Login() {
 			if (data.result == "true") {
 				window.location.href ="http://localhost:8080/0-finalPrj/index.jsp";
 			} else if (data.result == "wrong") {
-				alert("你输入的邮箱错咯");
+				swal("登录失败", "你输入的邮箱错咯", "warning");
 			} else if (data.result == "admin") {
 				window.location.href = "http://localhost:8080/0-finalPrj/admin.jsp";
 			}

@@ -15,6 +15,7 @@ function IsInt(obj) {
 
 //删除购物车商品
 function DelCar(cid) {
+		alter("ok");
     swal({
         title: "确定删除?",
         text: "您确定是否删除选中的商品",
@@ -26,16 +27,14 @@ function DelCar(cid) {
     },
     function () {
         $.ajax({
-            url: "http://www.tjfozoon.com/Web/Ajax/Ajax.ashx",
+            url: "http://localhost:8080/0-finalPrj/deleteproduct",
             type: "POST",
             cache: false,
-            dataType: "text",
-            data: { action: "DelCar", cid: cid },
+            dataType: "json",
+            data: {"cid": cid },
             success: function (ReturnData) {
-                if (ReturnData == "yes") {
-                    //$("#car_" + cid).remove();
-                    //Statistical();
-                    window.location.href = "Login.html-rurl=-Shopping-Car.html"/*tpa=http://www.tjfozoon.com/Login.html?rurl=/Shopping/Car.html*/;
+                if (ReturnData.result == "success") {
+                    window.location.href = "http://localhost:8080/0-finalPrj/car.jsp";
                 }
                 else {
                     swal("删除购物车商品失败", ReturnData, "warning");
@@ -47,6 +46,7 @@ function DelCar(cid) {
 //增加减少购物车商品数量
 function OperationNum(cid, model) {
     var buycount = $("#buy_num_" + cid).val();
+    alter(buycount);
     $.ajax({
         url: "http://www.tjfozoon.com/Web/Ajax/Ajax.ashx",
         type: "POST",
@@ -73,29 +73,7 @@ function OperationNum(cid, model) {
         }
     });
 }
-//设置商品购物数量
-function SetShopNum(type) {
-    switch (type) {
-        case "add":
-            var num = parseInt($("#shopcount").val());
-            if (!isNaN(num)) {
-                $("#shopcount").val(num + 1);
-            }
-            else {
-                $("#shopcount").val("1");
-            }
-            break;
-        case "reduce":
-            var num = parseInt($("#shopcount").val());
-            if (!isNaN(num) && num > 1) {
-                $("#shopcount").val(num - 1);
-            }
-            else {
-                $("#shopcount").val("1");
-            }
-            break;
-    }
-}
+
 //设置头部购物车数量
 function SetTopShopNum() {
     $.ajax({
@@ -111,8 +89,7 @@ function SetTopShopNum() {
 }
 //统计数量和金额
 function Statistical() {
-    //设置头部购物车数量
-    SetTopShopNum();
+   
     //总金额
     var totalprice = 0;
     $(".myCart").find("span[name='totalprice']").each(function () {
@@ -121,6 +98,5 @@ function Statistical() {
     $("#totalprice").html(totalprice.toFixed(2));
     $("#totalprice2").html(totalprice.toFixed(2));
 }
-
 
 

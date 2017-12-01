@@ -18,121 +18,116 @@
     <script type="text/javascript" src="/0-finalPrj/js/jquery.bxslider.min.js"></script>
     <script type="text/javascript" src="/0-finalPrj/js/rem.js"></script>
     <script type="text/javascript" src="/0-finalPrj/js/main.js"></script>
-    <script type="text/javascript" src="/0-finalPrj/s/wow.min.js"></script>
+    <script type="text/javascript" src="/0-finalPrj/js/wow.min.js"></script>
 
     <link href="/0-finalPrj/css/sweet-alert.css" rel="stylesheet" type="text/css" />
-    <script src="/0-finalPrj/css/sweet-alert.min.js" type="text/javascript"></script>
+    <script src="/0-finalPrj/js/sweet-alert.min.js" type="text/javascript"></script>
 
     
     <title>购物车 - 法颂蛋糕官网|FOZOON—天津生日蛋糕网上订购新鲜配送</title>
-    <script>
- 	//删除购物车商品
-    function DelCar(cid) {
-        swal({
-            title: "确定删除?",
-            text: "您确定是否删除选中的商品",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#DD6B55",
-            confirmButtonText: "删除",
-            cancelButtonText: "取消"
-        },
-        function () {
-            $.ajax({
-                url: "http://localhost:8080/0-finalPrj/deleteproduct",
-                type: "POST",
-                cache: false,
-                dataType: "text",
-                data: {"cid": cid },
-                success: function (ReturnData) {
-                    if (ReturnData == "success") {
-                        //$("#car_" + cid).remove();
-                        //Statistical();
-                        window.location.href = "http://localhost:8080/0-finalPrj/car.jsp";
-                    }
-                    else {
-                        swal("删除购物车商品失败", ReturnData, "warning");
-                    }
-                }
-            });
-        });
-    }
-    //增加减少购物车商品数量
-    function OperationNum(cid, model) {
-        var buycount = $("#buy_num_" + cid).val();
-        $.ajax({
-            url: "http://www.tjfozoon.com/Web/Ajax/Ajax.ashx",
-            type: "POST",
-            cache: false,
-            dataType: "xml",
-            data: { action: "AddOrReduceNum", cid: cid, model: escape(model), buycount: buycount },
-            success: function (ReturnData) {
-                $("#buy_num_" + cid).val(parseInt($("response num", ReturnData).text()));
-                var state = $("response state", ReturnData).text();
-                if (state != "yes") {
-                    swal("修改商品数量失败", $("response errorinfo", ReturnData).text(), "warning");
-                }
-                else {
-                    if (model == "Reduce") {
-                        window.location.href = "Login.html-rurl=-Shopping-Car.html"/*tpa=http://www.tjfozoon.com/Login.html?rurl=/Shopping/Car.html*/;
-                    }
-                    else {
-                        //小计金额
-                        $("#totalprice_" + cid).html((parseFloat($("response num", ReturnData).text()) * parseFloat($("#price1_" + cid).val())).toFixed(2));
-                        //统计数量和金额
-                        Statistical();
-                    }
-                }
-            }
-        });
-    }
-    //设置商品购物数量
-    function SetShopNum(type) {
-        switch (type) {
-            case "add":
-                var num = parseInt($("#shopcount").val());
-                if (!isNaN(num)) {
-                    $("#shopcount").val(num + 1);
-                }
-                else {
-                    $("#shopcount").val("1");
-                }
-                break;
-            case "reduce":
-                var num = parseInt($("#shopcount").val());
-                if (!isNaN(num) && num > 1) {
-                    $("#shopcount").val(num - 1);
-                }
-                else {
-                    $("#shopcount").val("1");
-                }
-                break;
-        }
-    }
-    //设置头部购物车数量
-    function SetTopShopNum() {
-        $.ajax({
-            url: "http://www.tjfozoon.com/Web/Ajax/Ajax.ashx",
-            type: "POST",
-            cache: false,
-            dataType: "text",
-            data: { action: "SetTopShopNum" },
-            success: function (ReturnData) {
-                $("#t_car_num").html(ReturnData);
-            }
-        });
-    }
-    //统计数量和金额
-    function Statistical() {
-       
-        //总金额
-        var totalprice = 0;
-        $(".myCart").find("span[name='totalprice']").each(function () {
-            totalprice = totalprice + parseFloat($(this).html());
-        });
-        $("#totalprice").html(totalprice.toFixed(2));
-        $("#totalprice2").html(totalprice.toFixed(2));
-    }
+    <script type="text/javascript">
+
+  //对多位小数进行四舍五入
+  //num是要处理的数字  v为要保留的小数位数
+  function decimal(num, v) {
+      var vv = Math.pow(10, v);
+      return Math.round(num * vv) / vv;
+  }
+  //限制商品只能输入整数
+  function IsInt(obj) {
+      var reg = /^\d+$/;
+      if (!reg.test($(obj).val())) {
+          $(obj).val("1");
+      }
+  }
+
+  //删除购物车商品
+  function dele(cid) {
+	  alert(cid);
+      swal({
+          title: "确定删除?",
+          text: "您确定是否删除选中的商品",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "删除",
+          cancelButtonText: "取消"
+      },
+      function () {
+          $.ajax({
+              url: "http://localhost:8080/0-finalPrj/deleteitem",
+              type: "POST",
+              cache: false,
+              dataType: "json",
+              data: {"cid": cid },
+              success: function (ReturnData) {
+            	  alert("1");
+            	  alert(ReturnData.result)
+                  if (ReturnData.result == "success") {
+                      window.location.href = "http://localhost:8080/0-finalPrj/car.jsp";
+                  }
+                  else if(ReturnData.result == "fail"){
+                      swal("删除购物车商品失败", ReturnData, "warning");
+                  }
+              }
+          });
+      });
+  }
+  //增加减少购物车商品数量
+  function OperationNum(cid, model) {
+      var buycount = $("#buy_num_" + cid).val();
+      alter(buycount);
+      $.ajax({
+          url: "http://www.tjfozoon.com/Web/Ajax/Ajax.ashx",
+          type: "POST",
+          cache: false,
+          dataType: "xml",
+          data: { action: "AddOrReduceNum", cid: cid, model: escape(model), buycount: buycount },
+          success: function (ReturnData) {
+              $("#buy_num_" + cid).val(parseInt($("response num", ReturnData).text()));
+              var state = $("response state", ReturnData).text();
+              if (state != "yes") {
+                  swal("修改商品数量失败", $("response errorinfo", ReturnData).text(), "warning");
+              }
+              else {
+                  if (model == "Reduce") {
+                      window.location.href = "Login.html-rurl=-Shopping-Car.html"/*tpa=http://www.tjfozoon.com/Login.html?rurl=/Shopping/Car.html*/;
+                  }
+                  else {
+                      //小计金额
+                      $("#totalprice_" + cid).html((parseFloat($("response num", ReturnData).text()) * parseFloat($("#price1_" + cid).val())).toFixed(2));
+                      //统计数量和金额
+                      Statistical();
+                  }
+              }
+          }
+      });
+  }
+
+  //设置头部购物车数量
+  function SetTopShopNum() {
+      $.ajax({
+          url: "http://www.tjfozoon.com/Web/Ajax/Ajax.ashx",
+          type: "POST",
+          cache: false,
+          dataType: "text",
+          data: { action: "SetTopShopNum" },
+          success: function (ReturnData) {
+              $("#t_car_num").html(ReturnData);
+          }
+      });
+  }
+  //统计数量和金额
+  function Statistical() {
+     
+      //总金额
+      var totalprice = 0;
+      $(".myCart").find("span[name='totalprice']").each(function () {
+          totalprice = totalprice + parseFloat($(this).html());
+      });
+      $("#totalprice").html(totalprice.toFixed(2));
+      $("#totalprice2").html(totalprice.toFixed(2));
+  }
     </script>
 
     <meta name="Keywords" content="天津蛋糕，天津生日蛋糕，预订生日蛋糕，蛋糕配送，天津蛋糕配送，法颂，法颂蛋糕，动物奶油蛋糕，天津婚庆蛋糕、天津寿宴蛋糕、天津定制宴会蛋糕、诺心，诺心蛋糕，21cake，21cake蛋糕，好利来，好利来蛋糕，津乐园，巴黎贝甜，多乐之日，" />
@@ -164,7 +159,7 @@
         </ul>
         <div class="fr login-btn bm-dn">
             
-            <a href="/UserCenter/Index.html" class="pr10" style="background-color: #FFF; color: #b69b65;">15732169632</a>
+            <a href="/UserCenter/Index.html" class="pr10" style="background-color: #FFF; color: #b69b65;">${loginuser.name}</a>
             <a href="/LoginOut.html" class="pr10" style="background-color: #FFF; color: #b69b65;">退出</a>
             <a href="/Shopping/Car.html" class="dib login">购物车</a>
             
@@ -197,41 +192,39 @@
                     <div class="fl d03">小计</div>
                     <div class="fl d03">操作</div>
                     <div class="clr"></div>
-                </li>                
-			<c:forEach items="${cart }" var="c">
-				<c:forEach items="${c.items }" var="p">
-                <li class="c_body"4 id="car_15712">
+                </li> 
+            <c:forEach items="${cartItem}" var="item">
+                <li class="c_body">
                     <div class="fl d02">
                         <div class="fl c_img mr20 rel">
-                            <img src="/0-finalPrj/img/${p.product.img1 }" class="imgvt">
+                            <img src="/0-finalPrj/img/${item.product.img1}" class="imgvt">
                         </div>
-                        <p class="fl text_vt li26 tal text"><span>${p.product.name }<span class="db ovh">${p.pskuid}</span></span></p>
+                        <p class="fl text_vt li26 tal text"><span>${item.product.name}<span class="db ovh">${item.id}</span></span></p>
                         <div class="clr"></div>
                     </div>
-                    <div class="fl d03 fs16 text">${p.product.price}<span class="sm-dn">/个</span><input type="hidden" id="price1_15712" value="179.00" /></div>
+                    <div class="fl d03 fs16 text">${item.product.price}<span class="sm-dn">/个</span></div>
                     <div class="fl d04 fs16">
-                        <span class="dib mt20 s-num"><b class="fl i-red" style="cursor: pointer;" onclick="OperationNum('15712','Reduce')">-</b><input type="text" class="fl tac" onchange="OperationNum('15712','ChangesDirectly')" maxlength="4" id="buy_num_15712" name="buynum" value="1"><b class="fl i-add" style="cursor: pointer;" onclick="OperationNum('15712','Add')">+</b><div class="clr"></div>
+                        <span class="dib mt20 s-num"><b class="fl i-red" style="cursor: pointer;" onclick="OperationNum('${item.id}','Reduce')">-</b><input type="text" class="fl tac" onchange="OperationNum('${item.id}','ChangesDirectly')" maxlength="4" id="buy_num_15712" name="buynum" value="${item.count}"><b class="fl i-add" style="cursor: pointer;" onclick="OperationNum('${item.id}','Add')">+</b><div class="clr"></div>
                         </span>
                     </div>
-                    <div class="fl d03 fs16 sm-dn khaki"><span name="totalprice" id="totalprice_15712">${p.product.price}</span>元</div>
+                    <div class="fl d03 fs16 sm-dn khaki"><span name="totalprice" >${item.product.price*item.count}</span>元</div>
                     <div class="fl d03 fs16 dn sm-db text">个</div>
-                    <div class="fl d03"><a href="http://localhost:8080/0-finalPrj/deleteitem?cid=${p.id }" class="fs16 c-b-del">删除</a></div>
+                    <div class="fl d03"><a href="javascript:void(0);" onclick="dele(${item.id});" class="fs16 c-b-del">删除</a></div>
                     <div class="clr"></div>
                 </li>
                 </c:forEach>
-              </c:forEach>
             </ul>
         </div>
         <div class="settlement pl30 li54 fs14 mt20 bgmc mb20">
             <p class="fl sm-dn c9 input_div">
-                <a href="/Product/News.html" class="fs14 c9" style="background-color: #b59a64; color: #FFF; padding: 5px 10px; margin-right: 15px;">继续购物</a>   |    共 <span>1</span> 件商品
+                <a href="/Product/News.html" class="fs14 c9" style="background-color: #b59a64; color: #FFF; padding: 5px 10px; margin-right: 15px;">清空购物车</a>   |    共 <span></span> 件商品
             </p>
             <div class="text dn sm-db pb10">
-                合计：<span class="fr" id="totalprice2">0.00</span>元<div class="clr"></div>
+                合计：<span class="fr" id="totalprice2"></span>元<div class="clr"></div>
             </div>
             
 
-            <div class="fr li54 st-r"><span class="sm-dn c9">合计：&nbsp;<span class="khaki fs20 li54" id="totalprice">0.00</span>&nbsp;元</span><a href="/Shopping/Confirm.html" class="dib ml25 g-sett cf fs22 tac vt text">去结算</a></div>
+            <div class="fr li54 st-r"><span class="sm-dn c9">合计：&nbsp;<span class="khaki fs20 li54" id="totalprice">0.00</span>&nbsp;元</span><a href="/0-finalPrj/confirm.jsp" class="dib ml25 g-sett cf fs22 tac vt text">去结算</a></div>
             <div class="clr"></div>
         </div>
 

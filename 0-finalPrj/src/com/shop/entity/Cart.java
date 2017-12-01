@@ -1,33 +1,21 @@
 package com.shop.entity;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="cart")
+import java.util.HashMap;
+import java.util.Map;
 public class Cart {
-	private int id;
-	private Set<CartItem> items = new HashSet<CartItem>();
 	
-	@Id
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	@OneToMany(mappedBy="cart", targetEntity=CartItem.class,cascade=CascadeType.ALL)
-	public Set<CartItem> getItems() {
-		return items;
-	}
-	public void setItems(Set<CartItem> items) {
-		this.items = items;
+	public Map<Integer,CartItem> container = new HashMap<Integer,CartItem>();
+	
+	public void AddCart(Product pro){
+		if(container.containsKey(pro.getId())){
+			CartItem ci = container.get(pro.getId());
+			ci.setCount(ci.getCount()+1);			
+		}else{
+			CartItem ci = new CartItem();
+			ci.setProduct(pro);
+			ci.setCount(1);
+			container.put(pro.getId(), ci);
+		}
 	}
 	
 }

@@ -32,6 +32,7 @@
 	    var shopcount = $("#shopcount").val();
 	    var pskuid = ${pro.id};
 	    var changeid = $("#changeid").val();
+	    var uid = $("#user").val();
 	    var param={};
 		param.pid=pid;
 		param.shopcount=shopcount;
@@ -68,7 +69,7 @@
 	                        confirmButtonText: '我的购物车',
 	                        cancelButtonText: '继续浏览'
 	                    }, function () {
-	                        window.location.href = "http://localhost:8080/0-finalPrj/car.jsp";
+	                        window.location.href = "http://localhost:8080/0-finalPrj/showcart";
 	                    });
 	                }
 	                if (type == "buy") {
@@ -83,7 +84,7 @@
 	                    	text: "请先登录您的账号！", 
 	                    	type: "warning" 
 	                    	},function () { 
-	                    	window.location.href = "http://localhost:8080/0-finalPrj/index.jsp";
+	                    	window.location.href = "http://localhost:8080/0-finalPrj/Login.jsp";
 	                   });
 	                }
 	                else {
@@ -339,6 +340,7 @@
             <div class="clr"></div>
         </div>
     </div>
+    <input type="hidden" id="user" value="${loginuser.id }">
     <input type="hidden" id="changeid" value="0" />
     <input type="hidden" id="pskuid" value="0" />
     <input type="hidden" id="productid" value="0" />

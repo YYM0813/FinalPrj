@@ -1,5 +1,6 @@
 package com.shop.entity;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="producttype")
-public class ProductType {
+public class ProductType implements Serializable{
 	
 	private Integer id;//商品类别id
 	private String name;//商品类别名称

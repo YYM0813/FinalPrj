@@ -14,6 +14,6 @@ public class CartItemDeleteServiceImpl {
 	private CartItemDeleteDaoImpl cdl;
 	
 	public String deleteItem(int id){
-		return this.cdl.deleteitem(id);		
+		return this.cdl.deleteitem(id);
 	}
 }

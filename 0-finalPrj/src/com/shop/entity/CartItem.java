@@ -1,7 +1,11 @@
 package com.shop.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -10,14 +14,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="cartitem")
-public class CartItem {
+public class CartItem implements Serializable{
 	private int id;
 	private Product product;
-	private Cart cart;
 	private int count;
 	private int pskuid;
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY) 
 	public int getId() {
 		return id;
 	}
@@ -32,14 +36,7 @@ public class CartItem {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	@ManyToOne
-	@JoinColumn(name="cartid")
-	public Cart getCart() {
-		return cart;
-	}
-	public void setCart(Cart cart) {
-		this.cart = cart;
-	}
+
 	public int getCount() {
 		return count;
 	}
