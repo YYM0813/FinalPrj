@@ -1,24 +1,22 @@
 package com.shop.entity;
 
-import java.io.Serializable;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="cartitem")
-public class CartItem implements Serializable{
+public class CartItem{
 	private int id;
 	private Product product;
 	private int count;
-	private int pskuid;
+	private Flavor flavor;
+	private Size size;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY) 
@@ -43,11 +41,21 @@ public class CartItem implements Serializable{
 	public void setCount(int count) {
 		this.count = count;
 	}
-	public int getPskuid() {
-		return pskuid;
+	@OneToOne
+	@JoinColumn(name = "flavorid")
+	public Flavor getFlavor() {
+		return flavor;
 	}
-	public void setPskuid(int pskuid) {
-		this.pskuid = pskuid;
+	public void setFlavor(Flavor flavor) {
+		this.flavor = flavor;
+	}
+	@OneToOne
+	@JoinColumn(name = "sizeid")
+	public Size getSize() {
+		return size;
+	}
+	public void setSize(Size size) {
+		this.size = size;
 	}
 	
 }

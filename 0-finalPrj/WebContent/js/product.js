@@ -1,5 +1,68 @@
-
-//对多位小数进行四舍五入
+//添加商品到购物车
+	function AddCar(type) {
+	    var pid = ${pro.id};
+	    var shopcount = $("#shopcount").val();
+	    var pskuid = $("#pskuid").val();
+	    var param={};
+		param.pid=pid;
+		param.shopcount=shopcount;
+		param.pskuid=pskuid;
+	    //判断是否是整数
+	    var reg = /^\d+$/;
+	    if (!reg.test(shopcount)) {
+	        swal("加入购物车失败", "购买数量必须为整数类型！", "warning");
+	        return;
+	    }
+	    if (shopcount <= 0) {
+	        swal("加入购物车失败", "购买数量必须大于0！", "warning");
+	        return;
+	    }
+	    if (isNaN(pskuid)) {
+	        swal("加入购物车失败", "请选择规格！", "warning");
+	        return;
+	    }
+	    $.ajax({
+	    	url : "http://localhost:8080/0-finalPrj/cartadd",
+			type : "POST",
+			data :param,
+			dataType : "json",
+	        success: function (ReturnData) {
+	            if (ReturnData.result == "yes") {
+	                if (type == "add") {
+	                    swal({
+	                        title: "加入购物车成功",
+	                        text: "是否跳转到我的购物车进行下单？",
+	                        type: "success",
+	                        showCancelButton: true,
+	                        confirmButtonColor: '#DD6B55',
+	                        confirmButtonText: '我的购物车',
+	                        cancelButtonText: '继续浏览'
+	                    }, function () {
+	                        window.location.href = "http://localhost:8080/0-finalPrj/showcart";
+	                    });
+	                }
+	                if (type == "buy") {
+	                    window.location.href = "http://localhost:8080/0-finalPrj/List.jsp";
+	                }
+	                SetTopShopNum();
+	            }
+	            else {
+	                if (ReturnData.result == "nologin") {
+	                    swal({ 
+	                    	title: "加入购物车失败", 
+	                    	text: "请先登录您的账号！", 
+	                    	type: "warning" 
+	                    	},function () { 
+	                    	window.location.href = "http://localhost:8080/0-finalPrj/Login.jsp";
+	                   });
+	                }
+	                else {
+	                    swal("加入购物车失败", ReturnData.result, "warning");
+	                }
+	            }
+	        }
+	    });
+	}
 //num是要处理的数字  v为要保留的小数位数
 function decimal(num, v) {
     var vv = Math.pow(10, v);
@@ -98,5 +161,39 @@ function Statistical() {
     $("#totalprice").html(totalprice.toFixed(2));
     $("#totalprice2").html(totalprice.toFixed(2));
 }
-
+//确认订单
+function ConfirmOrder() {
+	var name = $("#order_name").val();
+	var tel = $("#order_tel").val();
+	var address = $("#order_address").val();
+	var param={};
+	param.name=name;
+	param.tel=tel;
+	param.address=address;
+swal({
+    title: "确定提交?",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#DD6B55",
+    confirmButtonText: "提交",
+    cancelButtonText: "取消"
+},
+function () {
+    $.ajax({
+        url: "http://localhost:8080/0-finalPrj/ordercommit",
+        type: "POST",
+        cache: false,
+        dataType: "json",
+        data: param,
+        success: function (ReturnData) {
+            if (ReturnData.result == "success") {
+                window.location.href = "http://localhost:8080/0-finalPrj/submit.jsp";
+            }
+            else {
+                swal("删除购物车商品失败", ReturnData, "warning");
+            }
+        }
+    });
+});
+}
 

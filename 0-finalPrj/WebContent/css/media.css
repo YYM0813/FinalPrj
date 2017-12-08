@@ -290,11 +290,11 @@
         }
 
             .proopen-center .bx-wrapper .bx-controls-direction a.bx-next {
-                background-image: url(ic_arrow_r.png)/*tpa=http://www.tjfozoon.com/Web/style/images/ic_arrow_r.png*/;
+                background-image: url(/0-finalPrj/img/ic_arrow_r.png)/*tpa=http://www.tjfozoon.com/Web/style/images/ic_arrow_r.png*/;
             }
 
             .proopen-center .bx-wrapper .bx-controls-direction a.bx-prev {
-                background-image: url(ic_arrow_l.png)/*tpa=http://www.tjfozoon.com/Web/style/images/ic_arrow_l.png*/;
+                background-image: url(/0-finalPrj/img/ic_arrow_l.png)/*tpa=http://www.tjfozoon.com/Web/style/images/ic_arrow_l.png*/;
             }
 
     .proopen-right {
@@ -337,7 +337,7 @@
         padding-left: 0;
         padding-top: 115px;
         width: 100%;
-        background: url(order_success.png)/*tpa=http://www.tjfozoon.com/Web/style/images/order_success.png*/ no-repeat center top;
+        background: url(/0-finalPrj/img/order_success.png)/*tpa=http://www.tjfozoon.com/Web/style/images/order_success.png*/ no-repeat center top;
     }
 
     .order_pay .order_money {
@@ -350,7 +350,7 @@
         width: 60px;
         background-repeat: no-repeat;
         background-position: center center;
-        background-image: url(ic_member.png)/*tpa=http://www.tjfozoon.com/Web/style/images/ic_member.png*/;
+        background-image: url(/0-finalPrj/img/ic_member.png)/*tpa=http://www.tjfozoon.com/Web/style/images/ic_member.png*/;
         background-size: 35px 35px;
     }
 
@@ -358,7 +358,7 @@
         width: 60px;
         background-repeat: no-repeat;
         background-position: center center;
-        background-image: url(ic_cart.png)/*tpa=http://www.tjfozoon.com/Web/style/images/ic_cart.png*/;
+        background-image: url(/0-finalPrj/img/ic_cart.png)/*tpa=http://www.tjfozoon.com/Web/style/images/ic_cart.png*/;
         background-size: 35px 35px;
     }
 }

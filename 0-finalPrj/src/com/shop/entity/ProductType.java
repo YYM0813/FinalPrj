@@ -1,6 +1,5 @@
 package com.shop.entity;
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="producttype")
-public class ProductType implements Serializable{
+public class ProductType{
 	
 	private Integer id;//商品类别id
 	private String name;//商品类别名称
@@ -31,7 +30,7 @@ public class ProductType implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	@OneToMany(mappedBy="producttype", targetEntity=Product.class,cascade=CascadeType.ALL)
+	@OneToMany(cascade=CascadeType.ALL)
 	public Set<Product> getMap() {
 		return map;
 	}

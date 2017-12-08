@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,6 +16,7 @@ public class Address {
 	private String name;
 	private String tel;
 	private String address;
+	private User u;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)  
@@ -40,6 +43,14 @@ public class Address {
 	}
 	public void setTel(String tel) {
 		this.tel = tel;
+	}
+	@ManyToOne
+	@JoinColumn(name="userid")
+	public User getU() {
+		return u;
+	}
+	public void setU(User u) {
+		this.u = u;
 	}
 	
 	

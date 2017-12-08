@@ -1,6 +1,5 @@
 package com.shop.entity;
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,12 +14,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="user")
-public class User implements Serializable{
+public class User{
 	private Integer id;
 	private String name;
 	private String email;
 	private String password;
 	private String role;
+	private Set<Address> addressmap = new HashSet<Address>();
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)  
@@ -54,6 +54,13 @@ public class User implements Serializable{
 	}
 	public void setRole(String role) {
 		this.role = role;
+	}
+	@OneToMany(mappedBy="id", targetEntity=Address.class,cascade=CascadeType.ALL)
+	public Set<Address> getAddressmap() {
+		return addressmap;
+	}
+	public void setAddressmap(Set<Address> addressmap) {
+		this.addressmap = addressmap;
 	}
 	
 	

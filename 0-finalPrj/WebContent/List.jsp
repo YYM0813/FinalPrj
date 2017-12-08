@@ -24,16 +24,7 @@
     <script src="/0-finalPrj/js/sweet-alert.min.js" tppabs="http://www.tjfozoon.com/Web/style/lib/sweet-alert.min.js" type="text/javascript"></script>
 
     
-    <title>蛋糕 - 法颂蛋糕官网|FOZOON—天津生日蛋糕网上订购新鲜配送</title>
-    <script type="text/javascript">
-        function search_onclick() {
-            var Screen = "";
-            $(".screenselect").each(function () {
-                Screen += $(this).val() + "|";
-            });
-            location.href = "?Screen=" + escape(Screen.substring(0, Screen.length - 1));
-        }
-    </script>
+    <title>蛋糕 - 法颂蛋糕官网|FOZOON—天津生日蛋糕网上订购新鲜配送</title>    
     <style>
         @media (max-width: 767px) {
             .proList li .p-img {
@@ -115,40 +106,18 @@
         <div class="mauto">
             <div class="div_select">
                 
-                <select class="tac screenselect" onchange="search_onclick()">
-                    <option value="">口味</option>
-                    
-                    <option value="10196:巧克力">巧克力</option>
-                    
-                    <option value="10196:奶油水果">奶油水果</option>
-                    
-                    <option value="10196:咖啡">咖啡</option>
-                    
-                    <option value="10196:抹茶">抹茶</option>
-                    
-                    <option value="10196:坚果">坚果</option>
-                    
-                    <option value="10196:其他">其他</option>
-                    
+                <select class="tac screenselect" onchange="self.location.href=options[selectedIndex].value">
+                    <option value="aa">口味</option>
+                    <c:forEach items="${flavor}" var="p">
+                   		<option value="${ctx }/product/flavor?id=${p.id }">${p.name }</option>
+                    </c:forEach>
                 </select>
                 
-                <select class="tac screenselect" onchange="search_onclick()">
+                <select class="tac screenselect" onchange="self.location.href=options[selectedIndex].value">
                     <option value="">尺寸</option>
-                    
-                    <option value="10195:6吋">6吋</option>
-                    
-                    <option value="10195:8吋">8吋</option>
-                    
-                    <option value="10195:10吋">10吋</option>
-                    
-                    <option value="10195:12吋">12吋</option>
-                    
-                    <option value="10195:14吋">14吋</option>
-                    
-                    <option value="10195:双层">双层</option>
-                    
-                    <option value="10195:多层">多层</option>
-                    
+                    <c:forEach items="${size}" var="p"> 
+                    	<option value="${ctx }/product/size?id=${p.id }">${p.name}</option>
+                   	</c:forEach>
                 </select>
                 
             </div>

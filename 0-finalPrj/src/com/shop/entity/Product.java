@@ -1,12 +1,17 @@
 package com.shop.entity;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -17,14 +22,14 @@ public class Product implements Serializable{
 	private String name;
 	private String englishname;
 	private double price;
-	private String flavor;
-	private String size;
 	private String discription;
 	private String img1;
 	private String img2;
 	private String img3;
 	private String disImg;
 	private ProductType producttype;
+	private Set<Flavor> flavor = new HashSet<Flavor>();
+	private Set<Size> size = new HashSet<Size>();
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY) 
@@ -45,7 +50,7 @@ public class Product implements Serializable{
 	}
 	public void setEnglishname(String englishname) {
 		this.englishname = englishname;
-	}
+	}	
 	public double getPrice() {
 		return price;
 	}
@@ -66,18 +71,6 @@ public class Product implements Serializable{
 	}
 	public void setDiscription(String discription) {
 		this.discription = discription;
-	}
-	public String getFlavor() {
-		return flavor;
-	}
-	public void setFlavor(String flavor) {
-		this.flavor = flavor;
-	}
-	public String getSize() {
-		return size;
-	}
-	public void setSize(String size) {
-		this.size = size;
 	}
 	public String getImg1() {
 		return img1;
@@ -103,6 +96,24 @@ public class Product implements Serializable{
 	public void setDisImg(String disImg) {
 		this.disImg = disImg;
 	}
-	
-	
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(name="productflavor", 
+	    joinColumns=@JoinColumn(name="productid"),
+	    inverseJoinColumns=@JoinColumn(name="flavorid"))
+	public Set<Flavor> getFlavor() {
+		return flavor;
+	}
+	public void setFlavor(Set<Flavor> flavor) {
+		this.flavor = flavor;
+	}
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(name="productsize", 
+	    joinColumns=@JoinColumn(name="productid"),
+	    inverseJoinColumns=@JoinColumn(name="sizeid"))
+	public Set<Size> getSize() {
+		return size;
+	}
+	public void setSize(Set<Size> size) {
+		this.size = size;
+	}
 }

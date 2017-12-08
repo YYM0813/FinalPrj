@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.shop.cart.dao.CartOrderConfirmDaoImpl;
 import com.shop.entity.Address;
 import com.shop.entity.Cart;
 import com.shop.entity.CartItem;
@@ -24,6 +25,8 @@ import com.shop.product.dao.ProductShowDaoImpl;
 public class CartOrderConfirmController {
 	@Resource
 	private ProductShowDaoImpl psdl;
+	@Resource
+	private CartOrderConfirmDaoImpl coci;
 	
 	@RequestMapping(value="/orderconfirm")
 	@ResponseBody
@@ -31,6 +34,7 @@ public class CartOrderConfirmController {
 		Map<String,String> map = new HashMap<String,String>();
 		List<CartItem> orderlist = new ArrayList<CartItem>();
 		List<Address> addresslist = new ArrayList<Address>();
+		
 		Cart cart = (Cart) session.getAttribute("cart");
 		Iterator i=cart.container.values().iterator();
 		int pid = 0;
@@ -48,12 +52,8 @@ public class CartOrderConfirmController {
 		session.setAttribute("orderlist", orderlist);
 		/*PS:查出用户地址*/
 		User u = (User)session.getAttribute("loginuser");
-		Set<Address>address = u.getAddressmap();
-		Iterator it = address.iterator();
-		while(it.hasNext()){
-			Address a =  (Address) it.next();
-			addresslist.add(a);
-		}		
+		int uid = u.getId();
+		addresslist = coci.findAddressByUserId(uid);	
 		session.setAttribute("addresslist", addresslist);
 		map.put("result", "success");
 		return map;

@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.shop.entity.Flavor;
 import com.shop.entity.Product;
+import com.shop.entity.Size;
 import com.shop.product.service.ProductListServiceImpl;
-import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory.Default;
 
 @Controller
 @RequestMapping("/product")
@@ -24,6 +25,12 @@ public class ProductListController {
 	@RequestMapping(value="/list",method=RequestMethod.GET)
 	public String findAllByType(@RequestParam("typeid")Integer id,HttpSession session){
 		List<Product> list=new ArrayList<Product>();
+		List<Flavor> flavorlist = new ArrayList<Flavor>();
+		List<Size> sizelist = new ArrayList<Size>();
+		flavorlist = productlistservice.findAllFlavor();
+		sizelist = productlistservice.findAllSize();
+		session.setAttribute("flavor", flavorlist);
+		session.setAttribute("size", sizelist);
 		if(id==0){
 			list = productlistservice.findAll();
 		}else{

@@ -267,47 +267,4 @@ function SetUserAddressDefault(aid) {
 			});
 }
 // 提交地址
-function SaveAddress() {
-	var rorder = $("#rorder").val();
-	// var towns = $("#towns").val();
-	// if (towns == "0")
-	// {
-	// swal("提交失败", "请选择区域", "warning");
-	// return;
-	// }
-	$
-			.ajax({
-				url : "http://www.tjfozoon.com/Web/Ajax/Ajax.ashx",
-				type : "POST",
-				cache : false,
-				dataType : "text",
-				data : $("#aspnetForm").serialize(),
-				success : function(ReturnData) {
-					if (ReturnData == "yes") {
-						if (rorder == 1) {
-							swal(
-									{
-										title : "保存成功",
-										text : "您的地址成功保存,返回进行下单！",
-										type : "success"
-									},
-									function() {
-										window.location.href = "http://www.tjfozoon.com/Login.html?rurl=/Shopping/Confirm.html?ar=1";
-									});
-						} else {
-							swal(
-									{
-										title : "保存成功",
-										text : "您的地址成功保存！",
-										type : "success"
-									},
-									function() {
-										window.location.href = "http://www.tjfozoon.com/Login.html?rurl=/UserCenter/Address/List.html";
-									});
-						}
-					} else {
-						swal("提交失败", ReturnData, "warning");
-					}
-				}
-			});
-}
+

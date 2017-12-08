@@ -25,7 +25,48 @@
 
     
     <title>购物车 - 法颂蛋糕官网|FOZOON—天津生日蛋糕网上订购新鲜配送</title>
-    <script type="text/javascript">
+    <script language="JavaScript" type="text/javascript">
+      function changeState(isChecked)
+     {
+       var chk_list=document.getElementsByTagName("input");
+       for(var i=0;i<chk_list.length;i++)
+        {
+         if(chk_list[i].type=="checkbox")
+          {
+           chk_list[i].checked=isChecked;
+          }
+        }
+    }
+    function chk(){ 
+      alert(11);
+  	  var obj=document.getElementsByName('check'); 
+  	  var string = ''; 
+  	  for(var i=0; i<obj.length; i++){ 
+   	  	if(obj[i].checked){
+   	  	 alert(obj[i].value);
+   		 	string+=obj[i].value+' ';
+   		} 
+  	  }
+  	  $.ajax({
+            url: "http://localhost:8080/0-finalPrj/orderconfirm",
+            type: "POST",
+            cache: false,
+            dataType: "json",
+            data:{"string":string},
+            success: function (ReturnData) {
+          	  alert(ReturnData.result)
+                if (ReturnData.result == "success") {
+                    window.location.href = "http://localhost:8080/0-finalPrj/confirm.jsp";
+                }
+                else{
+                    swal("订单出错了", ReturnData, "warning");
+                }
+            }
+        })   	 
+  	} 
+</script>
+
+<script type="text/javascript">
 
   //对多位小数进行四舍五入
   //num是要处理的数字  v为要保留的小数位数
@@ -42,8 +83,12 @@
   }
 
   //删除购物车商品
-  function dele(cid) {
-	  alert(cid);
+  function dele(pid) {
+	  var count = $("#buy_num").val();
+	  var param={};
+	  param.pid=pid;
+	  param.count=count;
+	  alert(pid);
       swal({
           title: "确定删除?",
           text: "您确定是否删除选中的商品",
@@ -59,14 +104,13 @@
               type: "POST",
               cache: false,
               dataType: "json",
-              data: {"cid": cid },
+              data: param,
               success: function (ReturnData) {
-            	  alert("1");
             	  alert(ReturnData.result)
-                  if (ReturnData.result == "success") {
+                  if (ReturnData.result == "ok") {
                       window.location.href = "http://localhost:8080/0-finalPrj/car.jsp";
                   }
-                  else if(ReturnData.result == "fail"){
+                  else{
                       swal("删除购物车商品失败", ReturnData, "warning");
                   }
               }
@@ -75,7 +119,7 @@
   }
   //增加减少购物车商品数量
   function OperationNum(cid, model) {
-      var buycount = $("#buy_num_" + cid).val();
+      var buycount = $("#buy_num").val();
       alter(buycount);
       $.ajax({
           url: "http://www.tjfozoon.com/Web/Ajax/Ajax.ashx",
@@ -185,31 +229,35 @@
         <div class="cart pl30 pr30 pb30 tac fs14 bgmc pt10 myCart">
             <ul class="w100">
                 <li class="c_header sm-dn">
-
+					
                     <div class="fl d02">商品信息</div>
                     <div class="fl d03">单价</div>
                     <div class="fl d04">数量</div>
                     <div class="fl d03">小计</div>
                     <div class="fl d03">操作</div>
+                    <div class="fl d03"><input type="checkbox" name="cb" onclick="changeState(this.checked)">全选</div>
                     <div class="clr"></div>
                 </li> 
             <c:forEach items="${cartItem}" var="item">
                 <li class="c_body">
+                
                     <div class="fl d02">
+                        
                         <div class="fl c_img mr20 rel">
                             <img src="/0-finalPrj/img/${item.product.img1}" class="imgvt">
                         </div>
-                        <p class="fl text_vt li26 tal text"><span>${item.product.name}<span class="db ovh">${item.id}</span></span></p>
+                        <p class="fl text_vt li26 tal text"><span>${item.product.name}<span class="db ovh">${item.flavor.name},${item.size.name}</span></span></p>
                         <div class="clr"></div>
                     </div>
                     <div class="fl d03 fs16 text">${item.product.price}<span class="sm-dn">/个</span></div>
                     <div class="fl d04 fs16">
-                        <span class="dib mt20 s-num"><b class="fl i-red" style="cursor: pointer;" onclick="OperationNum('${item.id}','Reduce')">-</b><input type="text" class="fl tac" onchange="OperationNum('${item.id}','ChangesDirectly')" maxlength="4" id="buy_num_15712" name="buynum" value="${item.count}"><b class="fl i-add" style="cursor: pointer;" onclick="OperationNum('${item.id}','Add')">+</b><div class="clr"></div>
+                        <span class="dib mt20 s-num"><b class="fl i-red" style="cursor: pointer;" onclick="OperationNum('${item.product.id}','Reduce')">-</b><input type="text" class="fl tac" onchange="OperationNum('${item.product.id}','ChangesDirectly')" maxlength="4" id="buy_num" name="buy_num" value="${item.count}"><b class="fl i-add" style="cursor: pointer;" onclick="OperationNum('${item.product.id}','Add')">+</b><div class="clr"></div>
                         </span>
                     </div>
                     <div class="fl d03 fs16 sm-dn khaki"><span name="totalprice" >${item.product.price*item.count}</span>元</div>
                     <div class="fl d03 fs16 dn sm-db text">个</div>
-                    <div class="fl d03"><a href="javascript:void(0);" onclick="dele(${item.id});" class="fs16 c-b-del">删除</a></div>
+                    <div class="fl d03"><a href="javascript:void(0);" onclick="dele('${item.product.id}');" class="fs16 c-b-del">删除</a></div>
+                    <div class="fl d03"><input type="checkbox" name="check" value="${item.product.id}"/></div>
                     <div class="clr"></div>
                 </li>
                 </c:forEach>
@@ -217,14 +265,14 @@
         </div>
         <div class="settlement pl30 li54 fs14 mt20 bgmc mb20">
             <p class="fl sm-dn c9 input_div">
-                <a href="/Product/News.html" class="fs14 c9" style="background-color: #b59a64; color: #FFF; padding: 5px 10px; margin-right: 15px;">清空购物车</a>   |    共 <span></span> 件商品
+                <a href="/Product/News.html" class="fs14 c9" style="background-color: #b59a64; color: #FFF; padding: 5px 10px; margin-right: 15px;">清空购物车</a> 
             </p>
             <div class="text dn sm-db pb10">
                 合计：<span class="fr" id="totalprice2"></span>元<div class="clr"></div>
             </div>
             
 
-            <div class="fr li54 st-r"><span class="sm-dn c9">合计：&nbsp;<span class="khaki fs20 li54" id="totalprice">0.00</span>&nbsp;元</span><a href="/0-finalPrj/confirm.jsp" class="dib ml25 g-sett cf fs22 tac vt text">去结算</a></div>
+            <div class="fr li54 st-r"><span class="sm-dn c9">合计：&nbsp;<span class="khaki fs20 li54" id="totalprice">0.00</span>&nbsp;元</span><a href="javascript:void(0);" onclick="chk();" class="dib ml25 g-sett cf fs22 tac vt text">去结算</a></div>
             <div class="clr"></div>
         </div>
 

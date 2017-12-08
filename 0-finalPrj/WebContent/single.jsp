@@ -24,20 +24,26 @@
     
     <title>马卡龙之约 - 经典蛋糕 - 蛋糕 - 法颂蛋糕官网|FOZOON—天津生日蛋糕网上订购新鲜配送</title>
     <script src="/0-finalPrj/js/product.js" tppabs="http://www.tjfozoon.com/Web/style/js/product.js"></script>
-    <script src="/0-finalPrj/js/jquery.zoombie.js" tppabs="http://www.tjfozoon.com/Web/style/js/jquery.zoombie.js"></script>
+    <script src="/0-finalPrj/js/jquery.zoombie.js"></script>
 	<script>
 	//添加商品到购物车
 	function AddCar(type) {
+		var spec = "";
+        $(".sel-sku").each(function () {
+            $(this).children("a").each(function () {
+                if ($(this).hasClass("act")) {
+                    spec += $(this).attr("skuspec")+ ",";
+                }
+            });
+        });
 	    var pid = ${pro.id};
 	    var shopcount = $("#shopcount").val();
-	    var pskuid = ${pro.id};
-	    var changeid = $("#changeid").val();
-	    var uid = $("#user").val();
+	    var pskuid = spec;
+	    alert(pskuid);
 	    var param={};
 		param.pid=pid;
 		param.shopcount=shopcount;
 		param.pskuid=pskuid;
-		param.changeid=changeid;
 	    //判断是否是整数
 	    var reg = /^\d+$/;
 	    if (!reg.test(shopcount)) {
@@ -48,7 +54,7 @@
 	        swal("加入购物车失败", "购买数量必须大于0！", "warning");
 	        return;
 	    }
-	    if (isNaN(pskuid)) {
+	    if (pskuid=="") {
 	        swal("加入购物车失败", "请选择规格！", "warning");
 	        return;
 	    }
@@ -94,129 +100,232 @@
 	        }
 	    });
 	}
-	//删除购物车商品
-	function DelCar(cid) {
-	    swal({
-	        title: "确定删除?",
-	        text: "您确定是否删除选中的商品",
-	        type: "warning",
-	        showCancelButton: true,
-	        confirmButtonColor: "#DD6B55",
-	        confirmButtonText: "删除",
-	        cancelButtonText: "取消"
-	    },
-	    function () {
-	        $.ajax({
-	            url: "http://www.tjfozoon.com/Web/Ajax/Ajax.ashx",
-	            type: "POST",
-	            cache: false,
-	            dataType: "text",
-	            data: { action: "DelCar", cid: cid },
-	            success: function (ReturnData) {
-	                if (ReturnData == "yes") {
-	                    //$("#car_" + cid).remove();
-	                    //Statistical();
-	                    window.location.href = "Login.html-rurl=-Shopping-Car.html"/*tpa=http://www.tjfozoon.com/Login.html?rurl=/Shopping/Car.html*/;
-	                }
-	                else {
-	                    swal("删除购物车商品失败", ReturnData, "warning");
-	                }
-	            }
-	        });
-	    });
-	}
-	//对多位小数进行四舍五入
-	//num是要处理的数字  v为要保留的小数位数
-	function decimal(num, v) {
-	    var vv = Math.pow(10, v);
-	    return Math.round(num * vv) / vv;
-	}
-	//限制商品只能输入整数
-	function IsInt(obj) {
-	    var reg = /^\d+$/;
-	    if (!reg.test($(obj).val())) {
-	        $(obj).val("1");
-	    }
-	}
+//num是要处理的数字  v为要保留的小数位数
+function decimal(num, v) {
+    var vv = Math.pow(10, v);
+    return Math.round(num * vv) / vv;
+}
+//限制商品只能输入整数
+function IsInt(obj) {
+    var reg = /^\d+$/;
+    if (!reg.test($(obj).val())) {
+        $(obj).val("1");
+    }
+}
 
-	//增加减少购物车商品数量
-	function OperationNum(cid, model) {
-	    var buycount = $("#buy_num_" + cid).val();
-	    $.ajax({
-	        url: "http://www.tjfozoon.com/Web/Ajax/Ajax.ashx",
-	        type: "POST",
-	        cache: false,
-	        dataType: "xml",
-	        data: { action: "AddOrReduceNum", cid: cid, model: escape(model), buycount: buycount },
-	        success: function (ReturnData) {
-	            $("#buy_num_" + cid).val(parseInt($("response num", ReturnData).text()));
-	            var state = $("response state", ReturnData).text();
-	            if (state != "yes") {
-	                swal("修改商品数量失败", $("response errorinfo", ReturnData).text(), "warning");
-	            }
-	            else {
-	                if (model == "Reduce") {
-	                    window.location.href = "Login.html-rurl=-Shopping-Car.html"/*tpa=http://www.tjfozoon.com/Login.html?rurl=/Shopping/Car.html*/;
-	                }
-	                else {
-	                    //小计金额
-	                    $("#totalprice_" + cid).html((parseFloat($("response num", ReturnData).text()) * parseFloat($("#price1_" + cid).val())).toFixed(2));
-	                    //统计数量和金额
-	                    Statistical();
-	                }
-	            }
-	        }
-	    });
-	}
-	//设置商品购物数量
-	function SetShopNum(type) {
-	    switch (type) {
-	        case "add":
-	            var num = parseInt($("#shopcount").val());
-	            if (!isNaN(num)) {
-	                $("#shopcount").val(num + 1);
-	            }
-	            else {
-	                $("#shopcount").val("1");
-	            }
-	            break;
-	        case "reduce":
-	            var num = parseInt($("#shopcount").val());
-	            if (!isNaN(num) && num > 1) {
-	                $("#shopcount").val(num - 1);
-	            }
-	            else {
-	                $("#shopcount").val("1");
-	            }
-	            break;
-	    }
-	}
-	//设置头部购物车数量
-	function SetTopShopNum() {
-	    $.ajax({
-	        url: "http://www.tjfozoon.com/Web/Ajax/Ajax.ashx",
-	        type: "POST",
-	        cache: false,
-	        dataType: "text",
-	        data: { action: "SetTopShopNum" },
-	        success: function (ReturnData) {
-	            $("#t_car_num").html(ReturnData);
-	        }
-	    });
-	}
-	//统计数量和金额
-	function Statistical() {
-	    //设置头部购物车数量
-	    SetTopShopNum();
-	    //总金额
-	    var totalprice = 0;
-	    $(".myCart").find("span[name='totalprice']").each(function () {
-	        totalprice = totalprice + parseFloat($(this).html());
-	    });
-	    $("#totalprice").html(totalprice.toFixed(2));
-	    $("#totalprice2").html(totalprice.toFixed(2));
-	}
-	
+//删除购物车商品
+function DelCar(cid) {
+		alter("ok");
+    swal({
+        title: "确定删除?",
+        text: "您确定是否删除选中的商品",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "删除",
+        cancelButtonText: "取消"
+    },
+    function () {
+        $.ajax({
+            url: "http://localhost:8080/0-finalPrj/deleteproduct",
+            type: "POST",
+            cache: false,
+            dataType: "json",
+            data: {"cid": cid },
+            success: function (ReturnData) {
+                if (ReturnData.result == "success") {
+                    window.location.href = "http://localhost:8080/0-finalPrj/car.jsp";
+                }
+                else {
+                    swal("删除购物车商品失败", ReturnData, "warning");
+                }
+            }
+        });
+    });
+}
+//增加减少购物车商品数量
+function OperationNum(cid, model) {
+    var buycount = $("#buy_num_" + cid).val();
+    alter(buycount);
+    $.ajax({
+        url: "http://www.tjfozoon.com/Web/Ajax/Ajax.ashx",
+        type: "POST",
+        cache: false,
+        dataType: "xml",
+        data: { action: "AddOrReduceNum", cid: cid, model: escape(model), buycount: buycount },
+        success: function (ReturnData) {
+            $("#buy_num_" + cid).val(parseInt($("response num", ReturnData).text()));
+            var state = $("response state", ReturnData).text();
+            if (state != "yes") {
+                swal("修改商品数量失败", $("response errorinfo", ReturnData).text(), "warning");
+            }
+            else {
+                if (model == "Reduce") {
+                    window.location.href = "Login.html-rurl=-Shopping-Car.html"/*tpa=http://www.tjfozoon.com/Login.html?rurl=/Shopping/Car.html*/;
+                }
+                else {
+                    //小计金额
+                    $("#totalprice_" + cid).html((parseFloat($("response num", ReturnData).text()) * parseFloat($("#price1_" + cid).val())).toFixed(2));
+                    //统计数量和金额
+                    Statistical();
+                }
+            }
+        }
+    });
+}
+
+//设置头部购物车数量
+function SetTopShopNum() {
+    $.ajax({
+        url: "http://www.tjfozoon.com/Web/Ajax/Ajax.ashx",
+        type: "POST",
+        cache: false,
+        dataType: "text",
+        data: { action: "SetTopShopNum" },
+        success: function (ReturnData) {
+            $("#t_car_num").html(ReturnData);
+        }
+    });
+}
+//统计数量和金额
+function Statistical() {
+   
+    //总金额
+    var totalprice = 0;
+    $(".myCart").find("span[name='totalprice']").each(function () {
+        totalprice = totalprice + parseFloat($(this).html());
+    });
+    $("#totalprice").html(totalprice.toFixed(2));
+    $("#totalprice2").html(totalprice.toFixed(2));
+}
+//确认订单
+function ConfirmOrder() {
+	var name = $("#order_name").val();
+	var tel = $("#order_tel").val();
+	var address = $("#order_address").val();
+	var param={};
+	param.name=name;
+	param.tel=tel;
+	param.address=address;
+swal({
+    title: "确定提交?",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#DD6B55",
+    confirmButtonText: "提交",
+    cancelButtonText: "取消"
+},
+function () {
+    $.ajax({
+        url: "http://localhost:8080/0-finalPrj/ordercommit",
+        type: "POST",
+        cache: false,
+        dataType: "json",
+        data: param,
+        success: function (ReturnData) {
+            if (ReturnData.result == "success") {
+                window.location.href = "http://localhost:8080/0-finalPrj/submit.jsp";
+            }
+            else {
+                swal("删除购物车商品失败", ReturnData, "warning");
+            }
+        }
+    });
+});
+}
+//对多位小数进行四舍五入
+//num是要处理的数字  v为要保留的小数位数
+function decimal(num, v) {
+    var vv = Math.pow(10, v);
+    return Math.round(num * vv) / vv;
+}
+//限制商品只能输入整数
+function IsInt(obj) {
+    var reg = /^\d+$/;
+    if (!reg.test($(obj).val())) {
+        $(obj).val("1");
+    }
+}
+
+//增加减少购物车商品数量
+function OperationNum(cid, model) {
+    var buycount = $("#buy_num_" + cid).val();
+    $.ajax({
+        url: "http://www.tjfozoon.com/Web/Ajax/Ajax.ashx",
+        type: "POST",
+        cache: false,
+        dataType: "xml",
+        data: { action: "AddOrReduceNum", cid: cid, model: escape(model), buycount: buycount },
+        success: function (ReturnData) {
+            $("#buy_num_" + cid).val(parseInt($("response num", ReturnData).text()));
+            var state = $("response state", ReturnData).text();
+            if (state != "yes") {
+                swal("修改商品数量失败", $("response errorinfo", ReturnData).text(), "warning");
+            }
+            else {
+                if (model == "Reduce") {
+                    window.location.href = "Login.html-rurl=-Shopping-Car.html"/*tpa=http://www.tjfozoon.com/Login.html?rurl=/Shopping/Car.html*/;
+                }
+                else {
+                    //小计金额
+                    $("#totalprice_" + cid).html((parseFloat($("response num", ReturnData).text()) * parseFloat($("#price1_" + cid).val())).toFixed(2));
+                    //统计数量和金额
+                    Statistical();
+                }
+            }
+        }
+    });
+}
+//设置商品购物数量
+function SetShopNum(type) {
+    switch (type) {
+        case "add":
+            var num = parseInt($("#shopcount").val());
+            if (!isNaN(num)) {
+                $("#shopcount").val(num + 1);
+            }
+            else {
+                $("#shopcount").val("1");
+            }
+            break;
+        case "reduce":
+            var num = parseInt($("#shopcount").val());
+            if (!isNaN(num) && num > 1) {
+                $("#shopcount").val(num - 1);
+            }
+            else {
+                $("#shopcount").val("1");
+            }
+            break;
+    }
+}
+//设置头部购物车数量
+function SetTopShopNum() {
+    $.ajax({
+        url: "http://www.tjfozoon.com/Web/Ajax/Ajax.ashx",
+        type: "POST",
+        cache: false,
+        dataType: "text",
+        data: { action: "SetTopShopNum" },
+        success: function (ReturnData) {
+            $("#t_car_num").html(ReturnData);
+        }
+    });
+}
+//统计数量和金额
+function Statistical() {
+    //设置头部购物车数量
+    SetTopShopNum();
+    //总金额
+    var totalprice = 0;
+    $(".myCart").find("span[name='totalprice']").each(function () {
+        totalprice = totalprice + parseFloat($(this).html());
+    });
+    $("#totalprice").html(totalprice.toFixed(2));
+    $("#totalprice2").html(totalprice.toFixed(2));
+}
+
+
 	</script>
    
 </head>
@@ -295,12 +404,24 @@
                     <div class="clr"></div>             
                 <p class="fs14 c9 li36 pb15 text">
                     <span class="sm-li66 vt">尺寸：</span>
-                    <i class="sss_div dib sel-sku" sequence="0"><a href="javascript:void(0);" sequence="0" skuspec="${pro.size }" class="dib progg vt">${pro.size }<em></em></a></i>
+                   
+                    <i class="sss_div dib sel-sku" sequence="0">
+                     <c:forEach items="${sizelist }" var="s">
+                    <a href="javascript:void(0);" sequence="0" skuspec="${s.name}" class="dib progg vt">${s.name }<em></em></a>
+                    </c:forEach>
+                    </i>
+               		
                 </p>
                 
                 <p class="fs14 c9 li36 pb15 text">
                     <span class="sm-li66 vt">口味：</span>
-                    <i class="sss_div dib sel-sku" sequence="1"><a href="javascript:void(0);" sequence="1" skuspec="${pro.flavor }" class="dib progg vt">${pro.flavor }<em></em></a></i>
+                    <i class="sss_div dib sel-sku" sequence="1">
+                    
+                    <c:forEach items="${flavorlist }" var="f">
+                    <a href="javascript:void(0);" sequence="1" skuspec="${f.name}" class="dib progg vt">${f.name }<em></em></a>
+                    </c:forEach>
+                    </i>
+               		
                 </p>
                 
                 <p class="li20 c9 pb20 text">
@@ -339,7 +460,7 @@
             </div>
             <div class="clr"></div>
         </div>
-    </div>
+    </div>    
     <input type="hidden" id="user" value="${loginuser.id }">
     <input type="hidden" id="changeid" value="0" />
     <input type="hidden" id="pskuid" value="0" />
@@ -347,7 +468,6 @@
     <input type="hidden" id="defaultsku" price1="299" price2="0.00" stockcount="461" value="0" />
     
     <input type="hidden" id="ProductSku10171" name="ProductSku" price1="179.00" price2="0.00" pskuid="10171" skuno="01" stockcount="992" skuspec="6%e5%90%8b,%e9%b2%9c%e4%b9%b3" piclist="" content1="适合2-4人食用" value="10171" />
-    <!-- 详情下面部分 -->
     <div class="mauto mt40 mb20">
         <div class="xq_left fl">
             <div class="title02 tac rel mb15 mt10">
@@ -399,63 +519,27 @@
         <div class="clr"></div>
     </div>
     <script>
-        function commentpage(page) {
-            var pid = $("#productid").val();
-            $.ajax({
-                url: "http://www.tjfozoon.com/Web/Ajax/Ajax.ashx",
-                type: "POST",
-                cache: false,
-                dataType: "text",
-                data: { action: "GetProductComment", pid: pid, page: page },
-                success: function (ReturnData) {
-                    if (ReturnData == "no") {
-                        swal("出错", "获取评论内容失败", "warning");
-                    }
-                    else {
-                        $("#commentlist").html(ReturnData);
-                        $("#page").val(page);
-                    }
-                }
-            });
-        }
-        $(function () {
-            commentpage(1);
+    $(function () {
+        $("#changeid").val("0");
+        //选择规格
+        $(".sel-sku a").on("click", function () { 
+            //设置选择或取消样式
+            if ($(this).hasClass("act")) {
+                $(this).removeClass("act");
+            }
+            else {
+                $(this).siblings().removeClass("act");
+                $(this).addClass("act");
+            }
+
+            //设置规格提醒
+            setspectip();
+            //}
         });
-    </script>
-    <script>
-        $(function () {
-            //选择规格
-            $(".sel-sku a").on("click", function () {
-                //if (!$(this).hasClass("nosel")) {
-                //设置选择或取消样式
-                if ($(this).hasClass("act")) {
-                    $(this).removeClass("act");
-                }
-                else {
-                    $(this).siblings().removeClass("act");
-                    $(this).addClass("act");
-                }
-                
-                //设置规格提醒
-                setspectip();
-                //}
-            });
-            //选择换购
-            $(".change").click(function () {
-                if ($(this).hasClass("act")) {
-                    $("#changeid").val("0");
-                    $(this).removeClass("act");
-                }
-                else {
-                    var changeid = $(this).attr("changeid");
-                    $("#changeid").val(changeid);
-                    $(".change").removeClass("act");
-                    $(this).addClass("act");
-                }
-            });
-        });
-      //设置规格提醒
-        function setspectip() {
+    }); 
+    
+    //设置规格提醒
+   function setspectip() {
             var spec = "";
             $(".sel-sku").each(function () {
                 $(this).children("a").each(function () {
@@ -482,160 +566,6 @@
                 $("#selspec").html("");
             }
         }
-/**        //获取选中规格有货的所有规格值
-        function getshowspec() {
-            //获取已选的规格值添加到的arryselskuspec中
-            var arryselskuspec = [];
-            var showspec = [];
-            $(".sel-sku").each(function () {
-                var selskuspec = $(this).children("http://www.tjfozoon.com/Product/10572/a.act").attr("skuspec");
-                if (selskuspec != null) {
-                    arryselskuspec.push(selskuspec);
-                }
-                else {
-                    arryselskuspec.push("");
-                }
-                showspec.push("");
-            });
-            //匹配值并添加到的showspec中
-            $("input[name='ProductSku']").each(function () {
-                //if ($(this).attr("stockcount") != "0") {
-                var arryinputskuspec = $(this).attr("skuspec").split(",");
-                var isok = true;
-                for (var i = 0; i < arryselskuspec.length; i++) {
-                    if (arryselskuspec[i] != "" && arryinputskuspec[i] != arryselskuspec[i]) {
-                        isok = false;
-                    }
-                }
-                if (isok) {
-                    for (var i = 0; i < arryinputskuspec.length; i++) {
-                        if (("," + showspec[i]).indexOf("," + arryinputskuspec[i] + ",") < 0) {
-                            showspec[i] += arryinputskuspec[i] + ",";
-                        }
-                    }
-                }
-                //}
-            });
-            return showspec;
-        }
-        //判断当前选择的对应已选的是否有货
-        function setspecselstate(obj) {
-            //当前选择的规格
-            var selsequence = $(obj).parent().attr("sequence");
-            //获取选中规格有货的所有规格值
-            var showspec = getshowspec();
-            //设置选择的规格值匹配的保留，不匹配的去掉选择
-            $(".sel-sku").each(function (index) {
-                if (selsequence != index) {
-                    var sequence = $(this).attr("sequence");
-                    $(this).children("a").each(function () {
-                        if (("," + showspec[sequence]).indexOf($(this).attr("skuspec")) < 0) {
-                            $(this).removeClass("act");
-                        }
-                    });
-                }
-            });
-        }
-        //设置规格显示状态
-        function setspecdisplay() {
-            //获取选中规格有货的所有规格值
-            var showspec = getshowspec();
-            //设置规格值匹配的显示，不匹配的隐藏
-            $(".sel-sku").each(function () {
-                var sequence = $(this).attr("sequence");
-                $(this).children("a").each(function () {
-                    if (("," + showspec[sequence]).indexOf($(this).attr("skuspec")) > -1) {
-                        $(this).removeClass("nosel");
-                    }
-                    else {
-                        $(this).addClass("nosel");
-                    }
-                });
-            });
-        }*/
-        
-        //设置规格ID
-/**        function setspecskuid() {
-            $("#pskuid").val("0");
-            var spec = "";
-            $(".sel-sku").each(function () {
-                $(this).children("a").each(function () {
-                    if ($(this).hasClass("act")) {
-                        spec += $(this).attr("skuspec") + ",";
-                    }
-                });
-            });
-            if (spec != "") {
-                spec = spec.substring(0, spec.length - 1);
-                $("input[name='ProductSku']").each(function () {
-                    var skuspec = $(this).attr("skuspec");
-                    if (spec == skuspec) {
-                        $("#pskuid").val($(this).val());
-                        return;
-                    }
-                });
-            }
-        }
-       
-        //设置规格其他信息
-        function setspecother() {
-            var pskuid = $("#pskuid").val();
-            if (pskuid != 0) {
-                var obj = $("#ProductSku" + pskuid);
-                if (obj.length > 0 && obj.val() == pskuid) {
-                    if (obj.attr("pskuid") == pskuid) {
-                        var price1 = obj.attr("price1");
-                        var price2 = obj.attr("price2");
-                        var pskuid = obj.attr("pskuid");
-                        var skuno = obj.attr("skuno");
-                        var stockcount = obj.attr("stockcount");
-                        var skuspec = obj.attr("skuspec");
-                        var content1 = obj.attr("content1");
-                        var piclist = obj.attr("piclist");
-                        //更改价格
-                        $("#price1").html(price1);
-                    }
-                }
-            } else {
-                var obj = $("#defaultsku");
-                var price1 = obj.attr("price1");
-                var price2 = obj.attr("price2");
-                var stockcount = obj.attr("stockcount");
-                //更改价格
-                $("#price1").html(price1);
-            }
-            //setspecpiclist();
-        }*/
-        //设置规格对应图片
-        //function setspecpiclist() {
-        //    $(".big-specpiclist li").show();
-        //    $(".small-specpiclist div").show();
-        //    var pskuid = $("#pskuid").val();
-        //    if (pskuid != 0) {
-        //        var obj = $("#ProductSku" + pskuid);
-        //        var piclist = obj.attr("piclist");
-        //        if (piclist != "") {
-        //            //设置大图片
-        //            $(".big-specpiclist li").each(function () {
-        //                if (piclist.indexOf($(this).attr("piclink")) > -1) {
-        //                    $(this).show();
-        //                }
-        //                else {
-        //                    $(this).hide();
-        //                }
-        //            });
-        //            //设置小图片
-        //            $(".small-specpiclist div").each(function () {
-        //                if (piclist.indexOf($(this).attr("piclink")) > -1) {
-        //                    $(this).show();
-        //                }
-        //                else {
-        //                    $(this).hide();
-        //                }
-        //            });
-        //        }
-        //    }
-        //}
     </script>
     <script type="text/javascript">
         $(function () {

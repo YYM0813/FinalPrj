@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
-<c:set var="ctx" value="${pageContext.request.contextPath }"></c:set>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<!-- saved from url=(0045)http://www.tjfozoon.com/Shopping/Confirm.html -->
 <html lang="en" style="font-size: 160px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -21,7 +19,7 @@
     <script type="text/javascript" src="/0-finalPrj/js/main.js"></script>
     <script type="text/javascript" src="/0-finalPrj/js/wow.min.js"></script>
 
-    <link href="/0-finalPrj/js/sweet-alert.css" rel="stylesheet" type="text/css">
+    <link href="/0-finalPrj/css/sweet-alert.css" rel="stylesheet" type="text/css">
     <script src="/0-finalPrj/js/sweet-alert.min.js" type="text/javascript"></script>
 
     
@@ -33,6 +31,43 @@
     <link href="/0-finalPrj/css/mobiscroll.css" rel="stylesheet">
     <script src="/0-finalPrj/js/mobiscroll_date.js" charset="gb2312"></script>
     <script src="/0-finalPrj/js/mobiscroll.js"></script>
+    <script>
+    function commit() {
+    	var name = $("#order_name").val(); 
+    	var tel =  $("#order_tel").val(); 
+    	var address =  $("#order_address").val(); 
+    	var param={};
+  	  	param.name = name;
+  	  	param.tel = tel;
+  	  	param.address = address;
+    swal({
+        title: "确定提交?",
+        text: "您确定提交订单？",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "提交",
+        cancelButtonText: "取消"
+    },
+    function () {
+        $.ajax({
+            url: "http://localhost:8080/0-finalPrj/submit",
+            type: "POST",
+            cache: false,
+            dataType: "json",
+            data: param,
+            success: function (ReturnData) {
+                if (ReturnData.result == "success") {
+                    window.location.href = "http://localhost:8080/0-finalPrj/pay.jsp";
+                }
+                else {
+                    swal("订单提交失败！", ReturnData, "warning");
+                }
+            }
+        });
+    });
+}
+    </script>
     <style>
         .qr-order .qr-o .gr .gra-way {
             border: 1px solid #f0f1f0;
@@ -146,8 +181,6 @@ function __doPostBack(eventTarget, eventArgument) {
 }
 //]]>
 </script>
-
-
 <div>
 
 	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="BDC6C074">
@@ -167,9 +200,9 @@ function __doPostBack(eventTarget, eventArgument) {
                 <div class="pl30 pr30 qr-o pb30">
                     <h2 class="fs16 c3 li40 pt15 pb15 sm-dn d-d">物流方式</h2>
                     <dl class="gr sel-logistics">
-                        <dd class="fs14 li40 fl c6 pt15 pb15 sm-tar text input_div mr15"><a href="javascript:void(0);" class="dib pl60 pr60 fs14 gra-way text">门店自取</a></dd>
+                        <dd class="fs14 li40 fl c6 pt15 pb15 sm-tar text input_div mr15"><a href="javascript:void(0);" class="dib pl60 pr60 fs14 gra-way text">需要配送</a></dd>
                         
-                        <dd class="fs14 li40 fl c6 pt15 pb15 sm-tar text input_div"><a href="javascript:void(0);" class="dib pl60 pr60 fs14 gra-way text">需要配送</a></dd>
+                        <dd class="fs14 li40 fl c6 pt15 pb15 sm-tar text input_div"><a href="javascript:void(0);" class="dib pl60 pr60 fs14 gra-way text">门店自取</a></dd>
                         
                         <div class="clr"></div>
                     </dl>
@@ -177,9 +210,19 @@ function __doPostBack(eventTarget, eventArgument) {
                     <div class="dn logistics">
                         <h2 class="fs16 c3 li40 pt15 pb15 sm-dn d-d">选择收货地址</h2>
                         <dl class="address mb15">
-                            
+                            <c:forEach items="${addresslist}" var="p">
+                            <dd class="fs14 li22 a04-d rel uaddress-dd" uaid="10940" style="cursor: pointer;">
+                                <div class="dn sm-db fl a01-d text tac">收货地址</div>
+                                <div class="fl a03-d w100">
+                                    <h1 class="li34 fs18 pt5 pb5 text"><span class="dn sm-inline" id="order_name">收货人：</span>${p.name}<span class="dn sm-inline ml30"></span></h1>
+                                    <p class="text sm-dn" id="order_tel">${p.tel }</p>
+                                    <p class="text ovh2"><span class="dn sm-inline" id="order_address">收货地址：</span><span class="dn sm-inline">${p.address}</span></p>
+                                    <p class="ovh2 text sm-dn">${p.address}</p>
+                                </div>
+                            </dd>
+                            </c:forEach>
                             <dd class="add">
-                                <a href="http://www.tjfozoon.com/UserCenter/Address/List.html?m=add&amp;rorder=1" class="a-add db">
+                                <a href="http://localhost:8080/0-finalPrj/add.jsp" class="a-add db">
                                     <p class="li24 tac fs14">添加新地址</p>
                                 </a>
                             </dd>
@@ -195,114 +238,33 @@ function __doPostBack(eventTarget, eventArgument) {
                         <div class="clr"></div>
                     </dl>
                     <dl class="yhq">
-                      
+                      <c:forEach items="${orderlist }" var="p">
                         <dd class="fs14 li50 c6">
                             <span class="dib s-img">
-                                <img src="/0-finalPrj/img/20170810152542658.jpg" class="img100"></span>
-                            <h1 class="dib s-text ovh fs14 c6 li50 vt text">爱的旋律 17.5cm*17.5cm,香草</h1>
-                            <p class="dib num vt tac fs16 sm-fl text sm-tar">299.00<span class="sm-dn">元/个</span> <span class="sm-db">x 1</span></p>
-                            <p class="dib price khaki vt tac fs16 sm-dn tar">299.00<span class="sm-dn">元</span></p>
+                                <img src="/0-finalPrj/img/${p.product.img1}" class="img100"></span>
+                            <h1 class="dib s-text ovh fs14 c6 li50 vt text"><span>${p.product.name}<span class="db ovh">${p.flavor.name},${p.size.name}</span></span></h1>
+
+                            <p class="dib num vt tac fs16 sm-fl text sm-tar">${p.product.price }<span class="sm-dn">元/个</span>x<span class="sm-db">${p.count}</span></p>
+                            <p class="dib price khaki vt tac fs16 sm-dn tar"><span class="sm-dn" name="totalprice">${p.product.price*p.count }元</span></p>
                         </dd>
-                        
+                        </c:forEach>
                         <dd class="dd-text">
                             <p class="fs12 li24 text sm-tal">配件说明：<span class="sx-db">10人用餐具+餐刀+生日帽</span></p>
-                        </dd>
-                        
-                        <div class="attachment bgmc mt20 pl30 pr30 clearfix pt25 c9 fs14 pb15 text">
-                            <div class="fl mr60 bm-w100 bm-mr0 bm-mb20">
-                                <p class="input_div li38 mb20">
-                                    <span>需要生日牌</span>
-                                </p>
-                                <p class="input_div mb15 pl30">
-                                    <input type="radio" class="radio" name="srp_10151_0" value="生日快乐"><span class="ml10">生日快乐</span>
-                                </p>
-                                <p class="input_div mb15 pl30">
-                                    <input type="radio" class="radio" name="srp_10151_0" value="Happy Birthday"><span class="ml10">Happy Birthday</span>
-                                </p>
-                                <p class="input_div mb15 pl30">
-                                    <input type="radio" class="radio" name="srp_10151_0" value="其他"><span class="ml10">其他<input type="text" name="srp_10151_0_txt" maxlength="8" class="input_atta ml10 mr10 text">
-                                        请输入8个字符以内</span>
-                                </p>
-                            </div>
-                            <div class="fl bm-w100">
-                                <p class="input_div li38 mb20">
-                                    <span>需要生日蜡烛（购买生日蛋糕免费赠送蜡烛，普通蜡烛和数字蜡烛二选一）</span>
-                                </p>
-                                <p class="input_div mb15 pl30">
-                                    <input type="radio" class="radio" name="lz_10151_0" value="普通蜡烛"><span class="ml10">普通蜡烛</span>
-                                </p>
-                                <p class="input_div mb15 pl30">
-                                    <input type="radio" class="radio" name="lz_10151_0" value="数字蜡烛"><span class="ml10">数字蜡烛<input type="text" name="lz_10151_0_txt" maxlength="2" class="input_atta ml10 mr10 text">
-                                        请填写需要数字</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="clr"></div>
-
-
-                        
-                    </dl>
-                    <style>
-                        .qr-order .qr-o .yhq dd.dd-text {
-                            height: auto;
-                            text-indent: 70px;
-                        }
-
-                        @media (max-width: 991px) {
-                            .qr-order .qr-o .yhq dd .s-text {
-                                width: 53%;
-                            }
-                        }
-
-                        @media (max-width: 767px) {
-
-                            .qr-order .qr-o .yhq dd .s-text {
-                                width: 51%;
-                            }
-
-                            .qr-order .qr-o .yhq dd.dd-text {
-                                text-indent: 0;
-                                margin-top: .15rem;
-                            }
-                        }
-                    </style>
-                    
-                    
-                    
-                    
-                </div>
+                        </dd>                        
                 <div class="pl30 pr70 qr-o pb45 tar fs14 li26 sm-w92">
-                    <p class="sm-tal text sm-mt15">商品总价：<span class="qr-o-s dib sm-fr sm-tar">299.00<span class="sm-dn">元</span></span></p>
-                    
-                    <p class="sm-tal text sm-mt15">积分抵扣：<span class="qr-o-s dib sm-fr sm-tar"><span id="integral_price_txt">-0</span><span class="sm-dn">元</span></span></p>
-                    
-                    <p class="sm-tal text sm-mt15">赠送积分：<span class="qr-o-s dib sm-fr sm-tar" id="add-integral">+299</span></p>
+                    <p class="sm-tal text sm-mt15">
                     <p class="li38 mt15 sm-tal text qr-o-p">
-                        订单金额：<span class="qr-o-s dib sm-fr sm-tar"><i class="fs30 khaki text_m" id="total_all_price1">299.00</i><span class="sm-dn">元</span></span>
+                        订单金额：<span class="qr-o-s dib sm-fr sm-tar"><i class="fs30 khaki text_m" ></i><span class="sm-dn" name="totalprice2">元</span></span>
                     </p>
                 </div>
             </div>
             <div class="settlement pl30 li54 fs14 mt20 bgmc mb20">
                 <div class="fr li54 st-r">
-                    
-                    <a onclick="return check();" id="ctl00_Content1_btnAddOrder" class="dib ml25 g-sett cf fs22 tac vt text" href="javascript:__doPostBack(&#39;ctl00$Content1$btnAddOrder&#39;,&#39;&#39;)">确认并提交订单</a>
+                    <a onclick=" commit(); " id="ctl00_Content1_btnAddOrder" class="dib ml25 g-sett cf fs22 tac vt text" >确认并提交订单</a>
                 </div>
                 <div class="clr"></div>
             </div>
         </div>
-        <input type="hidden" value="0" id="logistics" name="logistics">
-        <input type="hidden" value="0" id="uaddressid" name="uaddressid">
-        <input type="hidden" value="0" id="usincesomeid" name="usincesomeid">
-        <input type="hidden" value="100" id="integral_num" name="integral_num">
-        <input type="hidden" value="299.00" id="total_price" name="total_price">
-        <input type="hidden" value="100.00" id="Proportion1" name="Proportion1">
-        <input type="hidden" value="0" id="integral_price" name="integral_price">
-        <input type="hidden" value="1" id="integralmultiple" name="integralmultiple">
-        <input type="hidden" value="" id="coupon_no" name="coupon_no">
-        <input type="hidden" value="0" id="coupon_amount" name="coupon_amount">
-        <input type="hidden" value="0.00" id="total_level_price" name="total_level_price">
-        <input type="hidden" value="0" id="total_freight" name="total_freight">
-        <input type="hidden" value="299.00" id="ispay_integral" name="ispay_integral">
     </form>
     <script type="text/javascript">
         function getDate(strDate) {
@@ -508,34 +470,7 @@ function __doPostBack(eventTarget, eventArgument) {
                 SetTotalAllPrice();
             });
         });
-        function SetTotalAllPrice() {
-            var total_price1 = parseFloat($("#total_price").val());
-            var coupon_amount = parseFloat($("#coupon_amount").val());
-            var integral_price = parseFloat($("#integral_price").val());
-            var integralmultiple = parseInt($("#integralmultiple").val());
-            var total_freight = parseFloat($("#total_freight").val()).toFixed(2);
-            var total_level_price = parseFloat($("#total_level_price").val());
-            var ispay_integral = parseFloat(total_price1 - coupon_amount - total_freight - total_level_price).toFixed(2);
-            var all_price = parseFloat(total_price1 - coupon_amount - integral_price - total_freight - total_level_price).toFixed(2);
-
-            $("#integral_price_txt").html("-" + integral_price);
-            $("#coupon_amount_txt").html("-" + coupon_amount);
-
-            if (all_price <= 0) {
-                $("#total_all_price1").html("0.00");
-                $("#add-integral").html("+0");
-                $("#ispay_integral").val("0");
-            }
-            else {
-                $("#total_all_price1").html(all_price);
-                if (all_price >= 1) {
-                    $("#add-integral").html("+" + parseInt(all_price * integralmultiple));
-                } else {
-                    $("#add-integral").html("+0");
-                }
-                $("#ispay_integral").val(ispay_integral);
-            }
-        }
+        
     
         function check() {
 
