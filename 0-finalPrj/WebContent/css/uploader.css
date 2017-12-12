@@ -1,0 +1,96 @@
+﻿.upload-box {
+    display: inline-block;
+    height: 32px;
+    position: relative;
+    vertical-align: middle;
+}
+
+    .upload-box .upload-btn {
+        display: inline-block;
+        height: 32px;
+    }
+
+    .upload-box .upload-progress {
+        background: #fff none repeat scroll 0 0;
+        border: 1px solid #d7d7d7;
+        height: 30px;
+        left: 0;
+        overflow: hidden;
+        padding: 2px 5px;
+        position: absolute;
+        top: 0;
+        width: 125px;
+    }
+
+        .upload-box .upload-progress .txt {
+            display: block;
+            font-size: 11px;
+            font-style: normal;
+            font-weight: normal;
+            height: 18px;
+            line-height: 18px;
+            overflow: hidden;
+            padding-right: 10px;
+            text-overflow: ellipsis;
+        }
+
+        .upload-box .upload-progress .bar {
+            border: 1px solid #1da76b;
+            display: block;
+            height: 4px;
+            position: relative;
+            width: 112px;
+        }
+
+            .upload-box .upload-progress .bar b {
+                background: #28b779 none repeat scroll 0 0;
+                display: block;
+                font-weight: normal;
+                height: 3px;
+                overflow: hidden;
+                text-indent: -99em;
+                width: 0;
+            }
+
+        .upload-box .upload-progress .close {
+            color: #3f93ed;
+            cursor: pointer;
+            display: block;
+            height: 14px;
+            overflow: hidden;
+            position: absolute;
+            right: 1px;
+            text-indent: -99em;
+            top: 1px;
+            width: 14px;
+        }
+
+.webuploader-container {
+    position: relative;
+}
+
+.webuploader-element-invisible {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+}
+
+.webuploader-pick {
+    color: #666666;
+    cursor: pointer;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 155px;
+}
+
+.webuploader-pick-hover {
+    background: #fafafa none repeat scroll 0 0;
+}
+
+.webuploader-pick-disable {
+    opacity: 0.6;
+    pointer-events: none;
+}
