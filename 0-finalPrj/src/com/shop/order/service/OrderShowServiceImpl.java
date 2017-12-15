@@ -6,12 +6,14 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.shop.entity.CartItem;
 import com.shop.entity.Order;
 import com.shop.order.dao.OrderShowDaoImpl;
 
 @Service
+@Transactional
 public class OrderShowServiceImpl {
 	@Resource
 	private OrderShowDaoImpl dao;
@@ -20,10 +22,10 @@ public class OrderShowServiceImpl {
 		List<Integer> list = new ArrayList<Integer>();
 		String[]cids = cid.split(",");
 		for(String s:cids){
-			if((null!=s)&&(""!=s)){
-				Integer i =Integer.getInteger(s);
+			System.out.println(s);
+				Integer i =Integer.parseInt(s);
+				System.out.println(i);
 				list.add(i);
-			}				
 		}
 		return dao.ordershow(list);
 	}

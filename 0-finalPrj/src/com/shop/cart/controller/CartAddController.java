@@ -26,7 +26,6 @@ public class CartAddController {
 	@ResponseBody
 	public Map<String,String> cartlist(int pid,int shopcount,String pskuid,HttpSession session){
 		Map<String,String> map = new HashMap<String,String>();	
-		System.out.println(pskuid);
 		String[]str = pskuid.split(",");
 		String size = str[0];
 		String flavor = str[1];
@@ -41,7 +40,7 @@ public class CartAddController {
 			if(c == null){
 				c = new Cart();
 			}
-			c.AddCart(pro,sizes,flavors);
+			c.AddCart(pro,sizes,flavors,shopcount);
 			session.setAttribute("cart", c);
 			map.put("result", "yes");
 		}else{

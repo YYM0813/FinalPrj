@@ -53,21 +53,17 @@
             <li><a href="product/list?typeid=1"  class="db"><span class="s1">欧风系列</span><span class="s2">EUROPE CAKE</span></a></li>
             <li><a href="product/list?typeid=2"  class="db"><span class="s1">下午茶</span><span class="s2">AFTERNOON TEA</span></a></li>
             <li><a href="product/list?typeid=3" class="db"><span class="s1">礼盒专区</span><span class="s2">GIFT</span></a></li>
-            <li><a href="Index.html" tppabs="http://www.tjfozoon.com/Product/Company/Index.html" class="db"><span class="s1">企业专区</span><span class="s2">BUSINESS</span></a></li>
-            <li><a href="Login.html-rurl=-UserCenter-Index.html" tppabs="http://www.tjfozoon.com/UserCenter/Index.html" class="db"><span class="s1">会员中心</span><span class="s2">MEMBER</span></a></li>
-            <li><a href="Index-2.html" tppabs="http://www.tjfozoon.com/ContactUs/Index.html" class="db"><span class="s1">联系我们</span><span class="s2">CONTACT</span></a></li>
-            <li class="login-btn">
-                
-                <a href="Register.html" tppabs="http://www.tjfozoon.com/Register.html" class="dib">注册</a>
-                <a href="Login.html-rurl=-.htm" tppabs="http://www.tjfozoon.com/Login.html?rurl=%2f" class="dib login">登录</a>
-                
-            </li>
+            <li><a href="${ctx }/Index.html" tppabs="http://www.tjfozoon.com/Product/Company/Index.html" class="db"><span class="s1">企业专区</span><span class="s2">BUSINESS</span></a></li>
+            <li><a href="${ctx }/user-info.jsp" tppabs="http://www.tjfozoon.com/UserCenter/Index.html" class="db"><span class="s1">会员中心</span><span class="s2">MEMBER</span></a></li>
+            <li><a href="${ctx }/Index-2.html" tppabs="http://www.tjfozoon.com/ContactUs/Index.html" class="db"><span class="s1">联系我们</span><span class="s2">CONTACT</span></a></li>
+ 
             <div class="clr"></div>
         </ul>
         <div class="fr login-btn bm-dn">
             
-            <a href="Register.jsp" tppabs="http://www.tjfozoon.com/Register.html" class="dib">注册</a>
-            <a href="Login.html-rurl=-.htm" tppabs="http://www.tjfozoon.com/Login.html?rurl=%2f" class="dib login">登录</a>
+            <a href="/0-finalPrj/user-info.jsp" class="pr10" style="background-color: #FFF; color: #b69b65;">${loginuser.name}</a>
+            <a href="/LoginOut.html" class="pr10" style="background-color: #FFF; color: #b69b65;">退出</a>
+            <a href="/0-finalPrj/car.jsp" class="dib login">购物车</a>
             
         </div>
         <a href="javascript:void(0);" class="dn bm-db fr nav-ico h100 mr15"></a>
@@ -84,30 +80,13 @@
         <h6 class="tac fs14 c9 li18 text">蛋糕</h6>
     </div>
     <h1 class="dn sm-db tac phone_title_h1 text_m c9 pt10 pb10 mb30">全部</h1>
-    <div class="pro_tab li22 tac mb40 sm-dn">
-        <div class="text tac dn sm-db pt20 pb20 pro_tab_div clearfix">请选择分类<a href="###" class="db fr apro_close"><img src="nav_ico_close.png" tppabs="http://www.tjfozoon.com/Web/style/images/nav_ico_close.png" class="img100"></a></div>
-        <div class="mauto ptype">
-            <a href="List.html" tppabs="http://www.tjfozoon.com/Product/10181/List.html" class="dib fs14 c9 text act">全部</a>
-            
-                    <a href="List-4.html" tppabs="http://www.tjfozoon.com/Product/10181/10186/List.html" class="dib fs14 c9 text ">经典蛋糕</a>
-                
-                    <a href="List-5.html" tppabs="http://www.tjfozoon.com/Product/10181/10187/List.html" class="dib fs14 c9 text ">儿童蛋糕</a>
-                
-                    <a href="List-6.html" tppabs="http://www.tjfozoon.com/Product/10181/10188/List.html" class="dib fs14 c9 text ">慕斯蛋糕</a>
-                
-                    <a href="List-7.html" tppabs="http://www.tjfozoon.com/Product/10181/10240/List.html" class="dib fs14 c9 text ">祝寿蛋糕</a>
-                
-                    <a href="List-8.html" tppabs="http://www.tjfozoon.com/Product/10181/10243/List.html" class="dib fs14 c9 text ">婚宴蛋糕</a>
-                
-        </div>
-    </div>
-    
+   
         
     <div class="product proList">
         <ul class="ma">
-            <c:forEach items="${flavorlist }" var="p">
+            <c:forEach items="${scalelist}" var="p">
                     <li class="wow fadeInUp">
-                        <a href="${ctx }/product/show?id=${p.id }&typeid=${p.producttype.id}" class="db rel">
+                        <a href="${ctx }/product/show?id=${p.id }" class="db rel">
                             <span class="p-img rel mb50">
                                 <img src="/0-finalPrj/img/${p.img1}" tppabs="http://www.tjfozoon.com/UserFiles/upload/image/20170416/20170416182950403_t.jpg" class="imgvt imgvt85" /></span>
                             <div class="p-box tac">
@@ -137,7 +116,7 @@
 
     <!-- 底部 -->
     <div class="footer tac pb45">
-        <a href="index.jsp" tppabs="http://www.tjfozoon.com/" class="dib f-logo sm-dn">
+        <a href="/0-finalPrj/index-1.jsp" tppabs="http://www.tjfozoon.com/" class="dib f-logo sm-dn">
             <img src="/0-finalPrj/img/footer-logo.png"  class="img100" /></a>
         <div class="footer_info dm-dn">
             <dl>

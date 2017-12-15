@@ -15,17 +15,7 @@ public class LoginUserServiceImpl {
 	@Resource
 	private LoginUserDaoImpl loginUserDao;
 	
-	public int login(String email){
-		User u = loginUserDao.login(email);
-		if(u==null){
-			return -1;
-		}else{
-			String role = u.getRole();
-			if(role.equals("admin")){
-					return 1;
-			}else{
-				return 0;
-			}
-		}
+	public int login(String email,String password){
+		return loginUserDao.login(email,password);
 	}	
 }

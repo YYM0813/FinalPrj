@@ -72,7 +72,7 @@
     									window.location.href = "http://localhost:8080/0-finalPrj/index-1.jsp";
     								});
     					} else {
-    						swal("修改失败", ReturnData, "warning");
+    						swal("修改失败","warning");
     					}
     				}
     			});
@@ -153,27 +153,24 @@
         <a class="logo db fl mt25" href="http://www.tjfozoon.com/">
             <img src="/0-finalPrj/img/logo.png" class="img100"></a>
         <ul class="nav dib abs bm-dn">
-            <li class="home"><a href="http://www.tjfozoon.com/" class="db h100"></a></li>
+            <li class="home"><a href="index.htm" tppabs="http://www.tjfozoon.com/" class="db h100"></a></li>
             
-            <li><a href="http://www.tjfozoon.com/Product/10181/List.html" class="db"><span class="s1">蛋糕系列</span><span class="s2">CAKE</span></a></li>
-            <li><a href="http://www.tjfozoon.com/Product/10183/List.html" class="db"><span class="s1">欧风系列</span><span class="s2">EUROPE CAKE</span></a></li>
-            <li><a href="http://www.tjfozoon.com/Product/10184/List.html" class="db"><span class="s1">下午茶</span><span class="s2">AFTERNOON TEA</span></a></li>
-            <li><a href="http://www.tjfozoon.com/Product/10182/List.html" class="db"><span class="s1">礼盒专区</span><span class="s2">GIFT</span></a></li>
-            <li><a href="http://www.tjfozoon.com/Product/Company/Index.html" class="db"><span class="s1">企业专区</span><span class="s2">BUSINESS</span></a></li>
-            <li><a href="http://www.tjfozoon.com/UserCenter/Index.html" class="db"><span class="s1">会员中心</span><span class="s2">MEMBER</span></a></li>
-            <li><a href="http://www.tjfozoon.com/ContactUs/Index.html" class="db"><span class="s1">联系我们</span><span class="s2">CONTACT</span></a></li>
-            <li class="login-btn">
-                
-                <a href="http://www.tjfozoon.com/LoginOut.html" class="dib">退出</a>
-                <a href="http://www.tjfozoon.com/Shopping/Car.html" class="dib login">购物车</a>
-                
-            </li>
+            <li><a href="product/list?typeid=0" class="db"><span class="s1">蛋糕系列</span><span class="s2">CAKE</span></a></li>
+            <li><a href="product/list?typeid=1"  class="db"><span class="s1">欧风系列</span><span class="s2">EUROPE CAKE</span></a></li>
+            <li><a href="product/list?typeid=2"  class="db"><span class="s1">下午茶</span><span class="s2">AFTERNOON TEA</span></a></li>
+            <li><a href="product/list?typeid=3" class="db"><span class="s1">礼盒专区</span><span class="s2">GIFT</span></a></li>
+            <li><a href="${ctx }/Index.html" tppabs="http://www.tjfozoon.com/Product/Company/Index.html" class="db"><span class="s1">企业专区</span><span class="s2">BUSINESS</span></a></li>
+            <li><a href="${ctx }/user-info.jsp" tppabs="http://www.tjfozoon.com/UserCenter/Index.html" class="db"><span class="s1">会员中心</span><span class="s2">MEMBER</span></a></li>
+            <li><a href="${ctx }/Index-2.html" tppabs="http://www.tjfozoon.com/ContactUs/Index.html" class="db"><span class="s1">联系我们</span><span class="s2">CONTACT</span></a></li>
+ 
             <div class="clr"></div>
         </ul>
         <div class="fr login-btn bm-dn">
-            <a href="http://www.tjfozoon.com/UserCenter/Index.html" class="pr10" style="background-color: #FFF; color: #b69b65;">${loginuser.name}</a>
+            
+            <a href="${ctx }/user-info.jsp" class="pr10" style="background-color: #FFF; color: #b69b65;">${loginuser.name }</a>
             <a href="http://www.tjfozoon.com/LoginOut.html" class="pr10" style="background-color: #FFF; color: #b69b65;">退出</a>
-            <a href="http://www.tjfozoon.com/Shopping/Car.html" class="dib login">购物车</a>
+            <a href="${ctx }/car.jsp" class="dib login">购物车</a>
+            
         </div>
         <a href="javascript:void(0);" class="dn bm-db fr nav-ico h100 mr15"></a>
         <a href="http://www.tjfozoon.com/UserCenter/Index.html" class="dn bm-db fr menber-ico h100 mr15"></a>
@@ -230,7 +227,7 @@
                         </div>
                     </div>
                     <div>
-                        <span class="dib r-r-name tar mr5 sm-dn">个人简介：</span>
+                        <span class="dib r-r-name tar mr5 sm-dn">我的生日：</span>
                         <div class="inp tal dib">
                             <p><span class="fs12 c9 li20 dib text dn sm-inline">个人简介</span><input type="text" id="txtdate" value=""></p>
                         </div>

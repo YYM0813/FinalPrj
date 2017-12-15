@@ -7,21 +7,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" type="text/css" href="css/reset.css" tppabs="http://www.tjfozoon.com/Web/style/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.min.css" tppabs="http://www.tjfozoon.com/Web/style/css/jquery.bxslider.min.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.css" tppabs="http://www.tjfozoon.com/Web/style/css/animate.css">
-    <link rel="stylesheet" type="text/css" href="css/layout.css" tppabs="http://www.tjfozoon.com/Web/style/css/layout.css">
-    <link rel="stylesheet" type="text/css" href="css/dll.css" tppabs="http://www.tjfozoon.com/Web/style/css/dll.css">
-    <link rel="stylesheet" type="text/css" href="css/banner_css.css" tppabs="http://www.tjfozoon.com/Web/style/css/banner_css.css">
-    <link rel="stylesheet" type="text/css" href="css/media.css" tppabs="http://www.tjfozoon.com/Web/style/css/media.css">
-    <script type="text/javascript" src="js/jquery-1.8.3.min.js" tppabs="http://www.tjfozoon.com/Web/style/js/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="js/jquery.bxslider.min.js" tppabs="http://www.tjfozoon.com/Web/style/js/jquery.bxslider.min.js"></script>
-    <script type="text/javascript" src="js/rem.js" tppabs="http://www.tjfozoon.com/Web/style/js/rem.js"></script>
-    <script type="text/javascript" src="js/main.js" tppabs="http://www.tjfozoon.com/Web/style/js/main.js"></script>
-    <script type="text/javascript" src="js/wow.min.js" tppabs="http://www.tjfozoon.com/Web/style/js/wow.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/0-finalPrj/css/reset.css" tppabs="http://www.tjfozoon.com/Web/style/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/0-finalPrj/css/jquery.bxslider.min.css" tppabs="http://www.tjfozoon.com/Web/style/css/jquery.bxslider.min.css">
+    <link rel="stylesheet" type="text/css" href="/0-finalPrj/css/animate.css" tppabs="http://www.tjfozoon.com/Web/style/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="/0-finalPrj/css/layout.css" tppabs="http://www.tjfozoon.com/Web/style/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="/0-finalPrj/css/dll.css" tppabs="http://www.tjfozoon.com/Web/style/css/dll.css">
+    <link rel="stylesheet" type="text/css" href="/0-finalPrj/css/banner_css.css" tppabs="http://www.tjfozoon.com/Web/style/css/banner_css.css">
+    <link rel="stylesheet" type="text/css" href="/0-finalPrj/css/media.css" tppabs="http://www.tjfozoon.com/Web/style/css/media.css">
+    <script type="text/javascript" src="/0-finalPrj/js/jquery-1.8.3.min.js" tppabs="http://www.tjfozoon.com/Web/style/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/0-finalPrj/js/jquery.bxslider.min.js" tppabs="http://www.tjfozoon.com/Web/style/js/jquery.bxslider.min.js"></script>
+    <script type="text/javascript" src="/0-finalPrj/js/rem.js" tppabs="http://www.tjfozoon.com/Web/style/js/rem.js"></script>
+    <script type="text/javascript" src="/0-finalPrj/js/main.js" tppabs="http://www.tjfozoon.com/Web/style/js/main.js"></script>
+    <script type="text/javascript" src="/0-finalPrj/js/wow.min.js" tppabs="http://www.tjfozoon.com/Web/style/js/wow.min.js"></script>
 
-    <link href="css/sweet-alert.css" tppabs="http://www.tjfozoon.com/Web/style/lib/sweet-alert.css" rel="stylesheet" type="text/css" />
-    <script src="js/sweet-alert.min.js" tppabs="http://www.tjfozoon.com/Web/style/lib/sweet-alert.min.js" type="text/javascript"></script>
+    <link href="/0-finalPrj/css/sweet-alert.css" tppabs="http://www.tjfozoon.com/Web/style/lib/sweet-alert.css" rel="stylesheet" type="text/css" />
+    <script src="/0-finalPrj/js/sweet-alert.min.js" tppabs="http://www.tjfozoon.com/Web/style/lib/sweet-alert.min.js" type="text/javascript"></script>
 
     
     <title>法颂蛋糕官网|FOZOON—天津生日蛋糕网上订购新鲜配送</title>
@@ -36,28 +36,22 @@
     <div class="header w100 tac rel bgcf act">
         <a class="logo db fl mt25" href="/">
             <img src="/0-finalPrj/img/logo.png" class="img100"></a>
-        <ul class="nav dib abs bm-dn">
-            <li class="home"><a href="/" class="db h100"></a></li>
+     	 <ul class="nav dib abs bm-dn">
+            <li class="home"><a href="index.htm" tppabs="http://www.tjfozoon.com/" class="db h100"></a></li>
             
-            <li><a href="/Product/10181/List.html" class="db"><span class="s1">蛋糕系列</span><span class="s2">CAKE</span></a></li>
-            <li><a href="/Product/10183/List.html" class="db"><span class="s1">欧风系列</span><span class="s2">EUROPE CAKE</span></a></li>
-            <li><a href="/Product/10184/List.html" class="db"><span class="s1">下午茶</span><span class="s2">AFTERNOON TEA</span></a></li>
-            <li><a href="/Product/10182/List.html" class="db"><span class="s1">礼盒专区</span><span class="s2">GIFT</span></a></li>
-            <li><a href="/Product/Company/Index.html" class="db"><span class="s1">企业专区</span><span class="s2">BUSINESS</span></a></li>
-            <li><a href="/UserCenter/Index.html" class="db"><span class="s1">会员中心</span><span class="s2">MEMBER</span></a></li>
-            <li><a href="/ContactUs/Index.html" class="db"><span class="s1">联系我们</span><span class="s2">CONTACT</span></a></li>
-           
-            <li class="login-btn">
-                
-                <a href="/LoginOut.html" class="dib">退出</a>
-                <a href="/Shopping/Car.html" class="dib login">购物车</a>
-                
-            </li>
+            <li><a href="product/list?typeid=0" class="db"><span class="s1">蛋糕系列</span><span class="s2">CAKE</span></a></li>
+            <li><a href="product/list?typeid=1"  class="db"><span class="s1">欧风系列</span><span class="s2">EUROPE CAKE</span></a></li>
+            <li><a href="product/list?typeid=2"  class="db"><span class="s1">下午茶</span><span class="s2">AFTERNOON TEA</span></a></li>
+            <li><a href="product/list?typeid=3" class="db"><span class="s1">礼盒专区</span><span class="s2">GIFT</span></a></li>
+            <li><a href="${ctx }/Index.html" tppabs="http://www.tjfozoon.com/Product/Company/Index.html" class="db"><span class="s1">企业专区</span><span class="s2">BUSINESS</span></a></li>
+            <li><a href="${ctx }/user-info.jsp" tppabs="http://www.tjfozoon.com/UserCenter/Index.html" class="db"><span class="s1">会员中心</span><span class="s2">MEMBER</span></a></li>
+            <li><a href="${ctx }/Index-2.html" tppabs="http://www.tjfozoon.com/ContactUs/Index.html" class="db"><span class="s1">联系我们</span><span class="s2">CONTACT</span></a></li>
+ 
             <div class="clr"></div>
         </ul>
         <div class="fr login-btn bm-dn">
             
-            <a href="/UserCenter/Index.html" class="pr10" style="background-color: #FFF; color: #b69b65;">${loginuser.name}</a>
+            <a href="/0-finalPrj/user-info.jsp" class="pr10" style="background-color: #FFF; color: #b69b65;">${loginuser.name}</a>
             <a href="/LoginOut.html" class="pr10" style="background-color: #FFF; color: #b69b65;">退出</a>
             <a href="/Shopping/Car.html" class="dib login">购物车</a>
             

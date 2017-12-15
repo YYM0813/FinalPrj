@@ -22,8 +22,10 @@ public class OrderShowDaoImpl {
 		Session session = sessionfactory.getCurrentSession();
 		List<CartItem>clist = new ArrayList<CartItem>();
 		for(Integer i:cid){
-			CartItem c = session.get(CartItem.class, i);
-			clist.add(c);
+			if(null!=i){
+				CartItem c = session.get(CartItem.class, i);
+				clist.add(c);
+			}			
 		}
 		return clist;
 	}
@@ -32,6 +34,7 @@ public class OrderShowDaoImpl {
 		List<Order>orderlist = new ArrayList<Order>();
 		Session session = sessionfactory.getCurrentSession();
 		Query query = session.createQuery("from Order o where o.user.id=?");
+		query.setParameter(0, id);
 		orderlist = query.list();
 		return orderlist;
 	}

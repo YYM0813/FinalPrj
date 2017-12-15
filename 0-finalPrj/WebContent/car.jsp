@@ -265,7 +265,7 @@
         </div>
         <div class="settlement pl30 li54 fs14 mt20 bgmc mb20">
             <p class="fl sm-dn c9 input_div">
-                <a href="/Product/News.html" class="fs14 c9" style="background-color: #b59a64; color: #FFF; padding: 5px 10px; margin-right: 15px;">清空购物车</a> 
+                <a href="/0-finalPrj/deleteall" class="fs14 c9" style="background-color: #b59a64; color: #FFF; padding: 5px 10px; margin-right: 15px;">清空购物车</a> 
             </p>
             <div class="text dn sm-db pb10">
                 合计：<span class="fr" id="totalprice2"></span>元<div class="clr"></div>

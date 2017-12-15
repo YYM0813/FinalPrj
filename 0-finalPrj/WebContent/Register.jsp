@@ -34,22 +34,17 @@
     <div class="header w100 tac rel bgcf act">
         <a class="logo db fl mt25" href="index.htm" tppabs="http://www.tjfozoon.com/">
             <img src="${ctx }/img/logo.png" tppabs="http://www.tjfozoon.com/Web/style/images/logo.png" class="img100"></a>
-        <ul class="nav dib abs bm-dn">
+       <ul class="nav dib abs bm-dn">
             <li class="home"><a href="index.htm" tppabs="http://www.tjfozoon.com/" class="db h100"></a></li>
             
-            <li><a href="List.html" tppabs="http://www.tjfozoon.com/Product/10181/List.html" class="db"><span class="s1">蛋糕系列</span><span class="s2">CAKE</span></a></li>
-            <li><a href="List-1.html" tppabs="http://www.tjfozoon.com/Product/10183/List.html" class="db"><span class="s1">欧风系列</span><span class="s2">EUROPE CAKE</span></a></li>
-            <li><a href="List-2.html" tppabs="http://www.tjfozoon.com/Product/10184/List.html" class="db"><span class="s1">下午茶</span><span class="s2">AFTERNOON TEA</span></a></li>
-            <li><a href="List-3.html" tppabs="http://www.tjfozoon.com/Product/10182/List.html" class="db"><span class="s1">礼盒专区</span><span class="s2">GIFT</span></a></li>
-            <li><a href="Index.html" tppabs="http://www.tjfozoon.com/Product/Company/Index.html" class="db"><span class="s1">企业专区</span><span class="s2">BUSINESS</span></a></li>
-            <li><a href="Login.html-rurl=-UserCenter-Index.html" tppabs="http://www.tjfozoon.com/UserCenter/Index.html" class="db"><span class="s1">会员中心</span><span class="s2">MEMBER</span></a></li>
-            <li><a href="Index-2.html" tppabs="http://www.tjfozoon.com/ContactUs/Index.html" class="db"><span class="s1">联系我们</span><span class="s2">CONTACT</span></a></li>
-            <li class="login-btn">
-                
-                <a href="Register.html" tppabs="http://www.tjfozoon.com/Register.html" class="dib">注册</a>
-                <a href="Login.html-rurl=-Register.html" tppabs="http://www.tjfozoon.com/Login.html?rurl=%2fRegister.html" class="dib login">登录</a>
-                
-            </li>
+            <li><a href="product/list?typeid=0" class="db"><span class="s1">蛋糕系列</span><span class="s2">CAKE</span></a></li>
+            <li><a href="product/list?typeid=1"  class="db"><span class="s1">欧风系列</span><span class="s2">EUROPE CAKE</span></a></li>
+            <li><a href="product/list?typeid=2"  class="db"><span class="s1">下午茶</span><span class="s2">AFTERNOON TEA</span></a></li>
+            <li><a href="product/list?typeid=3" class="db"><span class="s1">礼盒专区</span><span class="s2">GIFT</span></a></li>
+            <li><a href="${ctx }/Index.html" tppabs="http://www.tjfozoon.com/Product/Company/Index.html" class="db"><span class="s1">企业专区</span><span class="s2">BUSINESS</span></a></li>
+            <li><a href="${ctx }/user-info.jsp" tppabs="http://www.tjfozoon.com/UserCenter/Index.html" class="db"><span class="s1">会员中心</span><span class="s2">MEMBER</span></a></li>
+            <li><a href="${ctx }/Index-2.html" tppabs="http://www.tjfozoon.com/ContactUs/Index.html" class="db"><span class="s1">联系我们</span><span class="s2">CONTACT</span></a></li>
+ 
             <div class="clr"></div>
         </ul>
         <div class="fr login-btn bm-dn">
@@ -86,7 +81,7 @@
                 </div>
             </div>
             <div class="reg_right fr mt70 pt70">
-                <p class="fs14 c9 text li24 pl55 mt70">我已经注册，<span class="db sm-dn"></span>现在就 <a href="Login.html" tppabs="http://www.tjfozoon.com/Login.html" class="fs14 c9 text khaki">登录</a></p>
+                <p class="fs14 c9 text li24 pl55 mt70">我已经注册，<span class="db sm-dn"></span>现在就 <a href="${ctx }/Login.jsp" tppabs="http://www.tjfozoon.com/Login.html" class="fs14 c9 text khaki">登录</a></p>
             </div>
             <div class="clr"></div>
         </div>
@@ -96,7 +91,7 @@
 
     <!-- 底部 -->
     <div class="footer tac pb45">
-        <a href="index.htm" tppabs="http://www.tjfozoon.com/" class="dib f-logo sm-dn">
+        <a href="${ctx }/index-1.jsp" tppabs="http://www.tjfozoon.com/" class="dib f-logo sm-dn">
             <img src="${ctx }/img/footer-logo.png" tppabs="http://www.tjfozoon.com/Web/style/images/footer-logo.png" class="img100" /></a>
         <div class="footer_info dm-dn">
             <dl>

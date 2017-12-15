@@ -18,7 +18,7 @@ public class UserPasswordController {
 	@Resource
 	private UserPasswordServiceImpl service;
 	
-	@RequestMapping
+	@RequestMapping("/repwd")
 	@ResponseBody
 	public Map<String,String> repwd(String oldpwd,String newpwd,HttpSession session){
 		Map<String,String> map = new HashMap<String,String>();
@@ -27,10 +27,11 @@ public class UserPasswordController {
 		String password = user.getPassword();
 		if(password.equals(oldpwd)){
 			int line = service.repwd(newpwd, id);
+			System.out.println(line);
 			if(line == 1){
-				map.put("result","success");
+				map.put("result","yes");
 			}else{
-			map.put("result", "fail");
+				map.put("result", "fail");
 			}
 		}	
 		return map;

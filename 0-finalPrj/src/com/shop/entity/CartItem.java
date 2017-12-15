@@ -15,6 +15,7 @@ public class CartItem{
 	private int id;
 	private Product product;
 	private int count;
+	private String state;
 	private Flavor flavor;
 	private Size size;
 	
@@ -56,6 +57,12 @@ public class CartItem{
 	}
 	public void setSize(Size size) {
 		this.size = size;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
 	}
 	
 }

@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath }"></c:set>s
 <!DOCTYPE html>
-<html lang="en" style="font-size: 160px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="en" style="font-size: 160px;">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="/0-finalPrj/css/reset.css">
     <link rel="stylesheet" type="text/css" href="/0-finalPrj/css/jquery.bxslider.min.css">
@@ -27,19 +29,27 @@
         法颂蛋糕官网|FOZOON—天津生日蛋糕网上订购新鲜配送</title>
     <script src="/0-finalPrj/js/product.js"></script>
     
-    <link href="/0-finalPrj/cxs/mobiscroll_date.css" rel="stylesheet">
+    <link href="/0-finalPrj/css/mobiscroll_date.css" rel="stylesheet">
     <link href="/0-finalPrj/css/mobiscroll.css" rel="stylesheet">
     <script src="/0-finalPrj/js/mobiscroll_date.js" charset="gb2312"></script>
     <script src="/0-finalPrj/js/mobiscroll.js"></script>
     <script>
     function commit() {
-    	var name = $("#order_name").val(); 
-    	var tel =  $("#order_tel").val(); 
-    	var address =  $("#order_address").val(); 
-    	var param={};
-  	  	param.name = name;
-  	  	param.tel = tel;
-  	  	param.address = address;
+    	var usid = 0;
+    	var cid = "";
+    	 $(".uaddress-dd").each(function () {
+                 if ($(this).hasClass("act")) {
+                     usid = $(this).attr("uaid");
+                	alert(usid);	
+                 }
+         });
+    	 $(".yhq").each(function(){
+    		 $(this).children("dd").each(function(){
+    			 if($(this).attr("cid")!=undefined && $(this).attr("cid")!=null)
+	    			 cid += $(this).attr("cid")+","; 
+	    			 alert(cid);
+    		 })
+    	 })
     swal({
         title: "确定提交?",
         text: "您确定提交订单？",
@@ -51,11 +61,10 @@
     },
     function () {
         $.ajax({
-            url: "http://localhost:8080/0-finalPrj/submit",
+            url: "http://localhost:8080/0-finalPrj/suborder",
             type: "POST",
-            cache: false,
             dataType: "json",
-            data: param,
+            data: {"usid":usid,"cid":cid},
             success: function (ReturnData) {
                 if (ReturnData.result == "success") {
                     window.location.href = "http://localhost:8080/0-finalPrj/pay.jsp";
@@ -126,27 +135,22 @@
     <div class="header w100 tac rel bgcf act">
         <a class="logo db fl mt25" href="http://www.tjfozoon.com/">
             <img src="/0-finalPrj/img/logo.png" class="img100"></a>
-        <ul class="nav dib abs bm-dn">
-            <li class="home"><a href="http://www.tjfozoon.com/" class="db h100"></a></li>
+       <ul class="nav dib abs bm-dn">
+            <li class="home"><a href="index.htm" tppabs="http://www.tjfozoon.com/" class="db h100"></a></li>
             
-            <li><a href="http://www.tjfozoon.com/Product/10181/List.html" class="db"><span class="s1">蛋糕系列</span><span class="s2">CAKE</span></a></li>
-            <li><a href="http://www.tjfozoon.com/Product/10183/List.html" class="db"><span class="s1">欧风系列</span><span class="s2">EUROPE CAKE</span></a></li>
-            <li><a href="http://www.tjfozoon.com/Product/10184/List.html" class="db"><span class="s1">下午茶</span><span class="s2">AFTERNOON TEA</span></a></li>
-            <li><a href="http://www.tjfozoon.com/Product/10182/List.html" class="db"><span class="s1">礼盒专区</span><span class="s2">GIFT</span></a></li>
-            <li><a href="http://www.tjfozoon.com/Product/Company/Index.html" class="db"><span class="s1">企业专区</span><span class="s2">BUSINESS</span></a></li>
-            <li><a href="http://www.tjfozoon.com/UserCenter/Index.html" class="db"><span class="s1">会员中心</span><span class="s2">MEMBER</span></a></li>
-            <li><a href="http://www.tjfozoon.com/ContactUs/Index.html" class="db"><span class="s1">联系我们</span><span class="s2">CONTACT</span></a></li>
-            <li class="login-btn">
-                
-                <a href="http://www.tjfozoon.com/LoginOut.html" class="dib">退出</a>
-                <a href="http://www.tjfozoon.com/Shopping/Car.html" class="dib login">购物车</a>
-                
-            </li>
+            <li><a href="product/list?typeid=0" class="db"><span class="s1">蛋糕系列</span><span class="s2">CAKE</span></a></li>
+            <li><a href="product/list?typeid=1"  class="db"><span class="s1">欧风系列</span><span class="s2">EUROPE CAKE</span></a></li>
+            <li><a href="product/list?typeid=2"  class="db"><span class="s1">下午茶</span><span class="s2">AFTERNOON TEA</span></a></li>
+            <li><a href="product/list?typeid=3" class="db"><span class="s1">礼盒专区</span><span class="s2">GIFT</span></a></li>
+            <li><a href="${ctx }/Index.html" tppabs="http://www.tjfozoon.com/Product/Company/Index.html" class="db"><span class="s1">企业专区</span><span class="s2">BUSINESS</span></a></li>
+            <li><a href="${ctx }/user-info.jsp" tppabs="http://www.tjfozoon.com/UserCenter/Index.html" class="db"><span class="s1">会员中心</span><span class="s2">MEMBER</span></a></li>
+            <li><a href="${ctx }/Index-2.html" tppabs="http://www.tjfozoon.com/ContactUs/Index.html" class="db"><span class="s1">联系我们</span><span class="s2">CONTACT</span></a></li>
+ 
             <div class="clr"></div>
         </ul>
         <div class="fr login-btn bm-dn">
             
-            <a href="http://www.tjfozoon.com/UserCenter/Index.html" class="pr10" style="background-color: #FFF; color: #b69b65;">15732169632</a>
+            <a href="http://www.tjfozoon.com/UserCenter/Index.html" class="pr10" style="background-color: #FFF; color: #b69b65;">${loginuser.name }</a>
             <a href="http://www.tjfozoon.com/LoginOut.html" class="pr10" style="background-color: #FFF; color: #b69b65;">退出</a>
             <a href="http://www.tjfozoon.com/Shopping/Car.html" class="dib login">购物车</a>
             
@@ -159,7 +163,7 @@
     <div class="n-header act"></div>
 
     
-    <form name="aspnetForm" method="post" action="http://www.tjfozoon.com/Shopping/Confirm.html" id="aspnetForm">
+    <form name="aspnetForm" method="post" id="aspnetForm">
 <div>
 <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
 <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
@@ -207,17 +211,17 @@ function __doPostBack(eventTarget, eventArgument) {
                         <div class="clr"></div>
                     </dl>
                    
-                    <div class="dn logistics">
+                    <div id="dn logistics" class="dn logistics">
                         <h2 class="fs16 c3 li40 pt15 pb15 sm-dn d-d">选择收货地址</h2>
                         <dl class="address mb15">
                             <c:forEach items="${addresslist}" var="p">
-                            <dd class="fs14 li22 a04-d rel uaddress-dd" uaid="10940" style="cursor: pointer;">
+                            <dd class="fs14 li22 a04-d rel uaddress-dd" uaid="${p.id }" style="cursor: pointer;">
                                 <div class="dn sm-db fl a01-d text tac">收货地址</div>
                                 <div class="fl a03-d w100">
-                                    <h1 class="li34 fs18 pt5 pb5 text"><span class="dn sm-inline" id="order_name">收货人：</span>${p.name}<span class="dn sm-inline ml30"></span></h1>
-                                    <p class="text sm-dn" id="order_tel">${p.tel }</p>
-                                    <p class="text ovh2"><span class="dn sm-inline" id="order_address">收货地址：</span><span class="dn sm-inline">${p.address}</span></p>
-                                    <p class="ovh2 text sm-dn">${p.address}</p>
+                                    <h1 class="li34 fs18 pt5 pb5 text"><span class="dn sm-inline" id="order_name" value="${p.name}">收货人：</span>${p.name}<span class="dn sm-inline ml30"></span></h1>
+                                    <p class="text sm-dn" id="order_tel" value="${p.tel }">${p.tel }</p>
+                                    <p class="text ovh2"><span class="dn sm-inline" >收货地址：</span><span class="dn sm-inline">${p.address}</span></p>
+                                    <p class="ovh2 text sm-dn" id="order_address" value="${p.address}">${p.address}</p>
                                 </div>
                             </dd>
                             </c:forEach>
@@ -237,9 +241,9 @@ function __doPostBack(eventTarget, eventArgument) {
                         </dd>
                         <div class="clr"></div>
                     </dl>
-                    <dl class="yhq">
-                      <c:forEach items="${orderlist }" var="p">
-                        <dd class="fs14 li50 c6">
+                    <dl class="yhq" id="cartitem">
+                      <c:forEach items="${orderlist}" var="p">
+                        <dd class="fs14 li50 c6" cid="${p.id}">
                             <span class="dib s-img">
                                 <img src="/0-finalPrj/img/${p.product.img1}" class="img100"></span>
                             <h1 class="dib s-text ovh fs14 c6 li50 vt text"><span>${p.product.name}<span class="db ovh">${p.flavor.name},${p.size.name}</span></span></h1>
@@ -251,13 +255,7 @@ function __doPostBack(eventTarget, eventArgument) {
                         <dd class="dd-text">
                             <p class="fs12 li24 text sm-tal">配件说明：<span class="sx-db">10人用餐具+餐刀+生日帽</span></p>
                         </dd>                        
-                <div class="pl30 pr70 qr-o pb45 tar fs14 li26 sm-w92">
-                    <p class="sm-tal text sm-mt15">
-                    <p class="li38 mt15 sm-tal text qr-o-p">
-                        订单金额：<span class="qr-o-s dib sm-fr sm-tar"><i class="fs30 khaki text_m" ></i><span class="sm-dn" name="totalprice2">元</span></span>
-                    </p>
-                </div>
-            </div>
+          </div>
             <div class="settlement pl30 li54 fs14 mt20 bgmc mb20">
                 <div class="fr li54 st-r">
                     <a onclick=" commit(); " id="ctl00_Content1_btnAddOrder" class="dib ml25 g-sett cf fs22 tac vt text" >确认并提交订单</a>

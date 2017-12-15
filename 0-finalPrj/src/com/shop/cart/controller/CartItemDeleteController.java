@@ -32,11 +32,12 @@ public class CartItemDeleteController {
 			if(ci.getProduct().getId()==pid){
 				if(count > 0){
 					ci.setCount(count);
+					cartlist.add(ci);	
 				}else{
-					ci.setCount(0);;
+					cart.container.remove(pid);
+					
 				}
-			}
-			cartlist.add(ci);		
+			}				
 		}		
 		session.setAttribute("cartItem", cartlist);
 		map.put("result", "ok");

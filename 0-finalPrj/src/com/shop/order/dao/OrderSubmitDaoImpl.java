@@ -21,25 +21,36 @@ public class OrderSubmitDaoImpl {
 	@Resource
 	private SessionFactory sessionfactory;
 	
-	public Order submitOrder(List<CartItem> cartitem,String name,String tel,String address,User u){
+	public Set<CartItem> findCartById(List<Integer> cidlist){
+		Set<CartItem> clist = new HashSet<CartItem>();
+		Session session = sessionfactory.getCurrentSession();
+		for(Integer i :cidlist){
+			if(i!=null){
+				CartItem ci = session.get(CartItem.class,i );
+				clist.add(ci);
+			}			
+		}
+		return clist;
+	}
+	
+	public Address findOrderById(int id){
+		Session session = sessionfactory.getCurrentSession();
+		Address address = session.get(Address.class, id);
+		return address;
+	}
+	
+	public Order submitOrder(String cid,Address address,User u){
 		Set<CartItem> cartset = new HashSet<CartItem>();
 		Session session = sessionfactory.getCurrentSession();
 		Order order = new Order();
-		Query query = session.createQuery("from Address where u.id = ?");
-		query.setParameter(0, u.getId());
-		List<Address> addlist = query.list();
-		for(Address add : addlist){
-			if(add.getAddress().equals(address)&&add.getTel().equals(tel)&&add.getName().equals(name)){
-				order.setAddress(add);
-			}
-		}
-		for(CartItem c:cartitem){
-			cartset.add(c);
-		}
-		order.setCartitem(cartset);
+			
+		
+		order.setAddress(address);
+		order.setCartitemid(cid);
 		order.setUser(u);
 		
 		session.save(order);
+		
 		return order;
 		
 	}

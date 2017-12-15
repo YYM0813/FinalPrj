@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath }"></c:set>
+
 <!DOCTYPE html>
 <html lang="en" style="font-size: 160px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
@@ -12,7 +14,8 @@
     <link rel="stylesheet" type="text/css" href="/0-finalPrj/css/dll.css">
     <link rel="stylesheet" type="text/css" href="/0-finalPrj/css/banner_css.css">
     <link rel="stylesheet" type="text/css" href="/0-finalPrj/css/media.css">
-    <script src="./address_files/hm.js.下载"></script><script type="text/javascript" src="/0-finalPrj/js/jquery-1.8.3.min.js"></script>
+    <script src="/0-finalPrj/js/hm.js"></script>
+    <script type="text/javascript" src="/0-finalPrj/js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="/0-finalPrj/js/jquery.bxslider.min.js"></script>
     <script type="text/javascript" src="/0-finalPrj/js/rem.js"></script>
     <script type="text/javascript" src="/0-finalPrj/js/main.js"></script>
@@ -46,11 +49,11 @@
     					swal(
     							{
     								title : "保存成功",
-    								text : "您的地址成功保存,返回进行下单！",
+    								text : "您的地址成功保存！",
     								type : "success"
     							},
     							function() {
-    								window.location.href = "http://localhost:8080/0-finalPrj/confirm.jsp";
+    								window.location.href = "http://localhost:8080/0-finalPrj/user-info.jsp";
     							});
     				}else {
     				swal("提交失败", ReturnData, "warning");
@@ -70,28 +73,23 @@
         <a class="logo db fl mt25" href="http://www.tjfozoon.com/">
             <img src="/0-finalPrj/img/logo.png" class="img100"></a>
         <ul class="nav dib abs bm-dn">
-            <li class="home"><a href="http://www.tjfozoon.com/" class="db h100"></a></li>
+            <li class="home"><a href="index.htm" tppabs="http://www.tjfozoon.com/" class="db h100"></a></li>
             
-            <li><a href="http://www.tjfozoon.com/Product/10181/List.html" class="db"><span class="s1">蛋糕系列</span><span class="s2">CAKE</span></a></li>
-            <li><a href="http://www.tjfozoon.com/Product/10183/List.html" class="db"><span class="s1">欧风系列</span><span class="s2">EUROPE CAKE</span></a></li>
-            <li><a href="http://www.tjfozoon.com/Product/10184/List.html" class="db"><span class="s1">下午茶</span><span class="s2">AFTERNOON TEA</span></a></li>
-            <li><a href="http://www.tjfozoon.com/Product/10182/List.html" class="db"><span class="s1">礼盒专区</span><span class="s2">GIFT</span></a></li>
-            <li><a href="http://www.tjfozoon.com/Product/Company/Index.html" class="db"><span class="s1">企业专区</span><span class="s2">BUSINESS</span></a></li>
-            <li><a href="http://www.tjfozoon.com/UserCenter/Index.html" class="db"><span class="s1">会员中心</span><span class="s2">MEMBER</span></a></li>
-            <li><a href="http://www.tjfozoon.com/ContactUs/Index.html" class="db"><span class="s1">联系我们</span><span class="s2">CONTACT</span></a></li>
-            <li class="login-btn">
-                
-                <a href="http://www.tjfozoon.com/LoginOut.html" class="dib">退出</a>
-                <a href="http://www.tjfozoon.com/Shopping/Car.html" class="dib login">购物车</a>
-                
-            </li>
+            <li><a href="product/list?typeid=0" class="db"><span class="s1">蛋糕系列</span><span class="s2">CAKE</span></a></li>
+            <li><a href="product/list?typeid=1"  class="db"><span class="s1">欧风系列</span><span class="s2">EUROPE CAKE</span></a></li>
+            <li><a href="product/list?typeid=2"  class="db"><span class="s1">下午茶</span><span class="s2">AFTERNOON TEA</span></a></li>
+            <li><a href="product/list?typeid=3" class="db"><span class="s1">礼盒专区</span><span class="s2">GIFT</span></a></li>
+            <li><a href="${ctx }/Index.html" tppabs="http://www.tjfozoon.com/Product/Company/Index.html" class="db"><span class="s1">企业专区</span><span class="s2">BUSINESS</span></a></li>
+            <li><a href="${ctx }/user-info.jsp" tppabs="http://www.tjfozoon.com/UserCenter/Index.html" class="db"><span class="s1">会员中心</span><span class="s2">MEMBER</span></a></li>
+            <li><a href="${ctx }/Index-2.html" tppabs="http://www.tjfozoon.com/ContactUs/Index.html" class="db"><span class="s1">联系我们</span><span class="s2">CONTACT</span></a></li>
+ 
             <div class="clr"></div>
         </ul>
         <div class="fr login-btn bm-dn">
             
-            <a href="http://www.tjfozoon.com/UserCenter/Index.html" class="pr10" style="background-color: #FFF; color: #b69b65;">15732169632</a>
+            <a href="${ctx }/user-info.jsp" class="pr10" style="background-color: #FFF; color: #b69b65;">${loginuser.name }</a>
             <a href="http://www.tjfozoon.com/LoginOut.html" class="pr10" style="background-color: #FFF; color: #b69b65;">退出</a>
-            <a href="http://www.tjfozoon.com/Shopping/Car.html" class="dib login">购物车</a>
+            <a href="${ctx }/car.jsp" class="dib login">购物车</a>
             
         </div>
         <a href="javascript:void(0);" class="dn bm-db fr nav-ico h100 mr15"></a>
@@ -123,10 +121,7 @@
     <ul class="m-nav sm-dn">
         <li title="我的订单"><a href="http://www.tjfozoon.com/UserCenter/Order/List.html" class="a0">我的订单<span class="mnav_ico"></span></a></li>
         <li class="act" title="地址管理"><a href="http://www.tjfozoon.com/UserCenter/Address/List.html" class="a0">地址管理<span class="mnav_ico"></span></a></li>
-        <li title="积分明细"><a href="http://www.tjfozoon.com/UserCenter/Integral/List.html" class="a1">积分明细<span class="mnav_ico"></span></a></li>
-        <li title="我的代金券"><a href="http://www.tjfozoon.com/UserCenter/Coupon/List.html" class="a2">我的代金券<span class="mnav_ico"></span></a></li>
-        <li title="评价管理"><a href="http://www.tjfozoon.com/UserCenter/Comment/List.html" class="a3">评价管理<span class="mnav_ico"></span></a></li>
-        <li title="账户信息"><a href="http://www.tjfozoon.com/UserCenter/Info/Index.html" class="a5">账户信息<span class="mnav_ico"></span></a></li>
+      <li title="账户信息"><a href="http://www.tjfozoon.com/UserCenter/Info/Index.html" class="a5">账户信息<span class="mnav_ico"></span></a></li>
     </ul>
 </div>
 

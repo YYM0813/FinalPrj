@@ -17,4 +17,8 @@ public class AddressListServiceImpl {
 	public List<Address> show(int uid){
 		return dao.show(uid);
 	}
+	
+	public Address getAddress(int id){
+		return dao.getAddress(id);
+	}
 }

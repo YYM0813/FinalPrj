@@ -62,15 +62,10 @@
             <li><a href="product/list?typeid=1"  class="db"><span class="s1">欧风系列</span><span class="s2">EUROPE CAKE</span></a></li>
             <li><a href="product/list?typeid=2"  class="db"><span class="s1">下午茶</span><span class="s2">AFTERNOON TEA</span></a></li>
             <li><a href="product/list?typeid=3" class="db"><span class="s1">礼盒专区</span><span class="s2">GIFT</span></a></li>
-            <li><a href="Index.html" tppabs="http://www.tjfozoon.com/Product/Company/Index.html" class="db"><span class="s1">企业专区</span><span class="s2">BUSINESS</span></a></li>
-            <li><a href="Login.html-rurl=-UserCenter-Index.html" tppabs="http://www.tjfozoon.com/UserCenter/Index.html" class="db"><span class="s1">会员中心</span><span class="s2">MEMBER</span></a></li>
-            <li><a href="Index-2.html" tppabs="http://www.tjfozoon.com/ContactUs/Index.html" class="db"><span class="s1">联系我们</span><span class="s2">CONTACT</span></a></li>
-            <li class="login-btn">
-                
-                <a href="Register.html" tppabs="http://www.tjfozoon.com/Register.html" class="dib">注册</a>
-                <a href="Login.html-rurl=-.htm" tppabs="http://www.tjfozoon.com/Login.html?rurl=%2f" class="dib login">登录</a>
-                
-            </li>
+            <li><a href="${ctx }/Index.html" tppabs="http://www.tjfozoon.com/Product/Company/Index.html" class="db"><span class="s1">企业专区</span><span class="s2">BUSINESS</span></a></li>
+            <li><a href="${ctx }/user-info.jsp" tppabs="http://www.tjfozoon.com/UserCenter/Index.html" class="db"><span class="s1">会员中心</span><span class="s2">MEMBER</span></a></li>
+            <li><a href="${ctx }/Index-2.html" tppabs="http://www.tjfozoon.com/ContactUs/Index.html" class="db"><span class="s1">联系我们</span><span class="s2">CONTACT</span></a></li>
+ 
             <div class="clr"></div>
         </ul>
         <div class="fr login-btn bm-dn">
@@ -98,51 +93,7 @@
             
         </div>
     </div>
-    
-    <div class="pro_select mb40">
-        <div class="mauto">
-            <div class="div_select">
-                
-                <select class="tac screenselect" onchange="search_onclick()">
-                    <option value="">口味</option>
-                    
-                    <option value="10241:巧克力">巧克力</option>
-                    
-                    <option value="10241:奶油水果">奶油水果</option>
-                    
-                    <option value="10241:咖啡">咖啡</option>
-                    
-                    <option value="10241:抹茶">抹茶</option>
-                    
-                    <option value="10241:坚果">坚果</option>
-                    
-                    <option value="10241:其他">其他</option>
-                    
-                </select>
-                
-                <select class="tac screenselect" onchange="search_onclick()">
-                    <option value="">尺寸</option>
-                    
-                    <option value="10242:6吋">6吋</option>
-                    
-                    <option value="10242:8吋">8吋</option>
-                    
-                    <option value="10242:10吋">10吋</option>
-                    
-                    <option value="10242:12吋">12吋</option>
-                    
-                    <option value="10242:14吋">14吋</option>
-                    
-                    <option value="10242:双层">双层</option>
-                    
-                    <option value="10242:多层">多层</option>
-                    
-                </select>
-                
-            </div>
-        </div>
-    </div>
-    
+       
     <div class="product proList">
           <ul class="ma">
           <c:forEach items="${Europeanlist }" var="p">

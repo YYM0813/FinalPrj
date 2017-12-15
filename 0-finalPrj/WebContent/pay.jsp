@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath }"></c:set>
+    
 <!DOCTYPE html>
 <!-- saved from url=(0054)http://www.tjfozoon.com/Shopping/Success.html?id=12211 -->
 <html lang="en" style="font-size: 160px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -35,29 +38,24 @@
     <div class="header w100 tac rel bgcf act">
         <a class="logo db fl mt25" href="http://www.tjfozoon.com/">
             <img src="/0-finalPrj/img/logo.png" class="img100"></a>
-        <ul class="nav dib abs bm-dn">
-            <li class="home"><a href="http://www.tjfozoon.com/" class="db h100"></a></li>
+         <ul class="nav dib abs bm-dn">
+            <li class="home"><a href="index.htm" tppabs="http://www.tjfozoon.com/" class="db h100"></a></li>
             
-            <li><a href="http://www.tjfozoon.com/Product/10181/List.html" class="db"><span class="s1">蛋糕系列</span><span class="s2">CAKE</span></a></li>
-            <li><a href="http://www.tjfozoon.com/Product/10183/List.html" class="db"><span class="s1">欧风系列</span><span class="s2">EUROPE CAKE</span></a></li>
-            <li><a href="http://www.tjfozoon.com/Product/10184/List.html" class="db"><span class="s1">下午茶</span><span class="s2">AFTERNOON TEA</span></a></li>
-            <li><a href="http://www.tjfozoon.com/Product/10182/List.html" class="db"><span class="s1">礼盒专区</span><span class="s2">GIFT</span></a></li>
-            <li><a href="http://www.tjfozoon.com/Product/Company/Index.html" class="db"><span class="s1">企业专区</span><span class="s2">BUSINESS</span></a></li>
-            <li><a href="http://www.tjfozoon.com/UserCenter/Index.html" class="db"><span class="s1">会员中心</span><span class="s2">MEMBER</span></a></li>
-            <li><a href="http://www.tjfozoon.com/ContactUs/Index.html" class="db"><span class="s1">联系我们</span><span class="s2">CONTACT</span></a></li>
-            <li class="login-btn">
-                
-                <a href="http://www.tjfozoon.com/LoginOut.html" class="dib">退出</a>
-                <a href="http://www.tjfozoon.com/Shopping/Car.html" class="dib login">购物车</a>
-                
-            </li>
+            <li><a href="product/list?typeid=0" class="db"><span class="s1">蛋糕系列</span><span class="s2">CAKE</span></a></li>
+            <li><a href="product/list?typeid=1"  class="db"><span class="s1">欧风系列</span><span class="s2">EUROPE CAKE</span></a></li>
+            <li><a href="product/list?typeid=2"  class="db"><span class="s1">下午茶</span><span class="s2">AFTERNOON TEA</span></a></li>
+            <li><a href="product/list?typeid=3" class="db"><span class="s1">礼盒专区</span><span class="s2">GIFT</span></a></li>
+            <li><a href="${ctx }/Index.html" tppabs="http://www.tjfozoon.com/Product/Company/Index.html" class="db"><span class="s1">企业专区</span><span class="s2">BUSINESS</span></a></li>
+            <li><a href="${ctx }/user-info.jsp" tppabs="http://www.tjfozoon.com/UserCenter/Index.html" class="db"><span class="s1">会员中心</span><span class="s2">MEMBER</span></a></li>
+            <li><a href="${ctx }/Index-2.html" tppabs="http://www.tjfozoon.com/ContactUs/Index.html" class="db"><span class="s1">联系我们</span><span class="s2">CONTACT</span></a></li>
+ 
             <div class="clr"></div>
         </ul>
         <div class="fr login-btn bm-dn">
             
-            <a href="http://www.tjfozoon.com/UserCenter/Index.html" class="pr10" style="background-color: #FFF; color: #b69b65;">15732169632</a>
+            <a href="${ctx }/user-info.jsp" class="pr10" style="background-color: #FFF; color: #b69b65;">${loginuser.name }</a>
             <a href="http://www.tjfozoon.com/LoginOut.html" class="pr10" style="background-color: #FFF; color: #b69b65;">退出</a>
-            <a href="http://www.tjfozoon.com/Shopping/Car.html" class="dib login">购物车</a>
+            <a href="${ctx }/car.jsp" class="dib login">购物车</a>
             
         </div>
         <a href="javascript:void(0);" class="dn bm-db fr nav-ico h100 mr15"></a>
@@ -86,34 +84,17 @@
                 <div class="order_pay pl30 pr30 pb30 pt30 mb20">
                     <div class="order_success fl mt15 li24 fs14 c9 text">
                         <h2 class="fs20 c3 li38 mb15 text-m">订单提交成功~</h2>
-                        <p>订单号：${fianlorder.id}</p>
+                        <p>订单号：${finalorder.id}</p>
                         
-                        <p>收货信息：${fianlorder.address.name}   ${fianlorder.address.tel}  ${fianlorder.address.address}</p>
+                        <p>收货信息：${finalorder.address.name}   ${finalorder.address.tel}  ${finalorder.address.address}</p>
                         
                     </div>             
                     <div class="clr"></div>
                 </div>
                 <!-- 支付方式 -->
-                <div class="pl30 pr30 pb30 pt20 pay_way mb40">
-                    <h3 class="li34 c3 fs16 text">选择以下方式付款</h3>
-                    <div class="way mt30">
-                        
-                                <a href="javascript:void(0);" link="/Pay/AlipayInstant/12211/Index.html" class="fl rel db selpay">
-                                    <img src="/0-finalPrj/img/20170209192024799.jpg" class="imgvt"></a>
-                            
-                                <a href="javascript:void(0);" link="/Pay/ChinaBank/12211/Index.html" class="fl rel db selpay">
-                                    <img src="/0-finalPrj/img/20170209192036357.jpg" class="imgvt"></a>
-                            
-                                <a href="javascript:void(0);" link="/Pay/WxPayNativePay/12211/Index.html" class="fl rel db selpay">
-                                    <img src="/0-finalPrj/img/20170315151758789.jpg" class="imgvt"></a>
-                            
-                        
-
-                        <div class="clr"></div>
-                    </div>
-                </div>
+                
             </div>
-            <div class="tac mt30 mb30 pb30"><a href="javascript:void(0);" onclick="PayLink()" class="lj_a dib fs22 li54 text_m cf">立即支付</a></div>
+            <div class="tac mt30 mb30 pb30"><a href="http://localhost:8080/0-finalPrj/index-1.jsp" class="lj_a dib fs22 li54 text_m cf">我知道啦</a></div>
         </div>
         
     </div>

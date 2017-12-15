@@ -28,14 +28,14 @@ function Login() {
 		dataType:'json',
 		success : function(data) {
 			if (data.result == "true") {
-				window.location.href ="http://localhost:8080/0-finalPrj/index.jsp";
+				window.location.href ="http://localhost:8080/0-finalPrj/index-1.jsp";
 			} else if (data.result == "wrong") {
-				swal("登录失败", "你输入的邮箱错咯", "warning");
+				swal("登录失败", "你的输入不对哦", "warning");
 			} else if (data.result == "admin") {
 				window.location.href = "http://localhost:8080/0-finalPrj/admin.jsp";
 			}
 		},error: function(data){
-			alert("ye"+data);
+			swal("登录失败", "我也不晓得为什么", "warning");
 		}
 	});
 }
@@ -52,7 +52,7 @@ function Register() {
 	params.confirmpwd=confirmpwd;
 	if (name == "" || password == "" || email == ""
 			|| confirmpwd == "") {
-		aler("注册失败", "邮箱、用户名和密码为必填项，请填写完整！", "warning");
+		swal("注册失败", "邮箱、用户名和密码为必填项，请填写完整！", "warning");
 		return;
 	}
 	if (password != confirmpwd) {
@@ -74,13 +74,20 @@ function Register() {
 		dataType : "json",
 		success : function(data) {
 			if (data.result == "true") {
-				alert("注册成功");
-				window.location.href = "http://localhost:8080/0-finalPrj/index.jsp";
+				swal(
+						{
+							title : "注册成功",
+							text : "注册成功！",
+							type : "success"
+						},
+						function() {
+							window.location.href = "http://localhost:8080/0-finalPrj/index-1.jsp";
+						});
 			} else {
-				alert("注册失败");
+				swal("注册失败", "注册失败！", "warning");
 			}
 		},error: function(data){
-			alert(data);
+			swal("注册失败", "注册失败！", "warning");
 		}
 	});
 }
@@ -266,5 +273,6 @@ function SetUserAddressDefault(aid) {
 				}
 			});
 }
-// 提交地址
+//用户信息修改
+
 

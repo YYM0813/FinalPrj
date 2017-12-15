@@ -43,21 +43,16 @@
             <li><a href="product/list?typeid=1"  class="db"><span class="s1">欧风系列</span><span class="s2">EUROPE CAKE</span></a></li>
             <li><a href="product/list?typeid=2"  class="db"><span class="s1">下午茶</span><span class="s2">AFTERNOON TEA</span></a></li>
             <li><a href="product/list?typeid=3" class="db"><span class="s1">礼盒专区</span><span class="s2">GIFT</span></a></li>
-            <li><a href="Index.html" tppabs="http://www.tjfozoon.com/Product/Company/Index.html" class="db"><span class="s1">企业专区</span><span class="s2">BUSINESS</span></a></li>
-            <li><a href="Login.html-rurl=-UserCenter-Index.html" tppabs="http://www.tjfozoon.com/UserCenter/Index.html" class="db"><span class="s1">会员中心</span><span class="s2">MEMBER</span></a></li>
-            <li><a href="Index-2.html" tppabs="http://www.tjfozoon.com/ContactUs/Index.html" class="db"><span class="s1">联系我们</span><span class="s2">CONTACT</span></a></li>
-            <li class="login-btn">
-                
-                <a href="Register.jsp" class="dib">注册</a>
-                <a href="Login.jsp" class="dib login">登录</a>
-                
-            </li>
+            <li><a href="${ctx }/Index.html" tppabs="http://www.tjfozoon.com/Product/Company/Index.html" class="db"><span class="s1">企业专区</span><span class="s2">BUSINESS</span></a></li>
+            <li><a href="${ctx }/user-info.jsp" tppabs="http://www.tjfozoon.com/UserCenter/Index.html" class="db"><span class="s1">会员中心</span><span class="s2">MEMBER</span></a></li>
+            <li><a href="${ctx }/Index-2.html" tppabs="http://www.tjfozoon.com/ContactUs/Index.html" class="db"><span class="s1">联系我们</span><span class="s2">CONTACT</span></a></li>
+ 
             <div class="clr"></div>
         </ul>
         <div class="fr login-btn bm-dn">
             
-            <a href="Register.jsp" class="dib">注册</a>
-            <a href="Login.jsp" class="dib login">登录</a>
+            <a href="${ctx }/Register.jsp" class="dib">注册</a>
+            <a href="${ctx }/Login.jsp" class="dib login">登录</a>
             
         </div>
         <a href="javascript:void(0);" class="dn bm-db fr nav-ico h100 mr15"></a>
@@ -384,7 +379,7 @@
 
     <!-- 底部 -->
     <div class="footer tac pb45">
-        <a href="index.jsp" tppabs="http://www.tjfozoon.com/" class="dib f-logo sm-dn">
+        <a href="index-1.jsp" tppabs="http://www.tjfozoon.com/" class="dib f-logo sm-dn">
             <img src="img/footer-logo.png" tppabs="img/footer-logo.png" class="img100" /></a>
         <div class="footer_info dm-dn">
             <dl>

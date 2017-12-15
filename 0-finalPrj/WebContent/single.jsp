@@ -353,10 +353,11 @@ function Statistical() {
             </li>
             <div class="clr"></div>
         </ul>
-        <div class="fr login-btn bm-dn">
+       <div class="fr login-btn bm-dn">
             
-            <a href="Register.html" tppabs="http://www.tjfozoon.com/Register.html" class="dib">注册</a>
-            <a href="javascript:if(confirm(%27http://www.tjfozoon.com/Login.html?rurl=%2fProduct%2f10572%2fView.html  \n\nThis file was not retrieved by Teleport Pro, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.tjfozoon.com/Login.html?rurl=%2fProduct%2f10572%2fView.html%27" tppabs="http://www.tjfozoon.com/Login.html?rurl=%2fProduct%2f10572%2fView.html" class="dib login">登录</a>
+            <a href="${ctx }/user-info.jsp" class="pr10" style="background-color: #FFF; color: #b69b65;">${loginuser.name }</a>
+            <a href="http://www.tjfozoon.com/LoginOut.html" class="pr10" style="background-color: #FFF; color: #b69b65;">退出</a>
+            <a href="${ctx }/car.jsp" class="dib login">购物车</a>
             
         </div>
         <a href="javascript:void(0);" class="dn bm-db fr nav-ico h100 mr15"></a>

@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
-<c:set var="ctx" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html>
 <!-- saved from url=(0052)http://www.tjfozoon.com/UserCenter/Address/List.html -->
 <html lang="en" style="font-size: 160px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -14,7 +14,8 @@
     <link rel="stylesheet" type="text/css" href="/0-finalPrj/css/dll.css">
     <link rel="stylesheet" type="text/css" href="/0-finalPrj/css/banner_css.css">
     <link rel="stylesheet" type="text/css" href="/0-finalPrj/css/media.css">
-    <script src="./address_files/hm.js.下载"></script><script type="text/javascript" src="/0-finalPrj/js/jquery-1.8.3.min.js"></script>
+    <script src="/0-finalPrj/js/hm.js"></script>
+    <script type="text/javascript" src="/0-finalPrj/js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="/0-finalPrj/js/jquery.bxslider.min.js"></script>
     <script type="text/javascript" src="/0-finalPrj/js/rem.js"></script>
     <script type="text/javascript" src="/0-finalPrj/js/main.js"></script>
@@ -36,7 +37,7 @@
     <!-- 头部置顶 -->
     <div class="header w100 tac rel bgcf act">
         <a class="logo db fl mt25" href="http://www.tjfozoon.com/">
-            <img src="./address_files/logo.png" class="img100"></a>
+            <img src="/0-finalPrj/img/logo.png" class="img100"></a>
         <ul class="nav dib abs bm-dn">
             <li class="home"><a href="http://www.tjfozoon.com/" class="db h100"></a></li>
             
@@ -91,42 +92,26 @@
     <ul class="m-nav sm-dn">
         <li title="我的订单"><a href="http://www.tjfozoon.com/UserCenter/Order/List.html" class="a0">我的订单<span class="mnav_ico"></span></a></li>
         <li class="act" title="地址管理"><a href="http://www.tjfozoon.com/UserCenter/Address/List.html" class="a0">地址管理<span class="mnav_ico"></span></a></li>
-        <li title="积分明细"><a href="http://www.tjfozoon.com/UserCenter/Integral/List.html" class="a1">积分明细<span class="mnav_ico"></span></a></li>
-        <li title="我的代金券"><a href="http://www.tjfozoon.com/UserCenter/Coupon/List.html" class="a2">我的代金券<span class="mnav_ico"></span></a></li>
-        <li title="评价管理"><a href="http://www.tjfozoon.com/UserCenter/Comment/List.html" class="a3">评价管理<span class="mnav_ico"></span></a></li>
-        <li title="账户信息"><a href="http://www.tjfozoon.com/UserCenter/Info/Index.html" class="a5">账户信息<span class="mnav_ico"></span></a></li>
+      <li title="账户信息"><a href="http://www.tjfozoon.com/UserCenter/Info/Index.html" class="a5">账户信息<span class="mnav_ico"></span></a></li>
     </ul>
 </div>
 
             <div class="menber_right fl tac">
-                <div class="qr-order ps_address">
-                    <div class="qr-o pb30">
-                        <dl class="address mb15 tal">
-                            <dd class="dn sx-db fl a01-d text tac">收货地址</dd>
-                            
-                            <dd class="add">
-                                <a href="http://www.tjfozoon.com/UserCenter/Address/List.html?m=add" class="a-add addddd db">
-                                    <p class="li24 tac fs14">添加新地址</p>
-                                </a>
-                            </dd>
-                            <div class="clr"></div>
-                        </dl>
-                        
-                    </div>
-
+                <div class="qr-order ps_address">                    
                     <!-- 地址列表 -->
                     <div class="qr-o pb30 address_list">
                         <dl class="address mb15 tal">
-                          <c:forEach items="${addresslist}" var="p">
+                            <c:forEach items="${addlist }" var="p">
                             <dd class="fs14 li22 a02-d">
-                                <h1 class="li34 fs18 c6 pt5 pb5 text"><span class="dn sx-inline">收货人：</span>${p.name }<span class="dn sx-inline ml30 sx-fr">${p.tel }</span><div class="clr"></div>
+                                <h1 class="li34 fs18 c6 pt5 pb5 text"><span class="dn sx-inline">收货人：</span>${p.name}<span class="dn sx-inline ml30 sx-fr">${p.tel}</span><div class="clr"></div>
                                 </h1>
-                                <p class="text sm-dn">${p.tel }</p>
-                                <p class="text ovh2"><span class="dn sx-inline">收货地址：</span><span class="dn sx-inline">${p.address }</span></p>
-                                <p class="ovh2 text sm-dn">${p.address}</p>
+                                <p class="text sm-dn">${p.tel}</p>
+                                <p class="text ovh2"><span class="dn sx-inline">收货地址：</span><span class="dn sx-inline">${p.address}</span></p>
+                                <p class="ovh2 text sm-dn">${p.address }</p>
+                                 <a href="/0-finalPrj/add.jsp">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新增地址</a><a href="/0-finalPrj/editaddress?id=${p.id }">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编辑地址</a>
                             </dd>
+                            </c:forEach>
                             <div class="clr"></div>
-                          </c:forEach>
                         </dl>
                     </div>
                 </div>
@@ -218,7 +203,7 @@
     <!-- 底部 -->
     <div class="footer tac pb45">
         <a href="http://www.tjfozoon.com/" class="dib f-logo sm-dn">
-            <img src="./address_files/footer-logo.png" class="img100"></a>
+            <img src="/0-finalPrj/img/footer-logo.png" class="img100"></a>
         <div class="footer_info dm-dn">
             <dl>
                 <dt class="fs16 fm li22">ADDRESS</dt>
@@ -261,7 +246,7 @@
 
     <div class="fixed-right bm-dn">
         <ul>
-            <li><a href="http://www.tjfozoon.com/Shopping/Car.html" class="a01"></a><span class="ioc db abs tac" id="t_car_num">3</span></li>
+            <li><a href="http://www.tjfozoon.com/Shopping/Car.html" class="a01"></a><span class="ioc db abs tac" id="t_car_num">2</span></li>
             
                     <li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=2503343259&amp;site=qq&amp;menu=yes" class="a02"></a></li>
                 
@@ -299,4 +284,11 @@
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
-    </body></html>
+
+
+
+
+
+
+
+</body></html>

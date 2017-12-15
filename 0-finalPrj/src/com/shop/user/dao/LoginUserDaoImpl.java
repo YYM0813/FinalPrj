@@ -14,15 +14,19 @@ public class LoginUserDaoImpl {
 	@Resource
 	private SessionFactory sessionFactory;
 		
-	public User login(String email){
+	public int login(String email,String password){
+		int s = 0;
 		Query query = sessionFactory.getCurrentSession().createQuery("from User u where u.email=?");
 		query.setParameter(0,email);
 		User u = (User) query.uniqueResult();
-		if(u==null){
-			return null;
-		}else{
-			return u;
-		}
-		
+			if(!u.getPassword().equals(password)){
+				s=1;
+			}else{
+				s=0;
+			}
+			if(u.getRole().equals("admin")){
+				s=2;
+			}
+		return s;
 	}
 }

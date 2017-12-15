@@ -27,8 +27,7 @@ public class LoginUserController {
 	
 	@RequestMapping(value="/login")	
 	@ResponseBody
-	public Map<String,String> login(String email,String password,HttpSession session) throws IOException{
-		
+	public Map<String,String> login(String email,String password,HttpSession session) throws IOException{		
 		Map<String,String> map = new HashMap<String,String>();
 		User u = userservice.findByEmail(email);
 		/*将用户存入session*/
@@ -46,13 +45,13 @@ public class LoginUserController {
 		if(email==null){
 			map.put("result","null");
 		}else{
-			int state = loginUserService.login(email);		
-			if(state == -1){
-				System.out.println("wrong email");
-				map.put("result","wrong");
-			}else if(state == 1){
+			int state = loginUserService.login(email,password);		
+			System.out.println(state);
+			if(state == 2){
 				map.put("result","admin");
-			}else{
+			}else if(state == 1){
+				map.put("result","wrong");
+			}else if(state == 0){
 				map.put("result","true");
 			}
 		}		

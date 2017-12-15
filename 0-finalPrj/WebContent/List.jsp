@@ -86,20 +86,7 @@
     <h1 class="dn sm-db tac phone_title_h1 text_m c9 pt10 pb10 mb30">全部</h1>
     <div class="pro_tab li22 tac mb40 sm-dn">
         <div class="text tac dn sm-db pt20 pb20 pro_tab_div clearfix">请选择分类<a href="###" class="db fr apro_close"><img src="nav_ico_close.png" tppabs="http://www.tjfozoon.com/Web/style/images/nav_ico_close.png" class="img100"></a></div>
-        <div class="mauto ptype">
-            <a href="List.html" tppabs="http://www.tjfozoon.com/Product/10181/List.html" class="dib fs14 c9 text act">全部</a>
-            
-                    <a href="List-4.html" tppabs="http://www.tjfozoon.com/Product/10181/10186/List.html" class="dib fs14 c9 text ">经典蛋糕</a>
-                
-                    <a href="List-5.html" tppabs="http://www.tjfozoon.com/Product/10181/10187/List.html" class="dib fs14 c9 text ">儿童蛋糕</a>
-                
-                    <a href="List-6.html" tppabs="http://www.tjfozoon.com/Product/10181/10188/List.html" class="dib fs14 c9 text ">慕斯蛋糕</a>
-                
-                    <a href="List-7.html" tppabs="http://www.tjfozoon.com/Product/10181/10240/List.html" class="dib fs14 c9 text ">祝寿蛋糕</a>
-                
-                    <a href="List-8.html" tppabs="http://www.tjfozoon.com/Product/10181/10243/List.html" class="dib fs14 c9 text ">婚宴蛋糕</a>
-                
-        </div>
+
     </div>
     
     <div class="pro_select mb40">

@@ -24,4 +24,10 @@ public class AddressListDaoImpl {
 		List<Address>list = query.list();
 		return list;
 	}
+	
+	public Address getAddress(int id){
+		Session session = sessionfactory.getCurrentSession();
+		Address address = session.get(Address.class,id);
+		return address;
+	}
 }
